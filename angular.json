@@ -21,7 +21,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/assets-medilab"
+              "src/assets-medilab",
+              "src/assets-reveal"
             ],
             "styles": [
               "src/styles.css"
