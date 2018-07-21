@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PaginaValidacaoWeb, PaginaValidacaoWebApi } from '../shared/sdk';
 
 @Component({
   selector: 'app-principal-lojamoda',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalLojamodaComponent implements OnInit {
 
-  constructor() { }
+  pagina : PaginaValidacaoWeb;
+
+  constructor(private paginaSrv: PaginaValidacaoWebApi) { }
 
   ngOnInit() {
   }

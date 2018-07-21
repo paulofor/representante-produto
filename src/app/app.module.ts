@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { VantagemProdutoEsquerdaComponent } from './vantagem-produto-esquerda/vantagem-produto-esquerda.component';
 import { VantagemProdutoDireitaComponent } from './vantagem-produto-direita/vantagem-produto-direita.component';
-import { AboutItemComponent } from './about-item/about-item.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: PrincipalLojamodaComponent }
@@ -20,14 +20,13 @@ const appRoutes: Routes = [
     AppComponent,
     PrincipalLojamodaComponent,
     VantagemProdutoEsquerdaComponent,
-    VantagemProdutoDireitaComponent,
-    AboutItemComponent
+    VantagemProdutoDireitaComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      appRoutes
+      //{ enableTracing: true } // <-- debugging purposes only
     )
   ],
   providers: [],
