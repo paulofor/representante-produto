@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { VantagemProdutoEsquerdaComponent } from './vantagem-produto-esquerda/vantagem-produto-esquerda.component';
 import { VantagemProdutoDireitaComponent } from './vantagem-produto-direita/vantagem-produto-direita.component';
+import { PaginaValidacaoWebApi } from './shared/sdk';
 
 
 const appRoutes: Routes = [
@@ -29,7 +30,9 @@ const appRoutes: Routes = [
       //{ enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [
+    PaginaValidacaoWebApi
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
