@@ -8,7 +8,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { VantagemProdutoEsquerdaComponent } from './vantagem-produto-esquerda/vantagem-produto-esquerda.component';
 import { VantagemProdutoDireitaComponent } from './vantagem-produto-direita/vantagem-produto-direita.component';
-import { PaginaValidacaoWebApi } from './shared/sdk';
+import { PaginaValidacaoWebApi, SDKModels, LoopBackAuth } from './shared/sdk/services/';
+import { HttpClientModule } from '@angular/common/http';
+import { SDKBrowserModule } from './shared/sdk';
+import { SocketDriver } from './shared/sdk/sockets/socket.driver';
 
 
 const appRoutes: Routes = [
@@ -25,13 +28,14 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoutes
-      //{ enableTracing: true } // <-- debugging purposes only
-    )
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    SDKBrowserModule.forRoot(),
   ],
   providers: [
-    PaginaValidacaoWebApi
+    PaginaValidacaoWebApi,
+    SocketDriver
+   
   ],
   bootstrap: [AppComponent]
 })
