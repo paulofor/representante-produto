@@ -1,6 +1,6 @@
 <!-- inicio app-root -->
 <!--banner-->
-<section id="banner" class="banner" style="background-image: url('{{pagina.imagemFundo}}');  background-repeat: no-repeat; position: fixed;" >
+<section id="banner" class="banner" style="background-image: url('{{pagina.imagemFundo}}');  background-repeat: no-repeat; position: fixed;">
   <div class="bg-color">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -60,8 +60,15 @@
 </section>
 <!--/ banner-->
 
-<app-vantagem-produto-esquerda></app-vantagem-produto-esquerda>
-<app-vantagem-produto-direita></app-vantagem-produto-direita>
+<div *ngFor="let item of pagina.itemValidacaoPaginas">
+
+    <app-vantagem-produto-esquerda [itemPagina]="item"></app-vantagem-produto-esquerda>
+
+
+    <app-vantagem-produto-direita [itemPagina]="item"></app-vantagem-produto-direita>
+
+</div>
+
 
 
 <!--footer-->

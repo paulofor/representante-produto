@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ItemValidacaoPagina } from '../shared/sdk';
 
 @Component({
   selector: 'app-vantagem-produto-direita',
@@ -15,6 +16,8 @@ export class VantagemProdutoDireitaComponent implements OnInit {
   subtitulo: string;
   idItem : string;
   imagem : string;
+
+  @Input() itemPagina: ItemValidacaoPagina; 
 
   constructor() { }
 
