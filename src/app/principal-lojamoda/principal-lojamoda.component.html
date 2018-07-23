@@ -1,6 +1,6 @@
 <!-- inicio app-root -->
 <!--banner-->
-<section id="banner" class="banner">
+<section id="banner" class="banner" style="background-image: url('{{pagina.imagemFundo}}')" >
   <div class="bg-color">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -44,10 +44,9 @@
             <img src="assets-medilab/img/logo.png" class="img-responsive">
           </div>
           <div class="banner-text text-center">
-            <h1 class="white">Healthcare at your desk!!</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              <br>tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#contact" class="btn btn-appoint">Make an Appointment.</a>
+            <h1 class="white">{{ pagina.mensagemPrincipal }}</h1>
+            <p>{{ pagina.mensagemSecundaria }}</p>
+            <a href="#contact" class="btn btn-appoint">{{ pagina.botaoAcao }}</a>
           </div>
           <div class="overlay-detail text-center">
             <a href="#service">

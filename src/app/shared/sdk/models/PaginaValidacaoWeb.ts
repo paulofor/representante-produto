@@ -7,14 +7,24 @@ import {
 declare var Object: any;
 export interface PaginaValidacaoWebInterface {
   "id"?: number;
-  "nome"?: string;
+  "mensagemPrincipal"?: string;
+  "mensagemSecundaria"?: string;
+  "botaoAcao"?: string;
+  "imagemFundo"?: string;
+  "corBase"?: string;
+  "marcaLogo"?: string;
   itemValidacaoPaginas?: ItemValidacaoPagina[];
   registroInteresses?: RegistroInteresse[];
 }
 
 export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
   "id": number;
-  "nome": string;
+  "mensagemPrincipal": string;
+  "mensagemSecundaria": string;
+  "botaoAcao": string;
+  "imagemFundo": string;
+  "corBase": string;
+  "marcaLogo": string;
   itemValidacaoPaginas: ItemValidacaoPagina[];
   registroInteresses: RegistroInteresse[];
   constructor(data?: PaginaValidacaoWebInterface) {
@@ -54,8 +64,28 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
           name: 'id',
           type: 'number'
         },
-        "nome": {
-          name: 'nome',
+        "mensagemPrincipal": {
+          name: 'mensagemPrincipal',
+          type: 'string'
+        },
+        "mensagemSecundaria": {
+          name: 'mensagemSecundaria',
+          type: 'string'
+        },
+        "botaoAcao": {
+          name: 'botaoAcao',
+          type: 'string'
+        },
+        "imagemFundo": {
+          name: 'imagemFundo',
+          type: 'string'
+        },
+        "corBase": {
+          name: 'corBase',
+          type: 'string'
+        },
+        "marcaLogo": {
+          name: 'marcaLogo',
           type: 'string'
         },
       },
