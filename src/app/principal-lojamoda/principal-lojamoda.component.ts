@@ -24,7 +24,7 @@ export class PrincipalLojamodaComponent implements OnInit {
   }
 
   carregaPagina() {
-    this.srv.findById(1,{ "include" : "itemValidacaoPaginas" , "order" : "bullet2"})
+    this.srv.findById(1,{ "include" : "itemValidacaoPaginas" , "order" : "ordenacao"})
       .subscribe((valor: PaginaValidacaoWeb) => {
         console.log('Pagina: ' + JSON.stringify(valor));
         this.pagina = valor;
