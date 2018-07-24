@@ -1,25 +1,25 @@
 <!--==========================
     Imagem na Direita
 ============================-->
-<section id="{{idItem}}"  class="wow fadeInUp aboutid">
+<section id="item{{itemPagina.id}}"  class="wow fadeInUp aboutid">
   <div class="container">
     <div class="row">
 
       <div class="col-lg-6 content">
-        <h2>{{titulo}}</h2>
-        <h3>{{subtitulo}}</h3>
+        <h2>{{itemPagina.titulo}}</h2>
+        <h3>{{itemPagina.descricaoSimples}}</h3>
         <ul>
           <li>
-            <i class="ion-android-checkmark-circle"></i> {{bullet1}} </li>
+            <i class="ion-android-checkmark-circle"></i> {{itemPagina.bullet1}} </li>
           <li>
-            <i class="ion-android-checkmark-circle"></i> {{bullet2}} </li>
+            <i class="ion-android-checkmark-circle"></i> {{itemPagina.bullet2}} </li>
           <li>
-            <i class="ion-android-checkmark-circle"></i> {{bullet3}} </li>
+            <i class="ion-android-checkmark-circle"></i> {{itemPagina.bullet3}} </li>
         </ul>
       </div>
 
       <div class="col-lg-6 about-img">
-        <img src="{{imagem}}" alt="" >
+        <img src="{{itemPagina.imagem}}" alt="" >
       </div>
 
     </div>

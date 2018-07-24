@@ -25,7 +25,7 @@ export class VantagemProdutoDireitaComponent implements OnInit {
     this.criaItemFake();
   }
 
-
+  
 
   criaItemFake() {
     //this.itemPagina = new ItemValidacaoPagina();

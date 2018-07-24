@@ -16,6 +16,7 @@ export class PrincipalLojamodaComponent implements OnInit {
 
   pagina : PaginaValidacaoWeb;
 
+
   constructor(private srv :PaginaValidacaoWebApi) { }
 
   ngOnInit() {
@@ -23,7 +24,7 @@ export class PrincipalLojamodaComponent implements OnInit {
   }
 
   carregaPagina() {
-    this.srv.findById(1,{ "include" : "itemValidacaoPaginas" })
+    this.srv.findById(1,{ "include" : "itemValidacaoPaginas" , "order" : "bullet2"})
       .subscribe((valor: PaginaValidacaoWeb) => {
         console.log('Pagina: ' + JSON.stringify(valor));
         this.pagina = valor;
