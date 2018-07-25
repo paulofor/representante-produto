@@ -12,6 +12,7 @@ import { PaginaValidacaoWebApi, SDKModels, LoopBackAuth } from './shared/sdk/ser
 import { HttpClientModule } from '@angular/common/http';
 import { SDKBrowserModule } from './shared/sdk';
 import { SocketDriver } from './shared/sdk/sockets/socket.driver';
+import { ItemDummyComponent } from './item-dummy/item-dummy.component';
 
 
 const appRoutes: Routes = [
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     AppComponent,
     PrincipalLojamodaComponent,
     VantagemProdutoEsquerdaComponent,
-    VantagemProdutoDireitaComponent
+    VantagemProdutoDireitaComponent,
+    ItemDummyComponent
   ],
   imports: [
     BrowserModule,
