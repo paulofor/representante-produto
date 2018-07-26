@@ -19,6 +19,18 @@
     $(".navbar-collapse.collapse").removeClass('in');
   });
 
+  $(function () {
+    alert('passou aqui');
+    $("#myNavbar a").click(function () {
+      alert('vai viajar');
+      var href = $(this).attr("href");
+      $('html, body').animate({
+        scrollTop: $(href).offset().top
+      }, 500);
+      return false;
+    });
+  });
+
   //jQuery to collapse the navbar on scroll
   $(window).scroll(function() {
     if ($(".navbar-default").offset().top > 50) {
