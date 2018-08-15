@@ -37,4 +37,12 @@ export class VantagemProdutoEsquerdaComponent implements OnInit {
     this.imagem = "assets/img/tela01.jpg";
   }
 
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit - wrapper', this.itemPagina);
+  }
+
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit - wrapper', this.itemPagina);
+  }
+
 }

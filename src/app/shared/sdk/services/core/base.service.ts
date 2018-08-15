@@ -7,9 +7,7 @@ import { LoopBackAuth } from './auth.service';
 import { LoopBackConfig } from '../../lb.config';
 import { LoopBackFilter, AccessToken } from '../../models/BaseModels';
 import { SDKModels } from '../custom/SDKModels';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { Observable, Subject } from 'rxjs';
 import { catchError, map, filter } from 'rxjs/operators';
 import { SocketConnection } from '../../sockets/socket.connections';
 // Making Sure EventSource Type is available to avoid compilation issues.
@@ -157,7 +155,7 @@ TODO Fix Merge Conflict */
         paramValue = typeof paramValue === 'object' ? JSON.stringify(paramValue) : paramValue;
         httpParams = httpParams.append(paramKey, paramValue);
       });
-      let request = new HttpRequest(method, url, body, {
+      let request = new HttpRequest(method, `${url}${queryString}`, body, {
         headers        : headers,
         params         : httpParams,
         withCredentials: LoopBackConfig.getRequestOptionsCredentials()

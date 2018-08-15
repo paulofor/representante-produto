@@ -7,6 +7,7 @@ declare var Object: any;
 export interface ItemValidacaoPaginaInterface {
   "id"?: number;
   "urlImagem"?: string;
+  "ordenacao"?: number;
   "titulo"?: string;
   "descricaoSimples"?: string;
   "bullet1"?: string;
@@ -20,6 +21,7 @@ export interface ItemValidacaoPaginaInterface {
 export class ItemValidacaoPagina implements ItemValidacaoPaginaInterface {
   "id": number;
   "urlImagem": string;
+  "ordenacao": number;
   "titulo": string;
   "descricaoSimples": string;
   "bullet1": string;
@@ -68,6 +70,10 @@ export class ItemValidacaoPagina implements ItemValidacaoPaginaInterface {
         "urlImagem": {
           name: 'urlImagem',
           type: 'string'
+        },
+        "ordenacao": {
+          name: 'ordenacao',
+          type: 'number'
         },
         "titulo": {
           name: 'titulo',

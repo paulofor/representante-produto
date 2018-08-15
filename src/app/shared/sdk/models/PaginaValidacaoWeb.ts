@@ -1,5 +1,6 @@
 /* tslint:disable */
 import {
+  ProjetoMySql,
   ItemValidacaoPagina,
   RegistroInteresse
 } from '../index';
@@ -13,6 +14,8 @@ export interface PaginaValidacaoWebInterface {
   "imagemFundo"?: string;
   "corBase"?: string;
   "marcaLogo"?: string;
+  "projetoMySqlId"?: number;
+  projeto?: ProjetoMySql;
   itemValidacaoPaginas?: ItemValidacaoPagina[];
   registroInteresses?: RegistroInteresse[];
 }
@@ -25,6 +28,8 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
   "imagemFundo": string;
   "corBase": string;
   "marcaLogo": string;
+  "projetoMySqlId": number;
+  projeto: ProjetoMySql;
   itemValidacaoPaginas: ItemValidacaoPagina[];
   registroInteresses: RegistroInteresse[];
   constructor(data?: PaginaValidacaoWebInterface) {
@@ -88,8 +93,20 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
           name: 'marcaLogo',
           type: 'string'
         },
+        "projetoMySqlId": {
+          name: 'projetoMySqlId',
+          type: 'number'
+        },
       },
       relations: {
+        projeto: {
+          name: 'projeto',
+          type: 'ProjetoMySql',
+          model: 'ProjetoMySql',
+          relationType: 'belongsTo',
+                  keyFrom: 'projetoMySqlId',
+          keyTo: 'id'
+        },
         itemValidacaoPaginas: {
           name: 'itemValidacaoPaginas',
           type: 'ItemValidacaoPagina[]',

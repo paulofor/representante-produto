@@ -12,6 +12,7 @@ import { ItemValidacaoPagina } from '../../models/ItemValidacaoPagina';
 import { RegistroInteresse } from '../../models/RegistroInteresse';
 import { ProjetoExemplo } from '../../models/ProjetoExemplo';
 import { Receita } from '../../models/Receita';
+import { Container } from '../../models/Container';
 
 export interface Models { [name: string]: any }
 
@@ -31,6 +32,7 @@ export class SDKModels {
     RegistroInteresse: RegistroInteresse,
     ProjetoExemplo: ProjetoExemplo,
     Receita: Receita,
+    Container: Container,
     
   };
 

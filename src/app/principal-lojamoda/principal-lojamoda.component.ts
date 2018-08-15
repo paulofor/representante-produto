@@ -13,9 +13,9 @@ import { PaginaValidacaoWeb } from 'src/app/shared/sdk/models';
 
 export class PrincipalLojamodaComponent implements OnInit {
 
+  consulta = { "include" : { "relation" : "itemValidacaoPaginas" , "scope" : {"order" : "ordenacao"} } };
 
   pagina : PaginaValidacaoWeb;
-
 
   constructor(private srv :PaginaValidacaoWebApi) { }
 
@@ -24,7 +24,7 @@ export class PrincipalLojamodaComponent implements OnInit {
   }
 
   carregaPagina() {
-    this.srv.findById(1,{ "include" : { "relation" : "itemValidacaoPaginas" , "scope" : {"order" : "ordenacao"} } })
+    this.srv.findById(6,this.consulta)
       .subscribe((valor: PaginaValidacaoWeb) => {
         console.log('Pagina: ' + JSON.stringify(valor));
         this.pagina = valor;

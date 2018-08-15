@@ -11,5 +11,6 @@ export * from './ItemValidacaoPagina';
 export * from './RegistroInteresse';
 export * from './ProjetoExemplo';
 export * from './Receita';
+export * from './Container';
 export * from './BaseModels';
 export * from './FireLoopRef';
