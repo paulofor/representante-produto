@@ -17,6 +17,9 @@ export class PrincipalLojamodaComponent implements OnInit {
 
   pagina : PaginaValidacaoWeb;
 
+  //cor = '13, 70, 83';
+  cor = '0,122,204';
+
   constructor(private srv :PaginaValidacaoWebApi) { }
 
   ngOnInit() {

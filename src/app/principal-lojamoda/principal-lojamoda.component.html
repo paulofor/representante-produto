@@ -1,7 +1,7 @@
 <!-- inicio app-root -->
 <!--banner-->
 <div *ngIf="pagina">
-  <section id="banner" class="banner"  [ngStyle]="{'background-image': 'url(' + pagina.imagemFundo + ')'}" >
+  <section id="banner" class="banner" [ngStyle]="{'background-image': 'url(' + pagina.imagemFundo + ')'}">
     <div class="bg-color">
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -13,7 +13,7 @@
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="#">
-                <div class="img-responsive" style="width: 140px; margin-top: -10px;">{{ pagina.marcaLogo }}</div>
+                <img src="assets/img/logo1.gif" class="img-responsive" style="width: 140px; margin-top: -6px;">
               </a>
             </div>
             <div class="collapse navbar-collapse navbar-right" id="myNavbar">
@@ -23,7 +23,7 @@
                 </li>
                 <!--  Menu  -->
                 <li *ngFor="let item of pagina.itemValidacaoPaginas" class="">
-                  <a  href="#item{{item.id}}">{{ item.titulo }}</a>
+                  <a href="#item{{item.id}}">{{ item.titulo }}</a>
                 </li>
                 <!--       -->
               </ul>
@@ -34,9 +34,7 @@
       <div class="container">
         <div class="row">
           <div class="banner-info">
-            <div class="banner-logo text-center">
-                <div class="img-responsive">{{ pagina.marcaLogo }}</div>
-            </div>
+            
             <div class="banner-text text-center">
               <h1 class="white">{{ pagina.mensagemPrincipal }}</h1>
               <p>{{ pagina.mensagemSecundaria }}</p>
