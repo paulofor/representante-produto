@@ -20,7 +20,6 @@
   });
 
   $(function () {
-    alert('passou aqui');
     $("#myNavbar a").click(function () {
       alert('vai viajar');
       var href = $(this).attr("href");
