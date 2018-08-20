@@ -1,20 +1,29 @@
 /* tslint:disable */
+import {
+  Visitante
+} from '../index';
 
 declare var Object: any;
 export interface RegistroInteresseInterface {
   "id"?: number;
   "nome"?: string;
-  "data"?: Date;
+  "dataHora"?: Date;
   "email"?: string;
+  "mensagem"?: string;
   "paginaValidacaoWebId"?: number;
+  "visitanteId"?: number;
+  visitante?: Visitante;
 }
 
 export class RegistroInteresse implements RegistroInteresseInterface {
   "id": number;
   "nome": string;
-  "data": Date;
+  "dataHora": Date;
   "email": string;
+  "mensagem": string;
   "paginaValidacaoWebId": number;
+  "visitanteId": number;
+  visitante: Visitante;
   constructor(data?: RegistroInteresseInterface) {
     Object.assign(this, data);
   }
@@ -56,20 +65,36 @@ export class RegistroInteresse implements RegistroInteresseInterface {
           name: 'nome',
           type: 'string'
         },
-        "data": {
-          name: 'data',
+        "dataHora": {
+          name: 'dataHora',
           type: 'Date'
         },
         "email": {
           name: 'email',
           type: 'string'
         },
+        "mensagem": {
+          name: 'mensagem',
+          type: 'string'
+        },
         "paginaValidacaoWebId": {
           name: 'paginaValidacaoWebId',
           type: 'number'
         },
+        "visitanteId": {
+          name: 'visitanteId',
+          type: 'number'
+        },
       },
       relations: {
+        visitante: {
+          name: 'visitante',
+          type: 'Visitante',
+          model: 'Visitante',
+          relationType: 'belongsTo',
+                  keyFrom: 'visitanteId',
+          keyTo: 'id'
+        },
       }
     }
   }

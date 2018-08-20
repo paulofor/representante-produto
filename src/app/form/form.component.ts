@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistroInteresse, RegistroInteresseApi } from '../shared/sdk';
 
 @Component({
   selector: 'app-form',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  registro: RegistroInteresse;
+
+  constructor(private srv:RegistroInteresseApi) { }
 
   ngOnInit() {
+    this.registro = new RegistroInteresse();
+  }
+
+  onSubmit() {
+    console.log('Registro' , this.registro);
   }
 
 }

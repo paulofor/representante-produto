@@ -14,6 +14,7 @@ import { SDKBrowserModule } from './shared/sdk';
 import { SocketDriver } from './shared/sdk/sockets/socket.driver';
 import { ItemDummyComponent } from './item-dummy/item-dummy.component';
 import { FormComponent } from './form/form.component';
+import { FormsModule } from '@angular/forms';
 
 
 const appRoutes: Routes = [
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     SDKBrowserModule.forRoot(),
+    FormsModule
   ],
   providers: [
     PaginaValidacaoWebApi,

@@ -13,6 +13,7 @@ import { RegistroInteresse } from '../../models/RegistroInteresse';
 import { ProjetoExemplo } from '../../models/ProjetoExemplo';
 import { Receita } from '../../models/Receita';
 import { Container } from '../../models/Container';
+import { Visitante } from '../../models/Visitante';
 
 export interface Models { [name: string]: any }
 
@@ -33,6 +34,7 @@ export class SDKModels {
     ProjetoExemplo: ProjetoExemplo,
     Receita: Receita,
     Container: Container,
+    Visitante: Visitante,
     
   };
 

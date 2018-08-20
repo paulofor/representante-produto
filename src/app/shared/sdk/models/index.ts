@@ -12,5 +12,6 @@ export * from './RegistroInteresse';
 export * from './ProjetoExemplo';
 export * from './Receita';
 export * from './Container';
+export * from './Visitante';
 export * from './BaseModels';
 export * from './FireLoopRef';
