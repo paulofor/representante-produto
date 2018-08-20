@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SDKBrowserModule } from './shared/sdk';
 import { SocketDriver } from './shared/sdk/sockets/socket.driver';
 import { ItemDummyComponent } from './item-dummy/item-dummy.component';
+import { FormComponent } from './form/form.component';
 
 
 const appRoutes: Routes = [
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     PrincipalLojamodaComponent,
     VantagemProdutoEsquerdaComponent,
     VantagemProdutoDireitaComponent,
-    ItemDummyComponent
+    ItemDummyComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
