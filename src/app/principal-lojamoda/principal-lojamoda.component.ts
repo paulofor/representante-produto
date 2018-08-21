@@ -18,6 +18,9 @@ export class PrincipalLojamodaComponent implements OnInit {
 
   pagina : PaginaValidacaoWeb;
   cookieValue = 'UNKNOWN';
+  visitanteCorrente = null;
+
+  codigoPagina = 6;
 
   //cor = '13, 70, 83';
   //cor = '0,122,204';
@@ -36,6 +39,7 @@ export class PrincipalLojamodaComponent implements OnInit {
         .subscribe((result:any) => {
         console.log('Result Cookie: ', result);
         this.cookieService.set('idDigicom',result.codigoCookie);
+        this.cookieValue = result.codigoCookie;
         this.registraVisita();
       })
     } else {
@@ -48,11 +52,17 @@ export class PrincipalLojamodaComponent implements OnInit {
     let visita = new Visitante();
     visita.codigoCookie = this.cookieValue;
     visita.dataHora = new Date();
+    visita.paginaValidacaoWebId = this.codigoPagina;
     console.log('Visita: ' , visita);
+    this.visitanteSrv.create(visita)
+      .subscribe((resultado:any) => {
+        console.log('Resultado visitante: ' , resultado);  
+        this.visitanteCorrente = resultado;     
+      })
   }
 
   carregaPagina() {
-    this.srv.findById(6,this.consulta)
+    this.srv.findById(this.codigoPagina,this.consulta)
       .subscribe((valor: PaginaValidacaoWeb) => {
         console.log('Pagina: ' + JSON.stringify(valor));
         this.pagina = valor;
