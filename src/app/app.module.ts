@@ -19,7 +19,8 @@ import { CookieService } from 'ngx-cookie-service';
 
 
 const appRoutes: Routes = [
-  { path: '', component: PrincipalLojamodaComponent }
+  { path: '', component: PrincipalLojamodaComponent } ,
+  { path: 'dummy', component: ItemDummyComponent }
 ];
 
 
