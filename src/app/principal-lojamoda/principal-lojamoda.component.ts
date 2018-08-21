@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PaginaValidacaoWebApi } from '../shared/sdk';
+import { PaginaValidacaoWebApi, VisitanteApi, Visitante } from '../shared/sdk';
 import { PaginaValidacaoWeb } from 'src/app/shared/sdk/models';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -16,14 +17,38 @@ export class PrincipalLojamodaComponent implements OnInit {
   consulta = { "include" : { "relation" : "itemValidacaoPaginas" , "scope" : {"order" : "ordenacao"} } };
 
   pagina : PaginaValidacaoWeb;
+  cookieValue = 'UNKNOWN';
 
   //cor = '13, 70, 83';
   //cor = '0,122,204';
 
-  constructor(private srv :PaginaValidacaoWebApi) { }
+  constructor(private srv :PaginaValidacaoWebApi,  
+                private cookieService: CookieService, 
+                private visitanteSrv: VisitanteApi) { }
 
   ngOnInit() {
     this.carregaPagina();
+    this.cookieValue = this.cookieService.get('idDigicom');
+    console.log('Cookie: ' , this.cookieValue);
+    if (!this.cookieValue) {
+      console.log('Cookie vazio');
+      this.visitanteSrv.proximoCookie()
+        .subscribe((result:any) => {
+        console.log('Result Cookie: ', result);
+        this.cookieService.set('idDigicom',result.codigoCookie);
+        this.registraVisita();
+      })
+    } else {
+      console.log('Meu Cookie:' , this.cookieValue);
+      this.registraVisita();
+    }
+  }
+
+  registraVisita() {
+    let visita = new Visitante();
+    visita.codigoCookie = this.cookieValue;
+    visita.dataHora = new Date();
+    console.log('Visita: ' , visita);
   }
 
   carregaPagina() {

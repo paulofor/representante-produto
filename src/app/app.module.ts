@@ -15,6 +15,7 @@ import { SocketDriver } from './shared/sdk/sockets/socket.driver';
 import { ItemDummyComponent } from './item-dummy/item-dummy.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 
 const appRoutes: Routes = [
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     PaginaValidacaoWebApi,
-    SocketDriver
+    SocketDriver,
+    CookieService 
    
   ],
   bootstrap: [AppComponent]

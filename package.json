@@ -23,6 +23,7 @@
     "@types/socket.io-parser": "^2.2.0",
     "core-js": "^2.5.4",
     "g": "^2.0.1",
+    "ngx-cookie-service": "^1.0.10",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
     "socket.io": "^2.1.1",
