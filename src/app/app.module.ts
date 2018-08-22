@@ -16,11 +16,16 @@ import { ItemDummyComponent } from './item-dummy/item-dummy.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { DummyWorkComponent } from './dummy-work/dummy-work.component';
 
+
+// dummy funciona perfeitamente bem.
+// work vou tentando para identificar os problemas
 
 const appRoutes: Routes = [
   { path: '', component: PrincipalLojamodaComponent } ,
-  { path: 'dummy', component: ItemDummyComponent }
+  { path: 'dummy', component: ItemDummyComponent }, 
+  { path: 'work', component: DummyWorkComponent }
 ];
 
 
@@ -31,7 +36,8 @@ const appRoutes: Routes = [
     VantagemProdutoEsquerdaComponent,
     VantagemProdutoDireitaComponent,
     ItemDummyComponent,
-    FormComponent
+    FormComponent,
+    DummyWorkComponent
   ],
   imports: [
     BrowserModule,
