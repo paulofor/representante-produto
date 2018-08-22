@@ -1,7 +1,7 @@
 <section id="contact" class="section-padding">
 
   <!-- Formulario -->
-  <div class="container" [hidden]="submitted">
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <h2 class="ser-title">Solicitar Acesso</h2>
@@ -9,20 +9,20 @@
       </div>
       <div class="col-md-12 col-sm-12 marb20">
         <div class="contact-info">
-          <h3 class="cnt-ttl">Having Any Query! Or Book an appointment</h3>
+          <h3 class="cnt-ttl">Registre aqui para receber mais informações</h3>
           <div class="space"></div>
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="sendmessage"  [hidden]="!submitted">Sua solicitação foi enviada. Obrigado!</div>
           <div id="errormessage"></div>
           <form (ngSubmit)="onSubmit()" class="contactForm" #contatoForm="ngForm">
             <div class="form-group">
               <input type="text"  [(ngModel)]="registro.nome" name="nome" class="form-control br-radius-zero" placeholder="Seu nome" #nome="ngModel"/>
-              <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger">
+              <div [hidden]="nome.valid || nome.pristine || submitted" class="alert alert-danger">
               Digite seu nome
               </div>
             </div>
             <div class="form-group">
               <input type="email" [(ngModel)]="registro.email" class="form-control br-radius-zero" name="email" placeholder="Seu Email" #email="ngModel" email="true" required/>
-              <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+              <div [hidden]="email.valid || email.pristine || submitted" class="alert alert-danger">
               Digite seu email
               </div>
             </div>
@@ -36,16 +36,6 @@
   </div>
   <!-- Final Formulário -->
 
-   <!-- Mensagem Enviada -->
-   <div class="container" [hidden]="!submitted">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="ser-title">Solicitar Acesso</h2>
-          <hr class="botm-line">
-        </div>
 
-      </div>
-    </div>
-    <!-- Final Formulário -->
 
 </section>

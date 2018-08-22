@@ -51,7 +51,6 @@ export class PrincipalLojamodaComponent implements OnInit {
   registraVisita() {
     let visita = new Visitante();
     visita.codigoCookie = this.cookieValue;
-    visita.dataHora = new Date();
     visita.paginaValidacaoWebId = this.codigoPagina;
     console.log('Visita: ' , visita);
     this.visitanteSrv.create(visita)

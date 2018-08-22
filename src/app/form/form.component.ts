@@ -25,11 +25,11 @@ export class FormComponent implements OnInit {
     console.log('Registro', this.registro);
     this.registro.visitanteId = this.visitante.id;
     this.registro.paginaValidacaoWebId = this.visitante.paginaValidacaoWebId;
-    this.registro.dataHora = new Date();
     this.srv.create(this.registro)
       .subscribe((result: any) => {
         console.log('Resultado:', result);
         this.submitted = true;
+        this.registro = new RegistroInteresse();
       })
   }
 

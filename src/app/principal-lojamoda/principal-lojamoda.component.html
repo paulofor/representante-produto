@@ -19,13 +19,16 @@
             <div class="collapse navbar-collapse navbar-right" id="myNavbar">
               <ul class="nav navbar-nav">
                 <li class="active">
-                  <a href="#banner">Home</a>
+                  <a href="#banner">Início</a>
                 </li>
                 <!--  Menu  -->
                 <li *ngFor="let item of pagina.itemValidacaoPaginas" class="">
                   <a href="#item{{item.id}}">{{ item.titulo }}</a>
                 </li>
                 <!--       -->
+                <li class="">
+                  <a href="#contact">Solicitar Acesso</a>
+                </li>
               </ul>
             </div>
           </div>
