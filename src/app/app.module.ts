@@ -25,7 +25,8 @@ import { DummyWorkComponent } from './dummy-work/dummy-work.component';
 const appRoutes: Routes = [
   { path: '', component: PrincipalLojamodaComponent } ,
   { path: 'dummy', component: ItemDummyComponent }, 
-  { path: 'work', component: DummyWorkComponent }
+  { path: 'work', component: DummyWorkComponent },
+  { path: 'display/:id' , component: PrincipalLojamodaComponent }
 ];
 
 

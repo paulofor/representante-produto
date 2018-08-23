@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { PaginaValidacaoWebApi, VisitanteApi, Visitante } from '../shared/sdk';
 import { PaginaValidacaoWeb } from 'src/app/shared/sdk/models';
 import { CookieService } from 'ngx-cookie-service';
-
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { ParamMap } from '@angular/router';
+import { Params } from '@angular/router';
 
 @Component({
   selector: 'app-principal-lojamoda',
@@ -14,36 +18,38 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class PrincipalLojamodaComponent implements OnInit {
 
-  consulta = { "include" : { "relation" : "itemValidacaoPaginas" , "scope" : {"order" : "ordenacao"} } };
+  consulta = { "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
 
-  pagina : PaginaValidacaoWeb;
+  pagina: PaginaValidacaoWeb;
   cookieValue = 'UNKNOWN';
   visitanteCorrente = null;
 
-  codigoPagina = 6;
 
   //cor = '13, 70, 83';
   //cor = '0,122,204';
 
-  constructor(private srv :PaginaValidacaoWebApi,  
-                private cookieService: CookieService, 
-                private visitanteSrv: VisitanteApi) { }
+  constructor(private route: ActivatedRoute, private srv: PaginaValidacaoWebApi,
+    private cookieService: CookieService,
+    private visitanteSrv: VisitanteApi, private router: Router) { }
 
   ngOnInit() {
     this.carregaPagina();
+  }
+
+  trataCookie() {
     this.cookieValue = this.cookieService.get('idDigicom');
-    console.log('Cookie: ' , this.cookieValue);
+    console.log('Cookie: ', this.cookieValue);
     if (!this.cookieValue) {
       console.log('Cookie vazio');
       this.visitanteSrv.proximoCookie()
-        .subscribe((result:any) => {
-        console.log('Result Cookie: ', result);
-        this.cookieService.set('idDigicom',result.codigoCookie);
-        this.cookieValue = result.codigoCookie;
-        this.registraVisita();
-      })
+        .subscribe((result: any) => {
+          console.log('Result Cookie: ', result);
+          this.cookieService.set('idDigicom', result.codigoCookie);
+          this.cookieValue = result.codigoCookie;
+          this.registraVisita();
+        })
     } else {
-      console.log('Meu Cookie:' , this.cookieValue);
+      console.log('Meu Cookie:', this.cookieValue);
       this.registraVisita();
     }
   }
@@ -51,22 +57,26 @@ export class PrincipalLojamodaComponent implements OnInit {
   registraVisita() {
     let visita = new Visitante();
     visita.codigoCookie = this.cookieValue;
-    visita.paginaValidacaoWebId = this.codigoPagina;
-    console.log('Visita: ' , visita);
+    visita.paginaValidacaoWebId = this.pagina.id;
+    console.log('Visita: ', visita);
     this.visitanteSrv.create(visita)
-      .subscribe((resultado:any) => {
-        console.log('Resultado visitante: ' , resultado);  
-        this.visitanteCorrente = resultado;     
+      .subscribe((resultado: any) => {
+        console.log('Resultado visitante: ', resultado);
+        this.visitanteCorrente = resultado;
       })
   }
 
   carregaPagina() {
-    this.srv.findById(this.codigoPagina,this.consulta)
-      .subscribe((valor: PaginaValidacaoWeb) => {
-        console.log('Pagina: ' + JSON.stringify(valor));
-        this.pagina = valor;
-      })
+    this.route.params.subscribe((params: Params) => {
+      let id = params['id'];
+      console.log('Id: ', id);
+      this.srv.findById(id, this.consulta)
+        .subscribe((paginaResult: PaginaValidacaoWeb) => {
+          this.pagina = paginaResult;
+          this.trataCookie();
+        })
+    });
   }
 
-  
+
 }
