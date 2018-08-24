@@ -23,7 +23,7 @@ import { DummyWorkComponent } from './dummy-work/dummy-work.component';
 // work vou tentando para identificar os problemas
 
 const appRoutes: Routes = [
-  { path: '', component: PrincipalLojamodaComponent } ,
+  { path: '', component: ItemDummyComponent } ,
   { path: 'dummy', component: ItemDummyComponent }, 
   { path: 'work', component: DummyWorkComponent },
   { path: 'display/:id' , component: PrincipalLojamodaComponent }
