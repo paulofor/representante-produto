@@ -68,7 +68,7 @@ export class PrincipalLojamodaComponent implements OnInit {
 
   carregaPagina() {
     this.route.params.subscribe((params: Params) => {
-      let id = params['id'];
+      let id = this.route.snapshot.queryParams['id'];
       console.log('Id: ', id);
       this.srv.findById(id, this.consulta)
         .subscribe((paginaResult: PaginaValidacaoWeb) => {
