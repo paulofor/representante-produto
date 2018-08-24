@@ -14,6 +14,7 @@ export interface PaginaValidacaoWebInterface {
   "imagemFundo"?: string;
   "corBase"?: string;
   "marcaLogo"?: string;
+  "codigoHash"?: string;
   "projetoMySqlId"?: number;
   projeto?: ProjetoMySql;
   itemValidacaoPaginas?: ItemValidacaoPagina[];
@@ -28,6 +29,7 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
   "imagemFundo": string;
   "corBase": string;
   "marcaLogo": string;
+  "codigoHash": string;
   "projetoMySqlId": number;
   projeto: ProjetoMySql;
   itemValidacaoPaginas: ItemValidacaoPagina[];
@@ -91,6 +93,10 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
         },
         "marcaLogo": {
           name: 'marcaLogo',
+          type: 'string'
+        },
+        "codigoHash": {
+          name: 'codigoHash',
           type: 'string'
         },
         "projetoMySqlId": {

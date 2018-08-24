@@ -10,6 +10,7 @@ export interface ProjetoCanvasMySqlInterface {
   "id"?: number;
   "descricao": string;
   "tipo": string;
+  "palavraChave"?: string;
   "projetoMySqlId"?: number;
   "projetoExemploId"?: number;
   projeto?: ProjetoMySql;
@@ -21,6 +22,7 @@ export class ProjetoCanvasMySql implements ProjetoCanvasMySqlInterface {
   "id": number;
   "descricao": string;
   "tipo": string;
+  "palavraChave": string;
   "projetoMySqlId": number;
   "projetoExemploId": number;
   projeto: ProjetoMySql;
@@ -69,6 +71,10 @@ export class ProjetoCanvasMySql implements ProjetoCanvasMySqlInterface {
         },
         "tipo": {
           name: 'tipo',
+          type: 'string'
+        },
+        "palavraChave": {
+          name: 'palavraChave',
           type: 'string'
         },
         "projetoMySqlId": {
