@@ -71,18 +71,22 @@ export class PrincipalLojamodaComponent implements OnInit {
   carregaPagina() {
     this.route.params.subscribe((params: Params) => {
       let id = this.route.snapshot.queryParams['id'];
-      console.log('Id: ', id);
-      this.srv.findById(id, this.consulta)
-        .subscribe((paginaResult: PaginaValidacaoWeb) => {
-          this.pagina = paginaResult;
-          this.trataCookie();
-          this.chamaLoader();
-        })
+      if (!id) {
+        this.router.navigate(['/home']);
+      } else {
+        console.log('Id: ', id);
+        this.srv.findById(id, this.consulta)
+          .subscribe((paginaResult: PaginaValidacaoWeb) => {
+            this.pagina = paginaResult;
+            this.trataCookie();
+            this.chamaLoader();
+          })
+      }
     });
   }
 
 
-  chamaLoader(){
+  chamaLoader() {
     $.getScript('../assets-medilab/js/custom.js');
   }
 
