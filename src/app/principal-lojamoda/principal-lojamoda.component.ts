@@ -8,6 +8,8 @@ import { switchMap } from 'rxjs/operators';
 import { ParamMap } from '@angular/router';
 import { Params } from '@angular/router';
 
+declare var $: any
+
 @Component({
   selector: 'app-principal-lojamoda',
   templateUrl: './principal-lojamoda.component.html',
@@ -74,9 +76,14 @@ export class PrincipalLojamodaComponent implements OnInit {
         .subscribe((paginaResult: PaginaValidacaoWeb) => {
           this.pagina = paginaResult;
           this.trataCookie();
+          this.chamaLoader();
         })
     });
   }
 
+
+  chamaLoader(){
+    $.getScript('../assets-medilab/js/custom.js');
+  }
 
 }

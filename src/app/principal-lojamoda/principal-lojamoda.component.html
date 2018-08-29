@@ -64,14 +64,14 @@
     </div>
   </div>
 
-  <div *ngIf="visitanteCorrente">
+  <div *ngIf="visitanteCorrente" style="height: 400px">
   <app-form [visitante]="visitanteCorrente"></app-form>
   </div>
 
   <!--footer-->
   <footer id="footer">
-    <div class="footer-line"  [ngStyle]="{'background-color': 'rgba('+cor+')'}">
-      <div class="container">
+    <div class="footer-line"  [ngStyle]="{'background-color': 'rgba('+cor+')'}" >
+      <div class="container" >
         <div class="row">
           <div class="col-md-12 text-center">
             Criado por Digicom Comunicação Digital - 2018

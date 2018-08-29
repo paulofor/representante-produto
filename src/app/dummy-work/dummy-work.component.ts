@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Visitante, PaginaValidacaoWeb, PaginaValidacaoWebApi, VisitanteApi } from 'src/app/shared/sdk';
 import { CookieService } from 'ngx-cookie-service';
 
+declare var $: any
+
 @Component({
   selector: 'app-dummy-work',
   templateUrl: './dummy-work.component.html',
@@ -9,6 +11,8 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class DummyWorkComponent implements OnInit {
 
+
+ 
   consulta = { "include" : { "relation" : "itemValidacaoPaginas" , "scope" : {"order" : "ordenacao"} } };
 
   pagina : PaginaValidacaoWeb;
@@ -60,8 +64,12 @@ export class DummyWorkComponent implements OnInit {
       .subscribe((valor: PaginaValidacaoWeb) => {
         console.log('Pagina: ' + JSON.stringify(valor));
         this.pagina = valor;
+        this.chamaLoader();
       })
   }
 
+  chamaLoader(){
+    $.getScript('../assets-medilab/js/custom.js');
+  }
 
 }

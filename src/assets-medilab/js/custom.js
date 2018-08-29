@@ -2,8 +2,9 @@
 
   $(document).ready(function(){
 
+    //alert('passou no load');
     $("#myNavbar a").click(function () {
-      alert('vai viajar 2');
+      //alert('vai viajar 2');
       var href = $(this).attr("href");
       $('html, body').animate({
         scrollTop: $(href).offset().top
