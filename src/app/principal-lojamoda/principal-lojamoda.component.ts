@@ -75,7 +75,8 @@ export class PrincipalLojamodaComponent implements OnInit {
         this.router.navigate(['/home']);
       } else {
         console.log('Id: ', id);
-        this.srv.findById(id, this.consulta)
+        let filtro = {"where" : {"codigoHash":id} , "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
+        this.srv.findOne(filtro)
           .subscribe((paginaResult: PaginaValidacaoWeb) => {
             this.pagina = paginaResult;
             this.trataCookie();
