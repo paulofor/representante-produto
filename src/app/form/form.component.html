@@ -13,7 +13,7 @@
           <div class="space"></div>
           <div id="sendmessage"  [hidden]="!submitted">Sua solicitação foi enviada. Obrigado!</div>
           <div id="errormessage"></div>
-          <form (ngSubmit)="onSubmit()" class="contactForm" #contatoForm="ngForm">
+          <form *ngIf="!submitted" (ngSubmit)="onSubmit()" class="contactForm" #contatoForm="ngForm">
             <div class="form-group">
               <input type="text"  [(ngModel)]="registro.nome" name="nome" class="form-control br-radius-zero" placeholder="Seu nome" #nome="ngModel"/>
               <div [hidden]="nome.valid || nome.pristine || submitted" class="alert alert-danger">
