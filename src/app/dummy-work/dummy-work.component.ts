@@ -69,7 +69,7 @@ export class DummyWorkComponent implements OnInit {
   }
 
   chamaLoader(){
-    $.getScript('../assets-medilab/js/custom.js');
+    $.getScript('oferta/assets-medilab/js/custom.js');
   }
 
 }

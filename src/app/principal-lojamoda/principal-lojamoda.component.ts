@@ -88,7 +88,7 @@ export class PrincipalLojamodaComponent implements OnInit {
 
 
   chamaLoader() {
-    $.getScript('../assets-medilab/js/custom.js');
+    $.getScript('assets-medilab/js/custom.js');
   }
 
 }

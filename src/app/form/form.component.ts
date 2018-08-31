@@ -33,4 +33,12 @@ export class FormComponent implements OnInit {
       })
   }
 
+  /*
+  chamaConversao() {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-853405762/YhUOCJ7CsYgBEMLg95YD'
+    });
+  }
+  */
+
 }

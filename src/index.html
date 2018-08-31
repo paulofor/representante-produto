@@ -20,6 +20,38 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
     rel="stylesheet">
 
+
+
+
+  <!-- Global site tag (gtag.js) - Google Ads: 853405762 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-853405762"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'AW-853405762');
+  </script>
+
+  <!-- Event snippet for Registro Interesse conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof (url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-853405762/YhUOCJ7CsYgBEMLg95YD',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+
+
+
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -31,7 +63,7 @@
   <script src="assets-medilab/js/bootstrap.min.js"></script>
 
   <script>
-   
+
   </script>
 </body>
 
