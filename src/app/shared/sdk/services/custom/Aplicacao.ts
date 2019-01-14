@@ -9,20 +9,19 @@ import { LoopBackFilter,  } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PaginaValidacaoWeb } from '../../models/PaginaValidacaoWeb';
+import { Aplicacao } from '../../models/Aplicacao';
 import { SocketConnection } from '../../sockets/socket.connections';
 import { ProjetoMySql } from '../../models/ProjetoMySql';
-import { ItemValidacaoPagina } from '../../models/ItemValidacaoPagina';
-import { RegistroInteresse } from '../../models/RegistroInteresse';
-import { CampanhaAds } from '../../models/CampanhaAds';
-import { ConceitoProduto } from '../../models/ConceitoProduto';
+import { Entidade } from '../../models/Entidade';
+import { TelaWeb } from '../../models/TelaWeb';
+import { ComponenteWeb } from '../../models/ComponenteWeb';
 
 
 /**
- * Api services for the `PaginaValidacaoWeb` model.
+ * Api services for the `Aplicacao` model.
  */
 @Injectable()
-export class PaginaValidacaoWebApi extends BaseLoopBackApi {
+export class AplicacaoApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -35,9 +34,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation projeto.
+   * Fetches belongsTo relation projetoMySql.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {boolean} refresh 
    *
@@ -47,13 +46,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public getProjeto(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoMySql(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto";
+    "/aplicacaos/:id/projetoMySql";
     let _routeParams: any = {
       id: id
     };
@@ -65,11 +64,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for itemValidacaoPaginas.
+   * Find a related item by id for entidades.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} fk Foreign key for itemValidacaoPaginas
+   * @param {any} fk Foreign key for entidades
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -77,13 +76,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public findByIdItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdEntidades(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/itemValidacaoPaginas/:fk";
+    "/aplicacaos/:id/entidades/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -95,11 +94,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for itemValidacaoPaginas.
+   * Delete a related item by id for entidades.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} fk Foreign key for itemValidacaoPaginas
+   * @param {any} fk Foreign key for entidades
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -107,10 +106,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdEntidades(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/itemValidacaoPaginas/:fk";
+    "/aplicacaos/:id/entidades/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -122,11 +121,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for itemValidacaoPaginas.
+   * Update a related item by id for entidades.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} fk Foreign key for itemValidacaoPaginas
+   * @param {any} fk Foreign key for entidades
    *
    * @param {object} data Request data.
    *
@@ -138,13 +137,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public updateByIdItemValidacaoPaginas(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdEntidades(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/itemValidacaoPaginas/:fk";
+    "/aplicacaos/:id/entidades/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -158,11 +157,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for registroInteresses.
+   * Find a related item by id for telaWebs.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} fk Foreign key for registroInteresses
+   * @param {any} fk Foreign key for telaWebs
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -170,13 +169,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public findByIdRegistroInteresses(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdTelaWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/registroInteresses/:fk";
+    "/aplicacaos/:id/telaWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -188,11 +187,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for registroInteresses.
+   * Delete a related item by id for telaWebs.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} fk Foreign key for registroInteresses
+   * @param {any} fk Foreign key for telaWebs
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -200,10 +199,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdRegistroInteresses(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdTelaWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/registroInteresses/:fk";
+    "/aplicacaos/:id/telaWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -215,11 +214,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for registroInteresses.
+   * Update a related item by id for telaWebs.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} fk Foreign key for registroInteresses
+   * @param {any} fk Foreign key for telaWebs
    *
    * @param {object} data Request data.
    *
@@ -231,13 +230,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public updateByIdRegistroInteresses(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdTelaWebs(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/registroInteresses/:fk";
+    "/aplicacaos/:id/telaWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -251,11 +250,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for campanhaAds.
+   * Find a related item by id for componenteWebs.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} fk Foreign key for campanhaAds
+   * @param {any} fk Foreign key for componenteWebs
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -263,13 +262,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public findByIdCampanhaAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdComponenteWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:fk";
+    "/aplicacaos/:id/componenteWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -281,11 +280,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for campanhaAds.
+   * Delete a related item by id for componenteWebs.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} fk Foreign key for campanhaAds
+   * @param {any} fk Foreign key for componenteWebs
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -293,10 +292,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdCampanhaAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdComponenteWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:fk";
+    "/aplicacaos/:id/componenteWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -308,11 +307,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for campanhaAds.
+   * Update a related item by id for componenteWebs.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} fk Foreign key for campanhaAds
+   * @param {any} fk Foreign key for componenteWebs
    *
    * @param {object} data Request data.
    *
@@ -324,13 +323,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public updateByIdCampanhaAds(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdComponenteWebs(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:fk";
+    "/aplicacaos/:id/componenteWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -344,39 +343,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation conceitoProduto.
+   * Queries entidades of aplicacao.
    *
-   * @param {any} id PaginaValidacaoWeb id
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
-   * </em>
-   */
-  public getConceitoProduto(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/conceitoProduto";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Queries itemValidacaoPaginas of PaginaValidacaoWeb.
-   *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} filter 
    *
@@ -386,13 +355,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public getItemValidacaoPaginas(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getEntidades(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/itemValidacaoPaginas";
+    "/aplicacaos/:id/entidades";
     let _routeParams: any = {
       id: id
     };
@@ -404,9 +373,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in itemValidacaoPaginas of this model.
+   * Creates a new instance in entidades of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -418,13 +387,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createItemValidacaoPaginas(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createEntidades(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/itemValidacaoPaginas";
+    "/aplicacaos/:id/entidades";
     let _routeParams: any = {
       id: id
     };
@@ -437,9 +406,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all itemValidacaoPaginas of this model.
+   * Deletes all entidades of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -447,10 +416,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteItemValidacaoPaginas(id: any, customHeaders?: Function): Observable<any> {
+  public deleteEntidades(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/itemValidacaoPaginas";
+    "/aplicacaos/:id/entidades";
     let _routeParams: any = {
       id: id
     };
@@ -461,9 +430,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts itemValidacaoPaginas of PaginaValidacaoWeb.
+   * Counts entidades of aplicacao.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -475,10 +444,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countItemValidacaoPaginas(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countEntidades(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/itemValidacaoPaginas/count";
+    "/aplicacaos/:id/entidades/count";
     let _routeParams: any = {
       id: id
     };
@@ -490,9 +459,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries registroInteresses of PaginaValidacaoWeb.
+   * Queries telaWebs of aplicacao.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} filter 
    *
@@ -502,13 +471,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public getRegistroInteresses(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getTelaWebs(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/registroInteresses";
+    "/aplicacaos/:id/telaWebs";
     let _routeParams: any = {
       id: id
     };
@@ -520,9 +489,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in registroInteresses of this model.
+   * Creates a new instance in telaWebs of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -534,13 +503,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createRegistroInteresses(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createTelaWebs(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/registroInteresses";
+    "/aplicacaos/:id/telaWebs";
     let _routeParams: any = {
       id: id
     };
@@ -553,9 +522,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all registroInteresses of this model.
+   * Deletes all telaWebs of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -563,10 +532,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteRegistroInteresses(id: any, customHeaders?: Function): Observable<any> {
+  public deleteTelaWebs(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/registroInteresses";
+    "/aplicacaos/:id/telaWebs";
     let _routeParams: any = {
       id: id
     };
@@ -577,9 +546,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts registroInteresses of PaginaValidacaoWeb.
+   * Counts telaWebs of aplicacao.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -591,10 +560,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countRegistroInteresses(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countTelaWebs(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/registroInteresses/count";
+    "/aplicacaos/:id/telaWebs/count";
     let _routeParams: any = {
       id: id
     };
@@ -606,9 +575,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries campanhaAds of PaginaValidacaoWeb.
+   * Queries componenteWebs of aplicacao.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} filter 
    *
@@ -618,13 +587,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public getCampanhaAds(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getComponenteWebs(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds";
+    "/aplicacaos/:id/componenteWebs";
     let _routeParams: any = {
       id: id
     };
@@ -636,9 +605,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in campanhaAds of this model.
+   * Creates a new instance in componenteWebs of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -650,13 +619,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createCampanhaAds(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createComponenteWebs(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds";
+    "/aplicacaos/:id/componenteWebs";
     let _routeParams: any = {
       id: id
     };
@@ -669,9 +638,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all campanhaAds of this model.
+   * Deletes all componenteWebs of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -679,10 +648,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteCampanhaAds(id: any, customHeaders?: Function): Observable<any> {
+  public deleteComponenteWebs(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds";
+    "/aplicacaos/:id/componenteWebs";
     let _routeParams: any = {
       id: id
     };
@@ -693,9 +662,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts campanhaAds of PaginaValidacaoWeb.
+   * Counts componenteWebs of aplicacao.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -707,10 +676,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countCampanhaAds(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countComponenteWebs(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/count";
+    "/aplicacaos/:id/componenteWebs/count";
     let _routeParams: any = {
       id: id
     };
@@ -734,13 +703,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs";
+    "/aplicacaos";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -753,7 +722,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -765,13 +734,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id";
+    "/aplicacaos/:id";
     let _routeParams: any = {
       id: id
     };
@@ -784,9 +753,60 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
+   * Combina tipo componente com entidades para gerar os componentes web
+   *
+   * @param {object} data Request data.
+   *
+   *  - `idAplicacao` – `{number}` - 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public AtualizaComponenteWeb(idAplicacao: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/aplicacaos/atualizaComponenteWeb";
+    let _routeParams: any = {};
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof idAplicacao !== 'undefined' && idAplicacao !== null) _urlParams.idAplicacao = idAplicacao;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Obtem a aplicacao do conceito
+   *
+   * @param {number} idConceito 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Aplicacao` object.)
+   * </em>
+   */
+  public ObtemPorIdConceito(idConceito: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/aplicacaos/obtemPorIdConceito";
+    let _routeParams: any = {};
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof idConceito !== 'undefined' && idConceito !== null) _urlParams.idConceito = idConceito;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
    * Find a related item by id for projetoCanvasMySqls.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {any} fk Foreign key for projetoCanvasMySqls
    *
@@ -796,13 +816,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public findByIdProjetoProjetoCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdProjetoMySqlProjetoCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/projetoCanvasMySqls/:fk";
+    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -816,7 +836,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for projetoCanvasMySqls.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {any} fk Foreign key for projetoCanvasMySqls
    *
@@ -830,13 +850,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public updateByIdProjetoProjetoCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdProjetoMySqlProjetoCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/projetoCanvasMySqls/:fk";
+    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -852,7 +872,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Find a related item by id for mvpCanvasMySqls.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {any} fk Foreign key for mvpCanvasMySqls
    *
@@ -862,13 +882,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public findByIdProjetoMvpCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdProjetoMySqlMvpCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/mvpCanvasMySqls/:fk";
+    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -882,7 +902,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for mvpCanvasMySqls.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {any} fk Foreign key for mvpCanvasMySqls
    *
@@ -896,13 +916,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public updateByIdProjetoMvpCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdProjetoMySqlMvpCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/mvpCanvasMySqls/:fk";
+    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -918,7 +938,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Find a related item by id for ganhoDorCanvasMySqls.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {any} fk Foreign key for ganhoDorCanvasMySqls
    *
@@ -928,13 +948,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public findByIdProjetoGanhoDorCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdProjetoMySqlGanhoDorCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/ganhoDorCanvasMySqls/:fk";
+    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -948,7 +968,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for ganhoDorCanvasMySqls.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {any} fk Foreign key for ganhoDorCanvasMySqls
    *
@@ -962,13 +982,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public updateByIdProjetoGanhoDorCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdProjetoMySqlGanhoDorCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/ganhoDorCanvasMySqls/:fk";
+    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -984,7 +1004,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Find a related item by id for paginaValidacaoWebs.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {any} fk Foreign key for paginaValidacaoWebs
    *
@@ -994,40 +1014,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public findByIdProjetoPaginaValidacaoWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdProjetoMySqlPaginaValidacaoWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/paginaValidacaoWebs/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Delete a related item by id for paginaValidacaoWebs.
-   *
-   * @param {any} id PaginaValidacaoWeb id
-   *
-   * @param {any} fk Foreign key for paginaValidacaoWebs
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public destroyByIdProjetoPaginaValidacaoWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/paginaValidacaoWebs/:fk";
+    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1041,7 +1034,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for paginaValidacaoWebs.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {any} fk Foreign key for paginaValidacaoWebs
    *
@@ -1055,13 +1048,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public updateByIdProjetoPaginaValidacaoWebs(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdProjetoMySqlPaginaValidacaoWebs(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/paginaValidacaoWebs/:fk";
+    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1077,7 +1070,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Queries projetoCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} filter 
    *
@@ -1087,13 +1080,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public getProjetoProjetoCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoMySqlProjetoCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/projetoCanvasMySqls";
+    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1107,7 +1100,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in projetoCanvasMySqls of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -1119,13 +1112,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createProjetoProjetoCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createProjetoMySqlProjetoCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/projetoCanvasMySqls";
+    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1140,7 +1133,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Counts projetoCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -1152,10 +1145,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countProjetoProjetoCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countProjetoMySqlProjetoCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/projetoCanvasMySqls/count";
+    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls/count";
     let _routeParams: any = {
       id: id
     };
@@ -1169,7 +1162,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Queries mvpCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} filter 
    *
@@ -1179,13 +1172,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public getProjetoMvpCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoMySqlMvpCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/mvpCanvasMySqls";
+    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1199,7 +1192,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in mvpCanvasMySqls of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -1211,13 +1204,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createProjetoMvpCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createProjetoMySqlMvpCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/mvpCanvasMySqls";
+    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1232,7 +1225,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Counts mvpCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -1244,10 +1237,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countProjetoMvpCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countProjetoMySqlMvpCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/mvpCanvasMySqls/count";
+    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls/count";
     let _routeParams: any = {
       id: id
     };
@@ -1261,7 +1254,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Queries ganhoDorCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} filter 
    *
@@ -1271,13 +1264,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public getProjetoGanhoDorCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoMySqlGanhoDorCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/ganhoDorCanvasMySqls";
+    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1291,7 +1284,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in ganhoDorCanvasMySqls of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -1303,13 +1296,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createProjetoGanhoDorCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createProjetoMySqlGanhoDorCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/ganhoDorCanvasMySqls";
+    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1324,7 +1317,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Counts ganhoDorCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -1336,10 +1329,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countProjetoGanhoDorCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countProjetoMySqlGanhoDorCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/ganhoDorCanvasMySqls/count";
+    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls/count";
     let _routeParams: any = {
       id: id
     };
@@ -1353,7 +1346,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Queries paginaValidacaoWebs of ProjetoMySql.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} filter 
    *
@@ -1363,13 +1356,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public getProjetoPaginaValidacaoWebs(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoMySqlPaginaValidacaoWebs(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/paginaValidacaoWebs";
+    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs";
     let _routeParams: any = {
       id: id
     };
@@ -1383,7 +1376,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in paginaValidacaoWebs of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -1395,13 +1388,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createProjetoPaginaValidacaoWebs(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createProjetoMySqlPaginaValidacaoWebs(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/paginaValidacaoWebs";
+    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs";
     let _routeParams: any = {
       id: id
     };
@@ -1414,33 +1407,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all paginaValidacaoWebs of this model.
-   *
-   * @param {any} id PaginaValidacaoWeb id
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public deleteProjetoPaginaValidacaoWebs(id: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/paginaValidacaoWebs";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
    * Counts paginaValidacaoWebs of ProjetoMySql.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -1452,10 +1421,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countProjetoPaginaValidacaoWebs(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countProjetoMySqlPaginaValidacaoWebs(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/paginaValidacaoWebs/count";
+    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs/count";
     let _routeParams: any = {
       id: id
     };
@@ -1467,46 +1436,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation projetoCanvasMySql.
+   * Find a related item by id for atributoEntidades.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} nk Foreign key for itemValidacaoPaginas.
+   * @param {any} nk Foreign key for entidades.
    *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
-   * </em>
-   */
-  public getItemValidacaoPaginasProjetoCanvasMySql(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/itemValidacaoPaginas/:nk/projetoCanvasMySql";
-    let _routeParams: any = {
-      id: id,
-      nk: nk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Find a related item by id for anuncioAds.
-   *
-   * @param {any} id PaginaValidacaoWeb id
-   *
-   * @param {any} nk Foreign key for campanhaAds.
-   *
-   * @param {any} fk Foreign key for anuncioAds
+   * @param {any} fk Foreign key for atributoEntidades
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -1514,13 +1450,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public findByIdCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdEntidadesAtributoEntidades(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/anuncioAds/:fk";
+    "/aplicacaos/:id/entidades/:nk/atributoEntidades/:fk";
     let _routeParams: any = {
       id: id,
       nk: nk,
@@ -1533,13 +1469,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for anuncioAds.
+   * Delete a related item by id for atributoEntidades.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} nk Foreign key for campanhaAds.
+   * @param {any} nk Foreign key for entidades.
    *
-   * @param {any} fk Foreign key for anuncioAds
+   * @param {any} fk Foreign key for atributoEntidades
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -1547,10 +1483,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdEntidadesAtributoEntidades(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/anuncioAds/:fk";
+    "/aplicacaos/:id/entidades/:nk/atributoEntidades/:fk";
     let _routeParams: any = {
       id: id,
       nk: nk,
@@ -1563,13 +1499,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for anuncioAds.
+   * Update a related item by id for atributoEntidades.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} nk Foreign key for campanhaAds.
+   * @param {any} nk Foreign key for entidades.
    *
-   * @param {any} fk Foreign key for anuncioAds
+   * @param {any} fk Foreign key for atributoEntidades
    *
    * @param {object} data Request data.
    *
@@ -1581,13 +1517,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public updateByIdCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdEntidadesAtributoEntidades(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/anuncioAds/:fk";
+    "/aplicacaos/:id/entidades/:nk/atributoEntidades/:fk";
     let _routeParams: any = {
       id: id,
       nk: nk,
@@ -1602,113 +1538,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Add a related item by id for anuncioAds.
+   * Fetches belongsTo relation projetoMySql.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} nk Foreign key for campanhaAds.
-   *
-   * @param {any} fk Foreign key for anuncioAds
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
-   * </em>
-   */
-  public linkCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "PUT";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/anuncioAds/rel/:fk";
-    let _routeParams: any = {
-      id: id,
-      nk: nk,
-      fk: fk
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Remove the anuncioAds relation to an item by id.
-   *
-   * @param {any} id PaginaValidacaoWeb id
-   *
-   * @param {any} nk Foreign key for campanhaAds.
-   *
-   * @param {any} fk Foreign key for anuncioAds
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public unlinkCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/anuncioAds/rel/:fk";
-    let _routeParams: any = {
-      id: id,
-      nk: nk,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Check the existence of anuncioAds relation to an item by id.
-   *
-   * @param {any} id PaginaValidacaoWeb id
-   *
-   * @param {any} nk Foreign key for campanhaAds.
-   *
-   * @param {any} fk Foreign key for anuncioAds
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
-   * </em>
-   */
-  public existsCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "HEAD";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/anuncioAds/rel/:fk";
-    let _routeParams: any = {
-      id: id,
-      nk: nk,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Fetches belongsTo relation paginaValidacaoWeb.
-   *
-   * @param {any} id PaginaValidacaoWeb id
-   *
-   * @param {any} nk Foreign key for campanhaAds.
+   * @param {any} nk Foreign key for entidades.
    *
    * @param {boolean} refresh 
    *
@@ -1718,13 +1552,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public getCampanhaAdsPaginaValidacaoWeb(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getEntidadesProjetoMySql(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/paginaValidacaoWeb";
+    "/aplicacaos/:id/entidades/:nk/projetoMySql";
     let _routeParams: any = {
       id: id,
       nk: nk
@@ -1737,11 +1571,77 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries anuncioAds of CampanhaAds.
+   * Fetches belongsTo relation atributoChave.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} nk Foreign key for campanhaAds.
+   * @param {any} nk Foreign key for entidades.
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Aplicacao` object.)
+   * </em>
+   */
+  public getEntidadesAtributoChave(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/aplicacaos/:id/entidades/:nk/atributoChave";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation atributoIdentificador.
+   *
+   * @param {any} id aplicacao id
+   *
+   * @param {any} nk Foreign key for entidades.
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Aplicacao` object.)
+   * </em>
+   */
+  public getEntidadesAtributoIdentificador(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/aplicacaos/:id/entidades/:nk/atributoIdentificador";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Queries atributoEntidades of entidade.
+   *
+   * @param {any} id aplicacao id
+   *
+   * @param {any} nk Foreign key for entidades.
    *
    * @param {object} filter 
    *
@@ -1751,13 +1651,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public getCampanhaAdsAnuncioAds(id: any, nk: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getEntidadesAtributoEntidades(id: any, nk: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/anuncioAds";
+    "/aplicacaos/:id/entidades/:nk/atributoEntidades";
     let _routeParams: any = {
       id: id,
       nk: nk
@@ -1770,11 +1670,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in anuncioAds of this model.
+   * Creates a new instance in atributoEntidades of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} nk Foreign key for campanhaAds.
+   * @param {any} nk Foreign key for entidades.
    *
    * @param {object} data Request data.
    *
@@ -1786,13 +1686,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createCampanhaAdsAnuncioAds(id: any, nk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createEntidadesAtributoEntidades(id: any, nk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/anuncioAds";
+    "/aplicacaos/:id/entidades/:nk/atributoEntidades";
     let _routeParams: any = {
       id: id,
       nk: nk
@@ -1806,11 +1706,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all anuncioAds of this model.
+   * Deletes all atributoEntidades of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} nk Foreign key for campanhaAds.
+   * @param {any} nk Foreign key for entidades.
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -1818,10 +1718,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteCampanhaAdsAnuncioAds(id: any, nk: any, customHeaders?: Function): Observable<any> {
+  public deleteEntidadesAtributoEntidades(id: any, nk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/anuncioAds";
+    "/aplicacaos/:id/entidades/:nk/atributoEntidades";
     let _routeParams: any = {
       id: id,
       nk: nk
@@ -1833,11 +1733,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts anuncioAds of CampanhaAds.
+   * Counts atributoEntidades of entidade.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} nk Foreign key for campanhaAds.
+   * @param {any} nk Foreign key for entidades.
    *
    * @param {object} where Criteria to match model instances
    *
@@ -1849,10 +1749,10 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countCampanhaAdsAnuncioAds(id: any, nk: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countEntidadesAtributoEntidades(id: any, nk: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/anuncioAds/count";
+    "/aplicacaos/:id/entidades/:nk/atributoEntidades/count";
     let _routeParams: any = {
       id: id,
       nk: nk
@@ -1865,9 +1765,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in itemValidacaoPaginas of this model.
+   * Creates a new instance in entidades of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -1879,13 +1779,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createManyItemValidacaoPaginas(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyEntidades(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/itemValidacaoPaginas";
+    "/aplicacaos/:id/entidades";
     let _routeParams: any = {
       id: id
     };
@@ -1898,9 +1798,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in registroInteresses of this model.
+   * Creates a new instance in telaWebs of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -1912,13 +1812,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createManyRegistroInteresses(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyTelaWebs(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/registroInteresses";
+    "/aplicacaos/:id/telaWebs";
     let _routeParams: any = {
       id: id
     };
@@ -1931,9 +1831,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in campanhaAds of this model.
+   * Creates a new instance in componenteWebs of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -1945,13 +1845,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createManyCampanhaAds(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyComponenteWebs(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds";
+    "/aplicacaos/:id/componenteWebs";
     let _routeParams: any = {
       id: id
     };
@@ -1966,7 +1866,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in projetoCanvasMySqls of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -1978,13 +1878,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createManyProjetoProjetoCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyProjetoMySqlProjetoCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/projetoCanvasMySqls";
+    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1999,7 +1899,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in mvpCanvasMySqls of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -2011,13 +1911,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createManyProjetoMvpCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyProjetoMySqlMvpCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/mvpCanvasMySqls";
+    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -2032,7 +1932,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in ganhoDorCanvasMySqls of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -2044,13 +1944,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createManyProjetoGanhoDorCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyProjetoMySqlGanhoDorCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/ganhoDorCanvasMySqls";
+    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -2065,7 +1965,7 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in paginaValidacaoWebs of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
    * @param {object} data Request data.
    *
@@ -2077,13 +1977,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createManyProjetoPaginaValidacaoWebs(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyProjetoMySqlPaginaValidacaoWebs(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/projeto/paginaValidacaoWebs";
+    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs";
     let _routeParams: any = {
       id: id
     };
@@ -2096,11 +1996,11 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in anuncioAds of this model.
+   * Creates a new instance in atributoEntidades of this model.
    *
-   * @param {any} id PaginaValidacaoWeb id
+   * @param {any} id aplicacao id
    *
-   * @param {any} nk Foreign key for campanhaAds.
+   * @param {any} nk Foreign key for entidades.
    *
    * @param {object} data Request data.
    *
@@ -2112,13 +2012,13 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PaginaValidacaoWeb` object.)
+   * This usually means the response is a `Aplicacao` object.)
    * </em>
    */
-  public createManyCampanhaAdsAnuncioAds(id: any, nk: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyEntidadesAtributoEntidades(id: any, nk: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PaginaValidacaoWebs/:id/campanhaAds/:nk/anuncioAds";
+    "/aplicacaos/:id/entidades/:nk/atributoEntidades";
     let _routeParams: any = {
       id: id,
       nk: nk
@@ -2133,9 +2033,9 @@ export class PaginaValidacaoWebApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `PaginaValidacaoWeb`.
+   * i.e. `Aplicacao`.
    */
   public getModelName() {
-    return "PaginaValidacaoWeb";
+    return "Aplicacao";
   }
 }

@@ -1,4 +1,7 @@
 /* tslint:disable */
+import {
+  PalavraChaveAds
+} from '../index';
 
 declare var Object: any;
 export interface GanhoDorCanvasMySqlInterface {
@@ -7,6 +10,7 @@ export interface GanhoDorCanvasMySqlInterface {
   "tipo": string;
   "projetoMySqlId"?: number;
   "projetoExemploId"?: number;
+  palavraChaveAds?: PalavraChaveAds[];
 }
 
 export class GanhoDorCanvasMySql implements GanhoDorCanvasMySqlInterface {
@@ -15,6 +19,7 @@ export class GanhoDorCanvasMySql implements GanhoDorCanvasMySqlInterface {
   "tipo": string;
   "projetoMySqlId": number;
   "projetoExemploId": number;
+  palavraChaveAds: PalavraChaveAds[];
   constructor(data?: GanhoDorCanvasMySqlInterface) {
     Object.assign(this, data);
   }
@@ -70,6 +75,14 @@ export class GanhoDorCanvasMySql implements GanhoDorCanvasMySqlInterface {
         },
       },
       relations: {
+        palavraChaveAds: {
+          name: 'palavraChaveAds',
+          type: 'PalavraChaveAds[]',
+          model: 'PalavraChaveAds',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'ganhoDorCanvasMySqlId'
+        },
       }
     }
   }

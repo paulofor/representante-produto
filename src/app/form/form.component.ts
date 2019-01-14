@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RegistroInteresse, RegistroInteresseApi, Visitante } from '../shared/sdk';
 
+
+declare var gtag:Function;
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -30,15 +33,18 @@ export class FormComponent implements OnInit {
         console.log('Resultado:', result);
         this.submitted = true;
         this.registro = new RegistroInteresse();
+        this.chamaConversao()
       })
   }
 
-  /*
+  
   chamaConversao() {
+    console.log('Chamou converte');
+   
     gtag('event', 'conversion', {
       'send_to': 'AW-853405762/YhUOCJ7CsYgBEMLg95YD'
     });
   }
-  */
+
 
 }

@@ -9,16 +9,18 @@ import { LoopBackFilter,  } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GanhoDorCanvasMySql } from '../../models/GanhoDorCanvasMySql';
+import { TelaApp } from '../../models/TelaApp';
 import { SocketConnection } from '../../sockets/socket.connections';
-import { PalavraChaveAds } from '../../models/PalavraChaveAds';
+import { ItemValidacaoPagina } from '../../models/ItemValidacaoPagina';
+import { Entidade } from '../../models/Entidade';
+import { ConceitoProduto } from '../../models/ConceitoProduto';
 
 
 /**
- * Api services for the `GanhoDorCanvasMySql` model.
+ * Api services for the `TelaApp` model.
  */
 @Injectable()
-export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
+export class TelaAppApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -31,11 +33,11 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for palavraChaveAds.
+   * Find a related item by id for itemValidacaoPaginas.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id TelaApp id
    *
-   * @param {any} fk Foreign key for palavraChaveAds
+   * @param {any} fk Foreign key for itemValidacaoPaginas
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -43,13 +45,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `TelaApp` object.)
    * </em>
    */
-  public findByIdPalavraChaveAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds/:fk";
+    "/TelaApps/:id/itemValidacaoPaginas/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -61,11 +63,11 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for palavraChaveAds.
+   * Delete a related item by id for itemValidacaoPaginas.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id TelaApp id
    *
-   * @param {any} fk Foreign key for palavraChaveAds
+   * @param {any} fk Foreign key for itemValidacaoPaginas
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -73,10 +75,10 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdPalavraChaveAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds/:fk";
+    "/TelaApps/:id/itemValidacaoPaginas/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -88,11 +90,11 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for palavraChaveAds.
+   * Update a related item by id for itemValidacaoPaginas.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id TelaApp id
    *
-   * @param {any} fk Foreign key for palavraChaveAds
+   * @param {any} fk Foreign key for itemValidacaoPaginas
    *
    * @param {object} data Request data.
    *
@@ -104,13 +106,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `TelaApp` object.)
    * </em>
    */
-  public updateByIdPalavraChaveAds(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdItemValidacaoPaginas(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds/:fk";
+    "/TelaApps/:id/itemValidacaoPaginas/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -124,9 +126,69 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries palavraChaveAds of GanhoDorCanvasMySql.
+   * Fetches belongsTo relation entidade.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id TelaApp id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `TelaApp` object.)
+   * </em>
+   */
+  public getEntidade(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/TelaApps/:id/entidade";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation conceitoProduto.
+   *
+   * @param {any} id TelaApp id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `TelaApp` object.)
+   * </em>
+   */
+  public getConceitoProduto(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/TelaApps/:id/conceitoProduto";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Queries itemValidacaoPaginas of TelaApp.
+   *
+   * @param {any} id TelaApp id
    *
    * @param {object} filter 
    *
@@ -136,13 +198,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `TelaApp` object.)
    * </em>
    */
-  public getPalavraChaveAds(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getItemValidacaoPaginas(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds";
+    "/TelaApps/:id/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -154,9 +216,9 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in palavraChaveAds of this model.
+   * Creates a new instance in itemValidacaoPaginas of this model.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id TelaApp id
    *
    * @param {object} data Request data.
    *
@@ -168,13 +230,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `TelaApp` object.)
    * </em>
    */
-  public createPalavraChaveAds(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createItemValidacaoPaginas(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds";
+    "/TelaApps/:id/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -187,9 +249,9 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all palavraChaveAds of this model.
+   * Deletes all itemValidacaoPaginas of this model.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id TelaApp id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -197,10 +259,10 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deletePalavraChaveAds(id: any, customHeaders?: Function): Observable<any> {
+  public deleteItemValidacaoPaginas(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds";
+    "/TelaApps/:id/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -211,9 +273,9 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts palavraChaveAds of GanhoDorCanvasMySql.
+   * Counts itemValidacaoPaginas of TelaApp.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id TelaApp id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -225,10 +287,10 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countPalavraChaveAds(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countItemValidacaoPaginas(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds/count";
+    "/TelaApps/:id/itemValidacaoPaginas/count";
     let _routeParams: any = {
       id: id
     };
@@ -252,13 +314,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `TelaApp` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls";
+    "/TelaApps";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -271,7 +333,7 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id TelaApp id
    *
    * @param {object} data Request data.
    *
@@ -283,13 +345,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `TelaApp` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id";
+    "/TelaApps/:id";
     let _routeParams: any = {
       id: id
     };
@@ -302,9 +364,64 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in palavraChaveAds of this model.
+   * Retorna as telas de um projeto, pode ser pelo idProjeto ( conceito ativo ) ou pelo idConceito
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {number} idProjeto 
+   *
+   * @param {number} idConceito 
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `TelaApp` object.)
+   * </em>
+   */
+  public ListaTelaAppProjeto(idProjeto: any = {}, idConceito: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/TelaApps/listaTelaAppProjeto";
+    let _routeParams: any = {};
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof idProjeto !== 'undefined' && idProjeto !== null) _urlParams.idProjeto = idProjeto;
+    if (typeof idConceito !== 'undefined' && idConceito !== null) _urlParams.idConceito = idConceito;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Retorna as telas app para o gerador de uma aplicacao
+   *
+   * @param {number} idAplicacao 
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `TelaApp` object.)
+   * </em>
+   */
+  public TelasAppPorIdAplicacaoParaGerador(idAplicacao: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/TelaApps/telasAppPorIdAplicacaoParaGerador";
+    let _routeParams: any = {};
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof idAplicacao !== 'undefined' && idAplicacao !== null) _urlParams.idAplicacao = idAplicacao;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in itemValidacaoPaginas of this model.
+   *
+   * @param {any} id TelaApp id
    *
    * @param {object} data Request data.
    *
@@ -316,13 +433,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `TelaApp` object.)
    * </em>
    */
-  public createManyPalavraChaveAds(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyItemValidacaoPaginas(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds";
+    "/TelaApps/:id/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -336,9 +453,9 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `GanhoDorCanvasMySql`.
+   * i.e. `TelaApp`.
    */
   public getModelName() {
-    return "GanhoDorCanvasMySql";
+    return "TelaApp";
   }
 }

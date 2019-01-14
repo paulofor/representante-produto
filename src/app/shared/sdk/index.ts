@@ -44,6 +44,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CookieBrowser } from './storage/cookie.browser';
 import { StorageBrowser } from './storage/storage.browser';
+import { SocketBrowser } from './sockets/socket.browser';
 
 import { SocketConnection } from './sockets/socket.connections';
 import { RealTime } from './services/core/real.time';
@@ -61,6 +62,37 @@ import { ProjetoExemploApi } from './services/custom/ProjetoExemplo';
 import { ReceitaApi } from './services/custom/Receita';
 import { ContainerApi } from './services/custom/Container';
 import { VisitanteApi } from './services/custom/Visitante';
+import { AnuncioAdsApi } from './services/custom/AnuncioAds';
+import { CampanhaAdsApi } from './services/custom/CampanhaAds';
+import { PalavraChaveAdsApi } from './services/custom/PalavraChaveAds';
+import { AplicacaoApi } from './services/custom/Aplicacao';
+import { Atributo_entidadeApi } from './services/custom/Atributo_entidade';
+import { EntidadeApi } from './services/custom/Entidade';
+import { ModeloCampanhaAdsApi } from './services/custom/ModeloCampanhaAds';
+import { Relacionamento_entidadeApi } from './services/custom/Relacionamento_entidade';
+import { CampanhaAnuncioResultadoApi } from './services/custom/CampanhaAnuncioResultado';
+import { CampanhaPalavraChaveResultadoApi } from './services/custom/CampanhaPalavraChaveResultado';
+import { TelaWebApi } from './services/custom/TelaWeb';
+import { TelaAppApi } from './services/custom/TelaApp';
+import { PalavraChaveRaizApi } from './services/custom/PalavraChaveRaiz';
+import { PalavraChaveGoogleApi } from './services/custom/PalavraChaveGoogle';
+import { PalavraChaveEstatisticaApi } from './services/custom/PalavraChaveEstatistica';
+import { PalavraGoogleProjetoApi } from './services/custom/PalavraGoogleProjeto';
+import { EtapaProjetoApi } from './services/custom/EtapaProjeto';
+import { MudancaEtapaApi } from './services/custom/MudancaEtapa';
+import { ProcessoNegocioApi } from './services/custom/ProcessoNegocio';
+import { ComponenteWebApi } from './services/custom/ComponenteWeb';
+import { TelaComponenteWebApi } from './services/custom/TelaComponenteWeb';
+import { TipoComponenteWebApi } from './services/custom/TipoComponenteWeb';
+import { TipoExperienciaApi } from './services/custom/TipoExperiencia';
+import { IndicadorPerformanceProcessoApi } from './services/custom/IndicadorPerformanceProcesso';
+import { MedidaIndicadorProcessoApi } from './services/custom/MedidaIndicadorProcesso';
+import { RespostaMercadoApi } from './services/custom/RespostaMercado';
+import { ConceitoProdutoApi } from './services/custom/ConceitoProduto';
+import { ValorConceitoApi } from './services/custom/ValorConceito';
+import { RecursoConceitoProdutoApi } from './services/custom/RecursoConceitoProduto';
+import { PublicoApi } from './services/custom/Publico';
+import { SetupCampanhaApi } from './services/custom/SetupCampanha';
 /**
 * @module SDKBrowserModule
 * @description
@@ -105,6 +137,37 @@ export class SDKBrowserModule {
         ReceitaApi,
         ContainerApi,
         VisitanteApi,
+        AnuncioAdsApi,
+        CampanhaAdsApi,
+        PalavraChaveAdsApi,
+        AplicacaoApi,
+        Atributo_entidadeApi,
+        EntidadeApi,
+        ModeloCampanhaAdsApi,
+        Relacionamento_entidadeApi,
+        CampanhaAnuncioResultadoApi,
+        CampanhaPalavraChaveResultadoApi,
+        TelaWebApi,
+        TelaAppApi,
+        PalavraChaveRaizApi,
+        PalavraChaveGoogleApi,
+        PalavraChaveEstatisticaApi,
+        PalavraGoogleProjetoApi,
+        EtapaProjetoApi,
+        MudancaEtapaApi,
+        ProcessoNegocioApi,
+        ComponenteWebApi,
+        TelaComponenteWebApi,
+        TipoComponenteWebApi,
+        TipoExperienciaApi,
+        IndicadorPerformanceProcessoApi,
+        MedidaIndicadorProcessoApi,
+        RespostaMercadoApi,
+        ConceitoProdutoApi,
+        ValorConceitoApi,
+        RecursoConceitoProdutoApi,
+        PublicoApi,
+        SetupCampanhaApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]

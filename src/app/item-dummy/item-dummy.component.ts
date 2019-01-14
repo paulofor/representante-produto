@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
+declare var gtag:Function;
+
 @Component({
   selector: 'app-item-dummy',
   templateUrl: './item-dummy.component.html',
@@ -19,6 +21,15 @@ export class ItemDummyComponent implements OnInit {
       console.log("_router:" , this._activatedRoute.snapshot.queryParams['codigo']);
       
       console.log("_activatedRoute", this._activatedRoute);
+      this.chamaConversao();
+  }
+
+ 
+  chamaConversao() {
+    console.log('Chamou converte');
+    gtag('event', 'conversion', {
+      'send_to': 'AW-853405762/YhUOCJ7CsYgBEMLg95YD'
+    });
   }
 
 }

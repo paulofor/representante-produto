@@ -9,16 +9,16 @@ import { LoopBackFilter,  } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GanhoDorCanvasMySql } from '../../models/GanhoDorCanvasMySql';
+import { ValorConceito } from '../../models/ValorConceito';
 import { SocketConnection } from '../../sockets/socket.connections';
-import { PalavraChaveAds } from '../../models/PalavraChaveAds';
+import { AnuncioAds } from '../../models/AnuncioAds';
 
 
 /**
- * Api services for the `GanhoDorCanvasMySql` model.
+ * Api services for the `ValorConceito` model.
  */
 @Injectable()
-export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
+export class ValorConceitoApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -31,11 +31,11 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for palavraChaveAds.
+   * Find a related item by id for anuncioAds.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id ValorConceito id
    *
-   * @param {any} fk Foreign key for palavraChaveAds
+   * @param {any} fk Foreign key for anuncioAds
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -43,13 +43,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `ValorConceito` object.)
    * </em>
    */
-  public findByIdPalavraChaveAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdAnuncioAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds/:fk";
+    "/ValorConceitos/:id/anuncioAds/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -61,11 +61,11 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for palavraChaveAds.
+   * Delete a related item by id for anuncioAds.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id ValorConceito id
    *
-   * @param {any} fk Foreign key for palavraChaveAds
+   * @param {any} fk Foreign key for anuncioAds
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -73,10 +73,10 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdPalavraChaveAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdAnuncioAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds/:fk";
+    "/ValorConceitos/:id/anuncioAds/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -88,11 +88,11 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for palavraChaveAds.
+   * Update a related item by id for anuncioAds.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id ValorConceito id
    *
-   * @param {any} fk Foreign key for palavraChaveAds
+   * @param {any} fk Foreign key for anuncioAds
    *
    * @param {object} data Request data.
    *
@@ -104,13 +104,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `ValorConceito` object.)
    * </em>
    */
-  public updateByIdPalavraChaveAds(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdAnuncioAds(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds/:fk";
+    "/ValorConceitos/:id/anuncioAds/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -124,9 +124,9 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries palavraChaveAds of GanhoDorCanvasMySql.
+   * Queries anuncioAds of ValorConceito.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id ValorConceito id
    *
    * @param {object} filter 
    *
@@ -136,13 +136,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `ValorConceito` object.)
    * </em>
    */
-  public getPalavraChaveAds(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getAnuncioAds(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds";
+    "/ValorConceitos/:id/anuncioAds";
     let _routeParams: any = {
       id: id
     };
@@ -154,9 +154,9 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in palavraChaveAds of this model.
+   * Creates a new instance in anuncioAds of this model.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id ValorConceito id
    *
    * @param {object} data Request data.
    *
@@ -168,13 +168,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `ValorConceito` object.)
    * </em>
    */
-  public createPalavraChaveAds(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createAnuncioAds(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds";
+    "/ValorConceitos/:id/anuncioAds";
     let _routeParams: any = {
       id: id
     };
@@ -187,9 +187,9 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all palavraChaveAds of this model.
+   * Deletes all anuncioAds of this model.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id ValorConceito id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -197,10 +197,10 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deletePalavraChaveAds(id: any, customHeaders?: Function): Observable<any> {
+  public deleteAnuncioAds(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds";
+    "/ValorConceitos/:id/anuncioAds";
     let _routeParams: any = {
       id: id
     };
@@ -211,9 +211,9 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts palavraChaveAds of GanhoDorCanvasMySql.
+   * Counts anuncioAds of ValorConceito.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id ValorConceito id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -225,10 +225,10 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countPalavraChaveAds(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countAnuncioAds(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds/count";
+    "/ValorConceitos/:id/anuncioAds/count";
     let _routeParams: any = {
       id: id
     };
@@ -252,13 +252,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `ValorConceito` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls";
+    "/ValorConceitos";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -271,7 +271,7 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id ValorConceito id
    *
    * @param {object} data Request data.
    *
@@ -283,13 +283,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `ValorConceito` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id";
+    "/ValorConceitos/:id";
     let _routeParams: any = {
       id: id
     };
@@ -302,9 +302,9 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in palavraChaveAds of this model.
+   * Creates a new instance in anuncioAds of this model.
    *
-   * @param {any} id GanhoDorCanvasMySql id
+   * @param {any} id ValorConceito id
    *
    * @param {object} data Request data.
    *
@@ -316,13 +316,13 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `GanhoDorCanvasMySql` object.)
+   * This usually means the response is a `ValorConceito` object.)
    * </em>
    */
-  public createManyPalavraChaveAds(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyAnuncioAds(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/GanhoDorCanvasMySqls/:id/palavraChaveAds";
+    "/ValorConceitos/:id/anuncioAds";
     let _routeParams: any = {
       id: id
     };
@@ -336,9 +336,9 @@ export class GanhoDorCanvasMySqlApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `GanhoDorCanvasMySql`.
+   * i.e. `ValorConceito`.
    */
   public getModelName() {
-    return "GanhoDorCanvasMySql";
+    return "ValorConceito";
   }
 }

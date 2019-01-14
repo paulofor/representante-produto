@@ -7,6 +7,7 @@ declare var Object: any;
 export interface ItemValidacaoPaginaInterface {
   "id"?: number;
   "urlImagem"?: string;
+  "urlImagem2"?: string;
   "ordenacao"?: number;
   "titulo"?: string;
   "descricaoSimples"?: string;
@@ -14,14 +15,18 @@ export interface ItemValidacaoPaginaInterface {
   "bullet2"?: string;
   "bullet3"?: string;
   "mensagemImagem"?: string;
+  "permiteEdicao"?: number;
   "projetoCanvasMySqlId"?: number;
   "paginaValidacaoWebId"?: number;
+  "telaWebId"?: number;
+  "telaAppId"?: number;
   projetoCanvasMySql?: ProjetoCanvasMySql;
 }
 
 export class ItemValidacaoPagina implements ItemValidacaoPaginaInterface {
   "id": number;
   "urlImagem": string;
+  "urlImagem2": string;
   "ordenacao": number;
   "titulo": string;
   "descricaoSimples": string;
@@ -29,8 +34,11 @@ export class ItemValidacaoPagina implements ItemValidacaoPaginaInterface {
   "bullet2": string;
   "bullet3": string;
   "mensagemImagem": string;
+  "permiteEdicao": number;
   "projetoCanvasMySqlId": number;
   "paginaValidacaoWebId": number;
+  "telaWebId": number;
+  "telaAppId": number;
   projetoCanvasMySql: ProjetoCanvasMySql;
   constructor(data?: ItemValidacaoPaginaInterface) {
     Object.assign(this, data);
@@ -73,6 +81,10 @@ export class ItemValidacaoPagina implements ItemValidacaoPaginaInterface {
           name: 'urlImagem',
           type: 'string'
         },
+        "urlImagem2": {
+          name: 'urlImagem2',
+          type: 'string'
+        },
         "ordenacao": {
           name: 'ordenacao',
           type: 'number'
@@ -101,12 +113,24 @@ export class ItemValidacaoPagina implements ItemValidacaoPaginaInterface {
           name: 'mensagemImagem',
           type: 'string'
         },
+        "permiteEdicao": {
+          name: 'permiteEdicao',
+          type: 'number'
+        },
         "projetoCanvasMySqlId": {
           name: 'projetoCanvasMySqlId',
           type: 'number'
         },
         "paginaValidacaoWebId": {
           name: 'paginaValidacaoWebId',
+          type: 'number'
+        },
+        "telaWebId": {
+          name: 'telaWebId',
+          type: 'number'
+        },
+        "telaAppId": {
+          name: 'telaAppId',
           type: 'number'
         },
       },

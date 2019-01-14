@@ -9,19 +9,19 @@ import { LoopBackFilter,  } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ProjetoCanvasMySql } from '../../models/ProjetoCanvasMySql';
+import { ConceitoProduto } from '../../models/ConceitoProduto';
 import { SocketConnection } from '../../sockets/socket.connections';
-import { ProjetoMySql } from '../../models/ProjetoMySql';
-import { ItemValidacaoPagina } from '../../models/ItemValidacaoPagina';
-import { Receita } from '../../models/Receita';
-import { AnuncioAds } from '../../models/AnuncioAds';
+import { TelaApp } from '../../models/TelaApp';
+import { TelaWeb } from '../../models/TelaWeb';
+import { PaginaValidacaoWeb } from '../../models/PaginaValidacaoWeb';
+import { ValorConceito } from '../../models/ValorConceito';
 
 
 /**
- * Api services for the `ProjetoCanvasMySql` model.
+ * Api services for the `ConceitoProduto` model.
  */
 @Injectable()
-export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
+export class ConceitoProdutoApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -34,41 +34,11 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation projeto.
+   * Find a related item by id for telaApps.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
-   * </em>
-   */
-  public getProjeto(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/projeto";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Find a related item by id for itemValidacaoPaginas.
-   *
-   * @param {any} id ProjetoCanvasMySql id
-   *
-   * @param {any} fk Foreign key for itemValidacaoPaginas
+   * @param {any} fk Foreign key for telaApps
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -76,13 +46,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public findByIdItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdTelaApps(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/itemValidacaoPaginas/:fk";
+    "/ConceitoProdutos/:id/telaApps/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -94,11 +64,11 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for itemValidacaoPaginas.
+   * Delete a related item by id for telaApps.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
-   * @param {any} fk Foreign key for itemValidacaoPaginas
+   * @param {any} fk Foreign key for telaApps
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -106,10 +76,10 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdTelaApps(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/itemValidacaoPaginas/:fk";
+    "/ConceitoProdutos/:id/telaApps/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -121,11 +91,11 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for itemValidacaoPaginas.
+   * Update a related item by id for telaApps.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
-   * @param {any} fk Foreign key for itemValidacaoPaginas
+   * @param {any} fk Foreign key for telaApps
    *
    * @param {object} data Request data.
    *
@@ -137,13 +107,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public updateByIdItemValidacaoPaginas(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdTelaApps(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/itemValidacaoPaginas/:fk";
+    "/ConceitoProdutos/:id/telaApps/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -157,11 +127,11 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for receita.
+   * Find a related item by id for telaWebs.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
-   * @param {any} fk Foreign key for receita
+   * @param {any} fk Foreign key for telaWebs
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -169,13 +139,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public findByIdReceita(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdTelaWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/receita/:fk";
+    "/ConceitoProdutos/:id/telaWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -187,11 +157,11 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for receita.
+   * Delete a related item by id for telaWebs.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
-   * @param {any} fk Foreign key for receita
+   * @param {any} fk Foreign key for telaWebs
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -199,10 +169,10 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdReceita(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdTelaWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/receita/:fk";
+    "/ConceitoProdutos/:id/telaWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -214,11 +184,11 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for receita.
+   * Update a related item by id for telaWebs.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
-   * @param {any} fk Foreign key for receita
+   * @param {any} fk Foreign key for telaWebs
    *
    * @param {object} data Request data.
    *
@@ -230,13 +200,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public updateByIdReceita(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdTelaWebs(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/receita/:fk";
+    "/ConceitoProdutos/:id/telaWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -250,11 +220,11 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for anuncioAds.
+   * Find a related item by id for paginaValidacaoWebs.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
-   * @param {any} fk Foreign key for anuncioAds
+   * @param {any} fk Foreign key for paginaValidacaoWebs
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -262,13 +232,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public findByIdAnuncioAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdPaginaValidacaoWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/anuncioAds/:fk";
+    "/ConceitoProdutos/:id/paginaValidacaoWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -280,11 +250,11 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for anuncioAds.
+   * Delete a related item by id for paginaValidacaoWebs.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
-   * @param {any} fk Foreign key for anuncioAds
+   * @param {any} fk Foreign key for paginaValidacaoWebs
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -292,10 +262,10 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdAnuncioAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdPaginaValidacaoWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/anuncioAds/:fk";
+    "/ConceitoProdutos/:id/paginaValidacaoWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -307,11 +277,11 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for anuncioAds.
+   * Update a related item by id for paginaValidacaoWebs.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
-   * @param {any} fk Foreign key for anuncioAds
+   * @param {any} fk Foreign key for paginaValidacaoWebs
    *
    * @param {object} data Request data.
    *
@@ -323,13 +293,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public updateByIdAnuncioAds(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdPaginaValidacaoWebs(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/anuncioAds/:fk";
+    "/ConceitoProdutos/:id/paginaValidacaoWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -343,9 +313,102 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries itemValidacaoPaginas of ProjetoCanvasMySql.
+   * Find a related item by id for valorConceitos.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
+   *
+   * @param {any} fk Foreign key for valorConceitos
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `ConceitoProduto` object.)
+   * </em>
+   */
+  public findByIdValorConceitos(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/ConceitoProdutos/:id/valorConceitos/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Delete a related item by id for valorConceitos.
+   *
+   * @param {any} id ConceitoProduto id
+   *
+   * @param {any} fk Foreign key for valorConceitos
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public destroyByIdValorConceitos(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/ConceitoProdutos/:id/valorConceitos/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Update a related item by id for valorConceitos.
+   *
+   * @param {any} id ConceitoProduto id
+   *
+   * @param {any} fk Foreign key for valorConceitos
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `ConceitoProduto` object.)
+   * </em>
+   */
+  public updateByIdValorConceitos(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/ConceitoProdutos/:id/valorConceitos/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Queries telaApps of ConceitoProduto.
+   *
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} filter 
    *
@@ -355,13 +418,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public getItemValidacaoPaginas(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getTelaApps(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/itemValidacaoPaginas";
+    "/ConceitoProdutos/:id/telaApps";
     let _routeParams: any = {
       id: id
     };
@@ -373,9 +436,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in itemValidacaoPaginas of this model.
+   * Creates a new instance in telaApps of this model.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} data Request data.
    *
@@ -387,13 +450,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public createItemValidacaoPaginas(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createTelaApps(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/itemValidacaoPaginas";
+    "/ConceitoProdutos/:id/telaApps";
     let _routeParams: any = {
       id: id
     };
@@ -406,9 +469,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all itemValidacaoPaginas of this model.
+   * Deletes all telaApps of this model.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -416,10 +479,10 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteItemValidacaoPaginas(id: any, customHeaders?: Function): Observable<any> {
+  public deleteTelaApps(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/itemValidacaoPaginas";
+    "/ConceitoProdutos/:id/telaApps";
     let _routeParams: any = {
       id: id
     };
@@ -430,9 +493,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts itemValidacaoPaginas of ProjetoCanvasMySql.
+   * Counts telaApps of ConceitoProduto.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -444,10 +507,10 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countItemValidacaoPaginas(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countTelaApps(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/itemValidacaoPaginas/count";
+    "/ConceitoProdutos/:id/telaApps/count";
     let _routeParams: any = {
       id: id
     };
@@ -459,9 +522,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries receita of ProjetoCanvasMySql.
+   * Queries telaWebs of ConceitoProduto.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} filter 
    *
@@ -471,13 +534,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public getReceita(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getTelaWebs(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/receita";
+    "/ConceitoProdutos/:id/telaWebs";
     let _routeParams: any = {
       id: id
     };
@@ -489,9 +552,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in receita of this model.
+   * Creates a new instance in telaWebs of this model.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} data Request data.
    *
@@ -503,13 +566,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public createReceita(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createTelaWebs(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/receita";
+    "/ConceitoProdutos/:id/telaWebs";
     let _routeParams: any = {
       id: id
     };
@@ -522,9 +585,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all receita of this model.
+   * Deletes all telaWebs of this model.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -532,10 +595,10 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteReceita(id: any, customHeaders?: Function): Observable<any> {
+  public deleteTelaWebs(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/receita";
+    "/ConceitoProdutos/:id/telaWebs";
     let _routeParams: any = {
       id: id
     };
@@ -546,9 +609,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts receita of ProjetoCanvasMySql.
+   * Counts telaWebs of ConceitoProduto.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -560,10 +623,10 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countReceita(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countTelaWebs(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/receita/count";
+    "/ConceitoProdutos/:id/telaWebs/count";
     let _routeParams: any = {
       id: id
     };
@@ -575,9 +638,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries anuncioAds of ProjetoCanvasMySql.
+   * Queries paginaValidacaoWebs of ConceitoProduto.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} filter 
    *
@@ -587,13 +650,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public getAnuncioAds(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getPaginaValidacaoWebs(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/anuncioAds";
+    "/ConceitoProdutos/:id/paginaValidacaoWebs";
     let _routeParams: any = {
       id: id
     };
@@ -605,9 +668,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in anuncioAds of this model.
+   * Creates a new instance in paginaValidacaoWebs of this model.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} data Request data.
    *
@@ -619,13 +682,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public createAnuncioAds(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createPaginaValidacaoWebs(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/anuncioAds";
+    "/ConceitoProdutos/:id/paginaValidacaoWebs";
     let _routeParams: any = {
       id: id
     };
@@ -638,9 +701,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all anuncioAds of this model.
+   * Deletes all paginaValidacaoWebs of this model.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -648,10 +711,10 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteAnuncioAds(id: any, customHeaders?: Function): Observable<any> {
+  public deletePaginaValidacaoWebs(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/anuncioAds";
+    "/ConceitoProdutos/:id/paginaValidacaoWebs";
     let _routeParams: any = {
       id: id
     };
@@ -662,9 +725,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts anuncioAds of ProjetoCanvasMySql.
+   * Counts paginaValidacaoWebs of ConceitoProduto.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -676,10 +739,126 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countAnuncioAds(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countPaginaValidacaoWebs(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/anuncioAds/count";
+    "/ConceitoProdutos/:id/paginaValidacaoWebs/count";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Queries valorConceitos of ConceitoProduto.
+   *
+   * @param {any} id ConceitoProduto id
+   *
+   * @param {object} filter 
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `ConceitoProduto` object.)
+   * </em>
+   */
+  public getValorConceitos(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/ConceitoProdutos/:id/valorConceitos";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in valorConceitos of this model.
+   *
+   * @param {any} id ConceitoProduto id
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `ConceitoProduto` object.)
+   * </em>
+   */
+  public createValorConceitos(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/ConceitoProdutos/:id/valorConceitos";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Deletes all valorConceitos of this model.
+   *
+   * @param {any} id ConceitoProduto id
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public deleteValorConceitos(id: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/ConceitoProdutos/:id/valorConceitos";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Counts valorConceitos of ConceitoProduto.
+   *
+   * @param {any} id ConceitoProduto id
+   *
+   * @param {object} where Criteria to match model instances
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * Data properties:
+   *
+   *  - `count` – `{number}` - 
+   */
+  public countValorConceitos(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/ConceitoProdutos/:id/valorConceitos/count";
     let _routeParams: any = {
       id: id
     };
@@ -703,13 +882,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls";
+    "/ConceitoProdutos";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -722,7 +901,7 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} data Request data.
    *
@@ -734,13 +913,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id";
+    "/ConceitoProdutos/:id";
     let _routeParams: any = {
       id: id
     };
@@ -753,140 +932,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for projetoCanvasMySqls.
+   * Retorna o conceito de produto ativo e a lista de todos de um projeto
    *
-   * @param {any} id ProjetoCanvasMySql id
-   *
-   * @param {any} fk Foreign key for projetoCanvasMySqls
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
-   * </em>
-   */
-  public findByIdProjetoProjetoCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/projeto/projetoCanvasMySqls/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Update a related item by id for projetoCanvasMySqls.
-   *
-   * @param {any} id ProjetoCanvasMySql id
-   *
-   * @param {any} fk Foreign key for projetoCanvasMySqls
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
-   * </em>
-   */
-  public updateByIdProjetoProjetoCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "PUT";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/projeto/projetoCanvasMySqls/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Queries projetoCanvasMySqls of ProjetoMySql.
-   *
-   * @param {any} id ProjetoCanvasMySql id
-   *
-   * @param {object} filter 
-   *
-   * @returns {object[]} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
-   * </em>
-   */
-  public getProjetoProjetoCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/projeto/projetoCanvasMySqls";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Creates a new instance in projetoCanvasMySqls of this model.
-   *
-   * @param {any} id ProjetoCanvasMySql id
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
-   * </em>
-   */
-  public createProjetoProjetoCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/projeto/projetoCanvasMySqls";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Counts projetoCanvasMySqls of ProjetoMySql.
-   *
-   * @param {any} id ProjetoCanvasMySql id
-   *
-   * @param {object} where Criteria to match model instances
+   * @param {number} idProjeto 
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -894,30 +942,28 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * Data properties:
    *
-   *  - `count` – `{number}` - 
+   *  - `ativo` – `{object}` - 
+   *
+   *  - `listaConceito` – `{any}` - 
    */
-  public countProjetoProjetoCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public AtivoComListaPorProjeto(idProjeto: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/projeto/projetoCanvasMySqls/count";
-    let _routeParams: any = {
-      id: id
-    };
+    "/ConceitoProdutos/ativoComListaPorProjeto";
+    let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
-    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
+    if (typeof idProjeto !== 'undefined' && idProjeto !== null) _urlParams.idProjeto = idProjeto;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
 
   /**
-   * Fetches belongsTo relation projetoCanvasMySql.
+   * Criando um novo, colocando como ativo e alterando os demais.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {object} data Request data.
    *
-   * @param {any} nk Foreign key for itemValidacaoPaginas.
-   *
-   * @param {boolean} refresh 
+   *  - `conceitoProduto` – `{object}` - 
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -925,32 +971,25 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public getItemValidacaoPaginasProjetoCanvasMySql(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
+  public CriaConceitoProduto(conceitoProduto: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/itemValidacaoPaginas/:nk/projetoCanvasMySql";
-    let _routeParams: any = {
-      id: id,
-      nk: nk
-    };
+    "/ConceitoProdutos/criaConceitoProduto";
+    let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    if (typeof conceitoProduto !== 'undefined' && conceitoProduto !== null) _urlParams.conceitoProduto = conceitoProduto;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
 
   /**
-   * Fetches belongsTo relation projetoCanvasMySql.
+   * Retorna o conceito ativo do projeto dado como entrada (id)
    *
-   * @param {any} id ProjetoCanvasMySql id
-   *
-   * @param {any} nk Foreign key for anuncioAds.
-   *
-   * @param {boolean} refresh 
+   * @param {number} idProjeto 
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -958,28 +997,25 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public getAnuncioAdsProjetoCanvasMySql(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public AtivoPorProjeto(idProjeto: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/anuncioAds/:nk/projetoCanvasMySql";
-    let _routeParams: any = {
-      id: id,
-      nk: nk
-    };
+    "/ConceitoProdutos/ativoPorProjeto";
+    let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    if (typeof idProjeto !== 'undefined' && idProjeto !== null) _urlParams.idProjeto = idProjeto;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
 
   /**
-   * Creates a new instance in itemValidacaoPaginas of this model.
+   * Creates a new instance in telaApps of this model.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} data Request data.
    *
@@ -991,13 +1027,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public createManyItemValidacaoPaginas(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyTelaApps(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/itemValidacaoPaginas";
+    "/ConceitoProdutos/:id/telaApps";
     let _routeParams: any = {
       id: id
     };
@@ -1010,9 +1046,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in receita of this model.
+   * Creates a new instance in telaWebs of this model.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} data Request data.
    *
@@ -1024,13 +1060,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public createManyReceita(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyTelaWebs(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/receita";
+    "/ConceitoProdutos/:id/telaWebs";
     let _routeParams: any = {
       id: id
     };
@@ -1043,9 +1079,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in anuncioAds of this model.
+   * Creates a new instance in paginaValidacaoWebs of this model.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} data Request data.
    *
@@ -1057,13 +1093,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public createManyAnuncioAds(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyPaginaValidacaoWebs(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/anuncioAds";
+    "/ConceitoProdutos/:id/paginaValidacaoWebs";
     let _routeParams: any = {
       id: id
     };
@@ -1076,9 +1112,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in projetoCanvasMySqls of this model.
+   * Creates a new instance in valorConceitos of this model.
    *
-   * @param {any} id ProjetoCanvasMySql id
+   * @param {any} id ConceitoProduto id
    *
    * @param {object} data Request data.
    *
@@ -1090,13 +1126,13 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProjetoCanvasMySql` object.)
+   * This usually means the response is a `ConceitoProduto` object.)
    * </em>
    */
-  public createManyProjetoProjetoCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyValorConceitos(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProjetoCanvasMySqls/:id/projeto/projetoCanvasMySqls";
+    "/ConceitoProdutos/:id/valorConceitos";
     let _routeParams: any = {
       id: id
     };
@@ -1110,9 +1146,9 @@ export class ProjetoCanvasMySqlApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `ProjetoCanvasMySql`.
+   * i.e. `ConceitoProduto`.
    */
   public getModelName() {
-    return "ProjetoCanvasMySql";
+    return "ConceitoProduto";
   }
 }

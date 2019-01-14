@@ -2,7 +2,9 @@
 import {
   ProjetoMySql,
   ItemValidacaoPagina,
-  RegistroInteresse
+  RegistroInteresse,
+  CampanhaAds,
+  ConceitoProduto
 } from '../index';
 
 declare var Object: any;
@@ -15,10 +17,14 @@ export interface PaginaValidacaoWebInterface {
   "corBase"?: string;
   "marcaLogo"?: string;
   "codigoHash"?: string;
+  "permiteEdicao"?: number;
   "projetoMySqlId"?: number;
+  "conceitoProdutoId"?: number;
   projeto?: ProjetoMySql;
   itemValidacaoPaginas?: ItemValidacaoPagina[];
   registroInteresses?: RegistroInteresse[];
+  campanhaAds?: CampanhaAds[];
+  conceitoProduto?: ConceitoProduto;
 }
 
 export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
@@ -30,10 +36,14 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
   "corBase": string;
   "marcaLogo": string;
   "codigoHash": string;
+  "permiteEdicao": number;
   "projetoMySqlId": number;
+  "conceitoProdutoId": number;
   projeto: ProjetoMySql;
   itemValidacaoPaginas: ItemValidacaoPagina[];
   registroInteresses: RegistroInteresse[];
+  campanhaAds: CampanhaAds[];
+  conceitoProduto: ConceitoProduto;
   constructor(data?: PaginaValidacaoWebInterface) {
     Object.assign(this, data);
   }
@@ -99,8 +109,16 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
           name: 'codigoHash',
           type: 'string'
         },
+        "permiteEdicao": {
+          name: 'permiteEdicao',
+          type: 'number'
+        },
         "projetoMySqlId": {
           name: 'projetoMySqlId',
+          type: 'number'
+        },
+        "conceitoProdutoId": {
+          name: 'conceitoProdutoId',
           type: 'number'
         },
       },
@@ -128,6 +146,22 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
           relationType: 'hasMany',
                   keyFrom: 'id',
           keyTo: 'paginaValidacaoWebId'
+        },
+        campanhaAds: {
+          name: 'campanhaAds',
+          type: 'CampanhaAds[]',
+          model: 'CampanhaAds',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'paginaValidacaoWebId'
+        },
+        conceitoProduto: {
+          name: 'conceitoProduto',
+          type: 'ConceitoProduto',
+          model: 'ConceitoProduto',
+          relationType: 'belongsTo',
+                  keyFrom: 'conceitoProdutoId',
+          keyTo: 'id'
         },
       }
     }

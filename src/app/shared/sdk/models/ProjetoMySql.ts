@@ -3,7 +3,9 @@ import {
   ProjetoCanvasMySql,
   MvpCanvasMySql,
   GanhoDorCanvasMySql,
-  PaginaValidacaoWeb
+  PaginaValidacaoWeb,
+  EtapaProjeto,
+  ConceitoProduto
 } from '../index';
 
 declare var Object: any;
@@ -13,10 +15,14 @@ export interface ProjetoMySqlInterface {
   "valor"?: string;
   "mercado"?: string;
   "dor"?: string;
+  "codigo"?: string;
+  "etapaProjetoId"?: number;
   projetoCanvasMySqls?: ProjetoCanvasMySql[];
   mvpCanvasMySqls?: MvpCanvasMySql[];
   ganhoDorCanvasMySqls?: GanhoDorCanvasMySql[];
   paginaValidacaoWebs?: PaginaValidacaoWeb[];
+  etapaProjeto?: EtapaProjeto;
+  conceitoProdutos?: ConceitoProduto[];
 }
 
 export class ProjetoMySql implements ProjetoMySqlInterface {
@@ -25,10 +31,14 @@ export class ProjetoMySql implements ProjetoMySqlInterface {
   "valor": string;
   "mercado": string;
   "dor": string;
+  "codigo": string;
+  "etapaProjetoId": number;
   projetoCanvasMySqls: ProjetoCanvasMySql[];
   mvpCanvasMySqls: MvpCanvasMySql[];
   ganhoDorCanvasMySqls: GanhoDorCanvasMySql[];
   paginaValidacaoWebs: PaginaValidacaoWeb[];
+  etapaProjeto: EtapaProjeto;
+  conceitoProdutos: ConceitoProduto[];
   constructor(data?: ProjetoMySqlInterface) {
     Object.assign(this, data);
   }
@@ -82,6 +92,14 @@ export class ProjetoMySql implements ProjetoMySqlInterface {
           name: 'dor',
           type: 'string'
         },
+        "codigo": {
+          name: 'codigo',
+          type: 'string'
+        },
+        "etapaProjetoId": {
+          name: 'etapaProjetoId',
+          type: 'number'
+        },
       },
       relations: {
         projetoCanvasMySqls: {
@@ -112,6 +130,22 @@ export class ProjetoMySql implements ProjetoMySqlInterface {
           name: 'paginaValidacaoWebs',
           type: 'PaginaValidacaoWeb[]',
           model: 'PaginaValidacaoWeb',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'projetoMySqlId'
+        },
+        etapaProjeto: {
+          name: 'etapaProjeto',
+          type: 'EtapaProjeto',
+          model: 'EtapaProjeto',
+          relationType: 'belongsTo',
+                  keyFrom: 'etapaProjetoId',
+          keyTo: 'id'
+        },
+        conceitoProdutos: {
+          name: 'conceitoProdutos',
+          type: 'ConceitoProduto[]',
+          model: 'ConceitoProduto',
           relationType: 'hasMany',
                   keyFrom: 'id',
           keyTo: 'projetoMySqlId'
