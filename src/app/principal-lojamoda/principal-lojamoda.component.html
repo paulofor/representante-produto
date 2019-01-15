@@ -56,11 +56,17 @@
   <!--/ banner-->
 
   <div *ngFor="let item of pagina.itemValidacaoPaginas; let odd = odd; let even = even">
-    <div *ngIf="odd">
+    <div *ngIf="odd && !item.urlImagem2">
       <app-vantagem-produto-esquerda [itemPagina]="item"></app-vantagem-produto-esquerda>
     </div>
-    <div *ngIf="even">
+    <div *ngIf="even && !item.urlImagem2">
       <app-vantagem-produto-direita [itemPagina]="item"></app-vantagem-produto-direita>
+    </div>
+    <div *ngIf="odd && item.urlImagem2">
+      <app-vantagem-produto-esquerda-app [itemPagina]="item"></app-vantagem-produto-esquerda-app>
+    </div>
+    <div *ngIf="even && item.urlImagem2">
+      <app-vantagem-produto-direita-app [itemPagina]="item"></app-vantagem-produto-direita-app>
     </div>
   </div>
 

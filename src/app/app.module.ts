@@ -18,6 +18,8 @@ import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { DummyWorkComponent } from './dummy-work/dummy-work.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { VantagemProdutoDireitaAppComponent } from './vantagem-produto-direita-app/vantagem-produto-direita-app.component';
+import { VantagemProdutoEsquerdaAppComponent } from './vantagem-produto-esquerda-app/vantagem-produto-esquerda-app.component';
 
 
 // dummy funciona perfeitamente bem.
@@ -42,7 +44,9 @@ const appRoutes: Routes = [
     ItemDummyComponent,
     FormComponent,
     DummyWorkComponent,
-    PaginaNaoEncontradaComponent
+    PaginaNaoEncontradaComponent,
+    VantagemProdutoDireitaAppComponent,
+    VantagemProdutoEsquerdaAppComponent
   ],
   imports: [
     BrowserModule,
