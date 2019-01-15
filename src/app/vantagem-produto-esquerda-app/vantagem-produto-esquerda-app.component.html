@@ -1,3 +1,30 @@
-<p>
-  vantagem-produto-esquerda-app works!
-</p>
+<!--==========================
+    Imagem na Esquerda
+============================-->
+<section id="item{{itemPagina.id}}" class="aboutid section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 about-img" align="center" valign="center">
+        <img style="max-height: 300px" src="{{itemPagina.urlImagem}}" alt="">
+      </div>
+      <div class="col-lg-3 about-img" align="center" valign="center">
+        <img style="max-height: 300px" src="{{itemPagina.urlImagem2}}" alt="">
+      </div>
+
+      <div class="col-lg-4 content" valign="center">
+        <h2>{{itemPagina.titulo}}</h2>
+        <h3>{{itemPagina.descricaoSimples}}</h3>
+
+        <ul>
+          <li>
+            <i class="ion-android-checkmark-circle"></i> {{itemPagina.bullet1}} </li>
+          <li>
+            <i class="ion-android-checkmark-circle"></i> {{itemPagina.bullet2}} </li>
+          <li>
+            <i class="ion-android-checkmark-circle"></i> {{itemPagina.bullet3}} </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
