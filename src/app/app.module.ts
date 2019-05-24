@@ -20,6 +20,7 @@ import { DummyWorkComponent } from './dummy-work/dummy-work.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { VantagemProdutoDireitaAppComponent } from './vantagem-produto-direita-app/vantagem-produto-direita-app.component';
 import { VantagemProdutoEsquerdaAppComponent } from './vantagem-produto-esquerda-app/vantagem-produto-esquerda-app.component';
+import { InstalacaoAppComponent } from './instalacao-app/instalacao-app.component';
 
 
 // dummy funciona perfeitamente bem.
@@ -27,6 +28,7 @@ import { VantagemProdutoEsquerdaAppComponent } from './vantagem-produto-esquerda
 
 const appRoutes: Routes = [
   { path: '', component: PrincipalLojamodaComponent } ,
+  { path: 'inst/:id' , component : InstalacaoAppComponent } ,
   { path: 'dummy', component: ItemDummyComponent }, 
   { path: 'work', component: DummyWorkComponent },
   { path: 'display/:id' , component: PrincipalLojamodaComponent },
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     DummyWorkComponent,
     PaginaNaoEncontradaComponent,
     VantagemProdutoDireitaAppComponent,
-    VantagemProdutoEsquerdaAppComponent
+    VantagemProdutoEsquerdaAppComponent,
+    InstalacaoAppComponent
   ],
   imports: [
     BrowserModule,

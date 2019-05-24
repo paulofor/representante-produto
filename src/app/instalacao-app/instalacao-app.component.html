@@ -1,0 +1,95 @@
+<!-- inicio app-root -->
+<!--banner-->
+<div *ngIf="pagina">
+  <section id="banner" class="banner" [ngStyle]="{'background-image': 'url(' + pagina.imagemFundo + ')'}">
+    <div class="bg-color">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="col-md-12">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <img src="assets/img/logo1.gif" class="img-responsive" style="width: 140px; margin-top: -6px;">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li class="active">
+                  <a href="#banner">Início</a>
+                </li>
+                <!--  Menu  -->
+                <li *ngFor="let item of pagina.itemValidacaoPaginas" class="">
+                  <a href="#item{{item.id}}">{{ item.titulo }}</a>
+                </li>
+                <!--       -->
+                <li class="">
+                  <a href="#contact">Solicitar Acesso</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <div class="banner-info">
+            
+            <div class="banner-text text-center">
+              <h1 class="white">{{ pagina.mensagemPrincipal }}</h1>
+              <p>{{ pagina.mensagemSecundaria }}</p>
+              <a href="#contact" class="btn btn-appoint">{{ pagina.botaoAcao }}</a>
+            </div>
+            <div class="overlay-detail text-center">
+              <a href="#service">
+                <i class="fa fa-angle-down"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ banner-->
+
+  <div *ngFor="let item of pagina.itemValidacaoPaginas; let odd = odd; let even = even">
+    <div *ngIf="odd && !item.urlImagem2">
+      <app-vantagem-produto-esquerda [itemPagina]="item"></app-vantagem-produto-esquerda>
+    </div>
+    <div *ngIf="even && !item.urlImagem2">
+      <app-vantagem-produto-direita [itemPagina]="item"></app-vantagem-produto-direita>
+    </div>
+    <div *ngIf="odd && item.urlImagem2">
+      <app-vantagem-produto-esquerda-app [itemPagina]="item"></app-vantagem-produto-esquerda-app>
+    </div>
+    <div *ngIf="even && item.urlImagem2">
+      <app-vantagem-produto-direita-app [itemPagina]="item"></app-vantagem-produto-direita-app>
+    </div>
+  </div>
+
+  <div *ngIf="visitanteCorrente" style="height: 400px">
+  <app-form [visitante]="visitanteCorrente"></app-form>
+  </div>
+
+  <!--footer-->
+  <footer id="footer">
+    <div class="footer-line"  [ngStyle]="{'background-color': 'rgba('+cor+')'}" >
+      <div class="container" >
+        <div class="row">
+          <div class="col-md-12 text-center">
+            Criado por Digicom Comunicação Digital - 2018
+            <div class="credits">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/ footer-->
+
+  
+</div>
+<!-- final app-root -->

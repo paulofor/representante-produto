@@ -1,23 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { PaginaValidacaoWebApi, VisitanteApi, Visitante } from '../shared/sdk';
-import { PaginaValidacaoWeb } from 'src/app/shared/sdk/models';
+import { PaginaValidacaoWeb, PaginaValidacaoWebApi, VisitanteApi, Visitante } from 'src/app/shared/sdk';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { ParamMap } from '@angular/router';
 import { Params } from '@angular/router';
 
 declare var $: any
 
 @Component({
-  selector: 'app-principal-lojamoda',
-  templateUrl: './principal-lojamoda.component.html',
-  styleUrls: ['./principal-lojamoda.component.css']
+  selector: 'app-instalacao-app',
+  templateUrl: './instalacao-app.component.html',
+  styleUrls: ['./instalacao-app.component.css']
 })
-
-
-export class PrincipalLojamodaComponent implements OnInit {
+export class InstalacaoAppComponent implements OnInit {
 
   consulta = { "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
 
@@ -67,28 +61,19 @@ export class PrincipalLojamodaComponent implements OnInit {
       })
   }
 
+
+
+
   carregaPagina() {
     this.route.params.subscribe((params: Params) => {
-      let id = this.route.snapshot.queryParams['id'];
-      console.log('id: ', id);
-      if (!id) {
-        let inst = this.route.snapshot.queryParams['inst'];
-        console.log('inst:' , inst);
-        if (inst) {
-          this.router.navigate(['/inst/' + inst]);
-        } else {
-          this.router.navigate(['/home']);
-        }
-      } else {
-        console.log('Id: ', id);
-        let filtro = {"where" : {"codigoHash":id} , "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
-        this.srv.findOne(filtro)
-          .subscribe((paginaResult: PaginaValidacaoWeb) => {
-            this.pagina = paginaResult;
-            this.trataCookie();
-            this.chamaLoader();
-          })
-      }
+      let id = params['id'];
+      let filtro = { "where": { "codigoHash": id }, "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
+      this.srv.findOne(filtro)
+        .subscribe((paginaResult: PaginaValidacaoWeb) => {
+          this.pagina = paginaResult;
+          this.trataCookie();
+          this.chamaLoader();
+        })
     });
   }
 
@@ -96,5 +81,6 @@ export class PrincipalLojamodaComponent implements OnInit {
   chamaLoader() {
     $.getScript('assets-medilab/js/custom.js');
   }
+
 
 }
