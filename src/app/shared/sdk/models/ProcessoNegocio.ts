@@ -1,18 +1,32 @@
 /* tslint:disable */
+import {
+  PlanoExecucao,
+  ProcessoNegocioEtapaProjeto
+} from '../index';
 
 declare var Object: any;
 export interface ProcessoNegocioInterface {
   "nome"?: string;
   "descricao"?: string;
   "url"?: string;
+  "permiteEditar"?: number;
+  "ativo"?: number;
+  "codigo"?: string;
   "id"?: number;
+  planoExecucaos?: PlanoExecucao[];
+  processoNegocioEtapaProjetos?: ProcessoNegocioEtapaProjeto;
 }
 
 export class ProcessoNegocio implements ProcessoNegocioInterface {
   "nome": string;
   "descricao": string;
   "url": string;
+  "permiteEditar": number;
+  "ativo": number;
+  "codigo": string;
   "id": number;
+  planoExecucaos: PlanoExecucao[];
+  processoNegocioEtapaProjetos: ProcessoNegocioEtapaProjeto;
   constructor(data?: ProcessoNegocioInterface) {
     Object.assign(this, data);
   }
@@ -58,12 +72,40 @@ export class ProcessoNegocio implements ProcessoNegocioInterface {
           name: 'url',
           type: 'string'
         },
+        "permiteEditar": {
+          name: 'permiteEditar',
+          type: 'number'
+        },
+        "ativo": {
+          name: 'ativo',
+          type: 'number'
+        },
+        "codigo": {
+          name: 'codigo',
+          type: 'string'
+        },
         "id": {
           name: 'id',
           type: 'number'
         },
       },
       relations: {
+        planoExecucaos: {
+          name: 'planoExecucaos',
+          type: 'PlanoExecucao[]',
+          model: 'PlanoExecucao',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'processoNegocioId'
+        },
+        processoNegocioEtapaProjetos: {
+          name: 'processoNegocioEtapaProjetos',
+          type: 'ProcessoNegocioEtapaProjeto',
+          model: 'ProcessoNegocioEtapaProjeto',
+          relationType: 'hasOne',
+                  keyFrom: 'id',
+          keyTo: 'processoNegocioId'
+        },
       }
     }
   }

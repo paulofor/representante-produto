@@ -11,6 +11,11 @@ export interface CampanhaPalavraChaveResultadoInterface {
   "quantidadeImpressao"?: number;
   "quantidadeClique"?: number;
   "custo"?: number;
+  "ctr"?: number;
+  "cpcMedio"?: number;
+  "conversao"?: number;
+  "custoConversao"?: number;
+  "taxaConversao"?: number;
   "id"?: number;
   "palavraChaveAdsId"?: number;
   "campanhaAdsId"?: number;
@@ -25,6 +30,11 @@ export class CampanhaPalavraChaveResultado implements CampanhaPalavraChaveResult
   "quantidadeImpressao": number;
   "quantidadeClique": number;
   "custo": number;
+  "ctr": number;
+  "cpcMedio": number;
+  "conversao": number;
+  "custoConversao": number;
+  "taxaConversao": number;
   "id": number;
   "palavraChaveAdsId": number;
   "campanhaAdsId": number;
@@ -79,6 +89,26 @@ export class CampanhaPalavraChaveResultado implements CampanhaPalavraChaveResult
         },
         "custo": {
           name: 'custo',
+          type: 'number'
+        },
+        "ctr": {
+          name: 'ctr',
+          type: 'number'
+        },
+        "cpcMedio": {
+          name: 'cpcMedio',
+          type: 'number'
+        },
+        "conversao": {
+          name: 'conversao',
+          type: 'number'
+        },
+        "custoConversao": {
+          name: 'custoConversao',
+          type: 'number'
+        },
+        "taxaConversao": {
+          name: 'taxaConversao',
           type: 'number'
         },
         "id": {

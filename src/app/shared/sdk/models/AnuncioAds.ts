@@ -12,6 +12,13 @@ export interface AnuncioAdsInterface {
   "descricao1"?: string;
   "descricao2"?: string;
   "permiteEdicao"?: number;
+  "mediaImpressao"?: number;
+  "desvioImpressao"?: number;
+  "mediaCtr"?: number;
+  "desvioCtr"?: number;
+  "mediaConversao"?: number;
+  "desvioConversao"?: number;
+  "ocorrencias"?: number;
   "projetoCanvasMySqlId"?: number;
   "valorConceitoId"?: number;
   projetoCanvasMySql?: ProjetoCanvasMySql;
@@ -25,6 +32,13 @@ export class AnuncioAds implements AnuncioAdsInterface {
   "descricao1": string;
   "descricao2": string;
   "permiteEdicao": number;
+  "mediaImpressao": number;
+  "desvioImpressao": number;
+  "mediaCtr": number;
+  "desvioCtr": number;
+  "mediaConversao": number;
+  "desvioConversao": number;
+  "ocorrencias": number;
   "projetoCanvasMySqlId": number;
   "valorConceitoId": number;
   projetoCanvasMySql: ProjetoCanvasMySql;
@@ -87,6 +101,34 @@ export class AnuncioAds implements AnuncioAdsInterface {
         },
         "permiteEdicao": {
           name: 'permiteEdicao',
+          type: 'number'
+        },
+        "mediaImpressao": {
+          name: 'mediaImpressao',
+          type: 'number'
+        },
+        "desvioImpressao": {
+          name: 'desvioImpressao',
+          type: 'number'
+        },
+        "mediaCtr": {
+          name: 'mediaCtr',
+          type: 'number'
+        },
+        "desvioCtr": {
+          name: 'desvioCtr',
+          type: 'number'
+        },
+        "mediaConversao": {
+          name: 'mediaConversao',
+          type: 'number'
+        },
+        "desvioConversao": {
+          name: 'desvioConversao',
+          type: 'number'
+        },
+        "ocorrencias": {
+          name: 'ocorrencias',
           type: 'number'
         },
         "projetoCanvasMySqlId": {

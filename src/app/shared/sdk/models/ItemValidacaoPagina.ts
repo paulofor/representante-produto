@@ -17,9 +17,12 @@ export interface ItemValidacaoPaginaInterface {
   "mensagemImagem"?: string;
   "permiteEdicao"?: number;
   "projetoCanvasMySqlId"?: number;
+  "projetoMySqlId"?: number;
   "paginaValidacaoWebId"?: number;
   "telaWebId"?: number;
   "telaAppId"?: number;
+  "conceitoProdutoId"?: number;
+  "paginaInstalacaoAppId"?: number;
   projetoCanvasMySql?: ProjetoCanvasMySql;
 }
 
@@ -36,9 +39,12 @@ export class ItemValidacaoPagina implements ItemValidacaoPaginaInterface {
   "mensagemImagem": string;
   "permiteEdicao": number;
   "projetoCanvasMySqlId": number;
+  "projetoMySqlId": number;
   "paginaValidacaoWebId": number;
   "telaWebId": number;
   "telaAppId": number;
+  "conceitoProdutoId": number;
+  "paginaInstalacaoAppId": number;
   projetoCanvasMySql: ProjetoCanvasMySql;
   constructor(data?: ItemValidacaoPaginaInterface) {
     Object.assign(this, data);
@@ -121,6 +127,10 @@ export class ItemValidacaoPagina implements ItemValidacaoPaginaInterface {
           name: 'projetoCanvasMySqlId',
           type: 'number'
         },
+        "projetoMySqlId": {
+          name: 'projetoMySqlId',
+          type: 'number'
+        },
         "paginaValidacaoWebId": {
           name: 'paginaValidacaoWebId',
           type: 'number'
@@ -131,6 +141,14 @@ export class ItemValidacaoPagina implements ItemValidacaoPaginaInterface {
         },
         "telaAppId": {
           name: 'telaAppId',
+          type: 'number'
+        },
+        "conceitoProdutoId": {
+          name: 'conceitoProdutoId',
+          type: 'number'
+        },
+        "paginaInstalacaoAppId": {
+          name: 'paginaInstalacaoAppId',
           type: 'number'
         },
       },

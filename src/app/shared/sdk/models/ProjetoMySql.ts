@@ -4,6 +4,8 @@ import {
   MvpCanvasMySql,
   GanhoDorCanvasMySql,
   PaginaValidacaoWeb,
+  ItemValidacaoPagina,
+  Aplicacao,
   EtapaProjeto,
   ConceitoProduto
 } from '../index';
@@ -16,11 +18,19 @@ export interface ProjetoMySqlInterface {
   "mercado"?: string;
   "dor"?: string;
   "codigo"?: string;
+  "custoCampanha"?: number;
+  "quantidadeCampanha"?: number;
+  "tempoTotal"?: Date;
+  "quantidadeAnuncio"?: number;
+  "quantidadeCampanhaAberta"?: number;
+  "quantidadePalavraChave"?: number;
   "etapaProjetoId"?: number;
   projetoCanvasMySqls?: ProjetoCanvasMySql[];
   mvpCanvasMySqls?: MvpCanvasMySql[];
   ganhoDorCanvasMySqls?: GanhoDorCanvasMySql[];
   paginaValidacaoWebs?: PaginaValidacaoWeb[];
+  itemValidacaoPaginas?: ItemValidacaoPagina[];
+  aplicacaos?: Aplicacao[];
   etapaProjeto?: EtapaProjeto;
   conceitoProdutos?: ConceitoProduto[];
 }
@@ -32,11 +42,19 @@ export class ProjetoMySql implements ProjetoMySqlInterface {
   "mercado": string;
   "dor": string;
   "codigo": string;
+  "custoCampanha": number;
+  "quantidadeCampanha": number;
+  "tempoTotal": Date;
+  "quantidadeAnuncio": number;
+  "quantidadeCampanhaAberta": number;
+  "quantidadePalavraChave": number;
   "etapaProjetoId": number;
   projetoCanvasMySqls: ProjetoCanvasMySql[];
   mvpCanvasMySqls: MvpCanvasMySql[];
   ganhoDorCanvasMySqls: GanhoDorCanvasMySql[];
   paginaValidacaoWebs: PaginaValidacaoWeb[];
+  itemValidacaoPaginas: ItemValidacaoPagina[];
+  aplicacaos: Aplicacao[];
   etapaProjeto: EtapaProjeto;
   conceitoProdutos: ConceitoProduto[];
   constructor(data?: ProjetoMySqlInterface) {
@@ -96,6 +114,30 @@ export class ProjetoMySql implements ProjetoMySqlInterface {
           name: 'codigo',
           type: 'string'
         },
+        "custoCampanha": {
+          name: 'custoCampanha',
+          type: 'number'
+        },
+        "quantidadeCampanha": {
+          name: 'quantidadeCampanha',
+          type: 'number'
+        },
+        "tempoTotal": {
+          name: 'tempoTotal',
+          type: 'Date'
+        },
+        "quantidadeAnuncio": {
+          name: 'quantidadeAnuncio',
+          type: 'number'
+        },
+        "quantidadeCampanhaAberta": {
+          name: 'quantidadeCampanhaAberta',
+          type: 'number'
+        },
+        "quantidadePalavraChave": {
+          name: 'quantidadePalavraChave',
+          type: 'number'
+        },
         "etapaProjetoId": {
           name: 'etapaProjetoId',
           type: 'number'
@@ -130,6 +172,22 @@ export class ProjetoMySql implements ProjetoMySqlInterface {
           name: 'paginaValidacaoWebs',
           type: 'PaginaValidacaoWeb[]',
           model: 'PaginaValidacaoWeb',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'projetoMySqlId'
+        },
+        itemValidacaoPaginas: {
+          name: 'itemValidacaoPaginas',
+          type: 'ItemValidacaoPagina[]',
+          model: 'ItemValidacaoPagina',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'projetoMySqlId'
+        },
+        aplicacaos: {
+          name: 'aplicacaos',
+          type: 'Aplicacao[]',
+          model: 'Aplicacao',
           relationType: 'hasMany',
                   keyFrom: 'id',
           keyTo: 'projetoMySqlId'

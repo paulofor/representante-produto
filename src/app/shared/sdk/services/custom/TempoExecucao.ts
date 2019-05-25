@@ -9,17 +9,21 @@ import { LoopBackFilter,  } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PalavraGoogleProjeto } from '../../models/PalavraGoogleProjeto';
+import { TempoExecucao } from '../../models/TempoExecucao';
 import { SocketConnection } from '../../sockets/socket.connections';
-import { PalavraChaveGoogle } from '../../models/PalavraChaveGoogle';
 import { ProjetoMySql } from '../../models/ProjetoMySql';
+import { Semana } from '../../models/Semana';
+import { ProcessoNegocio } from '../../models/ProcessoNegocio';
+import { PlanoExecucao } from '../../models/PlanoExecucao';
+import { DiaSemana } from '../../models/DiaSemana';
+import { Contexto } from '../../models/Contexto';
 
 
 /**
- * Api services for the `PalavraGoogleProjeto` model.
+ * Api services for the `TempoExecucao` model.
  */
 @Injectable()
-export class PalavraGoogleProjetoApi extends BaseLoopBackApi {
+export class TempoExecucaoApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -32,9 +36,9 @@ export class PalavraGoogleProjetoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation palavraChaveGoogle.
+   * Fetches belongsTo relation projetoMySql.
    *
-   * @param {any} id PalavraGoogleProjeto id
+   * @param {any} id TempoExecucao id
    *
    * @param {boolean} refresh 
    *
@@ -44,13 +48,13 @@ export class PalavraGoogleProjetoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PalavraGoogleProjeto` object.)
+   * This usually means the response is a `TempoExecucao` object.)
    * </em>
    */
-  public getPalavraChaveGoogle(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoMySql(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PalavraGoogleProjetos/:id/palavraChaveGoogle";
+    "/TempoExecucaos/:id/projetoMySql";
     let _routeParams: any = {
       id: id
     };
@@ -62,9 +66,9 @@ export class PalavraGoogleProjetoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation projetoMySql.
+   * Fetches belongsTo relation semana.
    *
-   * @param {any} id PalavraGoogleProjeto id
+   * @param {any} id TempoExecucao id
    *
    * @param {boolean} refresh 
    *
@@ -74,13 +78,133 @@ export class PalavraGoogleProjetoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PalavraGoogleProjeto` object.)
+   * This usually means the response is a `TempoExecucao` object.)
    * </em>
    */
-  public getProjetoMySql(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getSemana(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PalavraGoogleProjetos/:id/projetoMySql";
+    "/TempoExecucaos/:id/semana";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation processoNegocio.
+   *
+   * @param {any} id TempoExecucao id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `TempoExecucao` object.)
+   * </em>
+   */
+  public getProcessoNegocio(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/TempoExecucaos/:id/processoNegocio";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation planoExecucao.
+   *
+   * @param {any} id TempoExecucao id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `TempoExecucao` object.)
+   * </em>
+   */
+  public getPlanoExecucao(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/TempoExecucaos/:id/planoExecucao";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation diaSemana.
+   *
+   * @param {any} id TempoExecucao id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `TempoExecucao` object.)
+   * </em>
+   */
+  public getDiaSemana(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/TempoExecucaos/:id/diaSemana";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation contexto.
+   *
+   * @param {any} id TempoExecucao id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `TempoExecucao` object.)
+   * </em>
+   */
+  public getContexto(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/TempoExecucaos/:id/contexto";
     let _routeParams: any = {
       id: id
     };
@@ -104,13 +228,13 @@ export class PalavraGoogleProjetoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PalavraGoogleProjeto` object.)
+   * This usually means the response is a `TempoExecucao` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PalavraGoogleProjetos";
+    "/TempoExecucaos";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -123,7 +247,7 @@ export class PalavraGoogleProjetoApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id PalavraGoogleProjeto id
+   * @param {any} id TempoExecucao id
    *
    * @param {object} data Request data.
    *
@@ -135,13 +259,13 @@ export class PalavraGoogleProjetoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `PalavraGoogleProjeto` object.)
+   * This usually means the response is a `TempoExecucao` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PalavraGoogleProjetos/:id";
+    "/TempoExecucaos/:id";
     let _routeParams: any = {
       id: id
     };
@@ -154,13 +278,11 @@ export class PalavraGoogleProjetoApi extends BaseLoopBackApi {
   }
 
   /**
-   * se receber um projeto com id 0 cria o projeto e o relacionamento senão cria somente o relacionamento
+   * Insere novo com os cálculos necessários
    *
    * @param {object} data Request data.
    *
-   *  - `relacionamento` – `{object}` - 
-   *
-   *  - `projeto` – `{object}` - 
+   *  - `execucao` – `{object}` - 
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -168,29 +290,24 @@ export class PalavraGoogleProjetoApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public InsereProjetoRelacionamento(relacionamento: any, projeto: any, customHeaders?: Function): Observable<any> {
+  public Insere(execucao: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PalavraGoogleProjetos/insereProjetoRelacionamento";
+    "/TempoExecucaos/insere";
     let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
-    if (typeof relacionamento !== 'undefined' && relacionamento !== null) _urlParams.relacionamento = relacionamento;
-    if (typeof projeto !== 'undefined' && projeto !== null) _urlParams.projeto = projeto;
+    if (typeof execucao !== 'undefined' && execucao !== null) _urlParams.execucao = execucao;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
 
   /**
-   * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
+   * Alteracao com calculos
    *
    * @param {object} data Request data.
    *
-   *  - `idProjeto` – `{number}` - 
-   *
-   *  - `idPalavra` – `{string}` - 
+   *  - `execucao` – `{object}` - 
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -198,106 +315,23 @@ export class PalavraGoogleProjetoApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public RemoveRelacaoPalavra(idProjeto: any, idPalavra: any, customHeaders?: Function): Observable<any> {
+  public Altera(execucao: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PalavraGoogleProjetos/removeRelacaoPalavra";
+    "/TempoExecucaos/altera";
     let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
-    if (typeof idProjeto !== 'undefined' && idProjeto !== null) _urlParams.idProjeto = idProjeto;
-    if (typeof idPalavra !== 'undefined' && idPalavra !== null) _urlParams.idPalavra = idPalavra;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Cria novo relacionamento
-   *
-   * @param {object} data Request data.
-   *
-   *  - `relacionamento` – `{object}` - 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `PalavraGoogleProjeto` object.)
-   * </em>
-   */
-  public CriaRelacionamento(relacionamento: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PalavraGoogleProjetos/criaRelacionamento";
-    let _routeParams: any = {};
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof relacionamento !== 'undefined' && relacionamento !== null) _urlParams.relacionamento = relacionamento;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Obtem as palavras-chaves de projeto com ligação na campanha caso exista
-   *
-   * @param {number} idCampanha 
-   *
-   * @returns {object[]} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `PalavraGoogleProjeto` object.)
-   * </em>
-   */
-  public ObtemPorCampanha(idCampanha: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PalavraGoogleProjetos/obtemPorCampanha";
-    let _routeParams: any = {};
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof idCampanha !== 'undefined' && idCampanha !== null) _urlParams.idCampanha = idCampanha;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Cria uma palavra-chave para um projeto que ainda não existe
-   *
-   * @param {object} data Request data.
-   *
-   *  - `palavraProjeto` – `{object}` - 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `PalavraGoogleProjeto` object.)
-   * </em>
-   */
-  public CriaPalavra(palavraProjeto: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PalavraGoogleProjetos/criaPalavra";
-    let _routeParams: any = {};
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof palavraProjeto !== 'undefined' && palavraProjeto !== null) _urlParams.palavraProjeto = palavraProjeto;
+    if (typeof execucao !== 'undefined' && execucao !== null) _urlParams.execucao = execucao;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `PalavraGoogleProjeto`.
+   * i.e. `TempoExecucao`.
    */
   public getModelName() {
-    return "PalavraGoogleProjeto";
+    return "TempoExecucao";
   }
 }

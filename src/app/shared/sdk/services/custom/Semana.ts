@@ -9,17 +9,16 @@ import { LoopBackFilter,  } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ProcessoNegocio } from '../../models/ProcessoNegocio';
+import { Semana } from '../../models/Semana';
 import { SocketConnection } from '../../sockets/socket.connections';
 import { PlanoExecucao } from '../../models/PlanoExecucao';
-import { ProcessoNegocioEtapaProjeto } from '../../models/ProcessoNegocioEtapaProjeto';
 
 
 /**
- * Api services for the `ProcessoNegocio` model.
+ * Api services for the `Semana` model.
  */
 @Injectable()
-export class ProcessoNegocioApi extends BaseLoopBackApi {
+export class SemanaApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -34,7 +33,7 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   /**
    * Find a related item by id for planoExecucaos.
    *
-   * @param {any} id ProcessoNegocio id
+   * @param {any} id Semana id
    *
    * @param {any} fk Foreign key for planoExecucaos
    *
@@ -44,13 +43,13 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
+   * This usually means the response is a `Semana` object.)
    * </em>
    */
   public findByIdPlanoExecucaos(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/planoExecucaos/:fk";
+    "/Semanas/:id/planoExecucaos/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -64,7 +63,7 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   /**
    * Delete a related item by id for planoExecucaos.
    *
-   * @param {any} id ProcessoNegocio id
+   * @param {any} id Semana id
    *
    * @param {any} fk Foreign key for planoExecucaos
    *
@@ -77,7 +76,7 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   public destroyByIdPlanoExecucaos(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/planoExecucaos/:fk";
+    "/Semanas/:id/planoExecucaos/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -91,7 +90,7 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for planoExecucaos.
    *
-   * @param {any} id ProcessoNegocio id
+   * @param {any} id Semana id
    *
    * @param {any} fk Foreign key for planoExecucaos
    *
@@ -105,13 +104,13 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
+   * This usually means the response is a `Semana` object.)
    * </em>
    */
   public updateByIdPlanoExecucaos(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/planoExecucaos/:fk";
+    "/Semanas/:id/planoExecucaos/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -125,129 +124,9 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches hasOne relation processoNegocioEtapaProjetos.
+   * Queries planoExecucaos of Semana.
    *
-   * @param {any} id ProcessoNegocio id
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
-   * </em>
-   */
-  public getProcessoNegocioEtapaProjetos(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/processoNegocioEtapaProjetos";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Creates a new instance in processoNegocioEtapaProjetos of this model.
-   *
-   * @param {any} id ProcessoNegocio id
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
-   * </em>
-   */
-  public createProcessoNegocioEtapaProjetos(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/processoNegocioEtapaProjetos";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Update processoNegocioEtapaProjetos of this model.
-   *
-   * @param {any} id ProcessoNegocio id
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
-   * </em>
-   */
-  public updateProcessoNegocioEtapaProjetos(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "PUT";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/processoNegocioEtapaProjetos";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Deletes processoNegocioEtapaProjetos of this model.
-   *
-   * @param {any} id ProcessoNegocio id
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public destroyProcessoNegocioEtapaProjetos(id: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/processoNegocioEtapaProjetos";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Queries planoExecucaos of ProcessoNegocio.
-   *
-   * @param {any} id ProcessoNegocio id
+   * @param {any} id Semana id
    *
    * @param {object} filter 
    *
@@ -257,13 +136,13 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
+   * This usually means the response is a `Semana` object.)
    * </em>
    */
   public getPlanoExecucaos(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/planoExecucaos";
+    "/Semanas/:id/planoExecucaos";
     let _routeParams: any = {
       id: id
     };
@@ -277,7 +156,7 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in planoExecucaos of this model.
    *
-   * @param {any} id ProcessoNegocio id
+   * @param {any} id Semana id
    *
    * @param {object} data Request data.
    *
@@ -289,13 +168,13 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
+   * This usually means the response is a `Semana` object.)
    * </em>
    */
   public createPlanoExecucaos(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/planoExecucaos";
+    "/Semanas/:id/planoExecucaos";
     let _routeParams: any = {
       id: id
     };
@@ -310,7 +189,7 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   /**
    * Deletes all planoExecucaos of this model.
    *
-   * @param {any} id ProcessoNegocio id
+   * @param {any} id Semana id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -321,7 +200,7 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   public deletePlanoExecucaos(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/planoExecucaos";
+    "/Semanas/:id/planoExecucaos";
     let _routeParams: any = {
       id: id
     };
@@ -332,9 +211,9 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts planoExecucaos of ProcessoNegocio.
+   * Counts planoExecucaos of Semana.
    *
-   * @param {any} id ProcessoNegocio id
+   * @param {any} id Semana id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -349,7 +228,7 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   public countPlanoExecucaos(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/planoExecucaos/count";
+    "/Semanas/:id/planoExecucaos/count";
     let _routeParams: any = {
       id: id
     };
@@ -373,13 +252,13 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
+   * This usually means the response is a `Semana` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios";
+    "/Semanas";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -392,7 +271,7 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id ProcessoNegocio id
+   * @param {any} id Semana id
    *
    * @param {object} data Request data.
    *
@@ -404,13 +283,13 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
+   * This usually means the response is a `Semana` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id";
+    "/Semanas/:id";
     let _routeParams: any = {
       id: id
     };
@@ -423,40 +302,39 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   }
 
   /**
-   * Obtem lista de processo com filtro de contexto e semana
+   * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
    *
-   * @param {number} idSemana 
+   * @param {number} semanas Quantidade de semanas pode ser positiva ou negativa
    *
-   * @param {number} idContexto 
-   *
-   * @returns {object[]} An empty reference that will be
+   * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
    *   from the server.
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
+   * This usually means the response is a `Semana` object.)
    * </em>
    */
-  public ObtemComPlanoPorSemana(idSemana: any = {}, idContexto: any, customHeaders?: Function): Observable<any> {
+  public ObtemDeslocada(semanas: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/obtemComPlanoPorSemana";
+    "/Semanas/obtemDeslocada";
     let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
-    if (typeof idSemana !== 'undefined' && idSemana !== null) _urlParams.idSemana = idSemana;
-    if (typeof idContexto !== 'undefined' && idContexto !== null) _urlParams.idContexto = idContexto;
+    if (typeof semanas !== 'undefined' && semanas !== null) _urlParams.semanas = semanas;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
 
   /**
-   * Atualiza uma lista com os dados de plano para semana
+   * Cria todas as semanas de um ano
    *
    * @param {object} data Request data.
    *
-   *  - `listaProcesso` – `{object}` - 
+   *  - `ano` – `{number}` - 
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -464,104 +342,40 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public AtualizaListaComPlano(listaProcesso: any, customHeaders?: Function): Observable<any> {
+  public CriaParaAno(ano: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/autalizaListaComPlano";
+    "/Semanas/criaParaAno";
     let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
-    if (typeof listaProcesso !== 'undefined' && listaProcesso !== null) _urlParams.listaProcesso = listaProcesso;
+    if (typeof ano !== 'undefined' && ano !== null) _urlParams.ano = ano;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
 
   /**
-   * Obtem todas as informações para o dia
+   * Obtem a semana da data de entrada
    *
-   * @param {number} idContexto 
+   * @param {date} data 
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
    *   from the server.
    *
-   * Data properties:
-   *
-   *  - `listaProcesso` – `{any}` - 
-   *
-   *  - `diaSemana` – `{object}` - 
-   *
-   *  - `semana` – `{object}` - 
-   *
-   *  - `listaTempoExecucao` – `{any}` - 
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Semana` object.)
+   * </em>
    */
-  public ObtemPlanoDia(idContexto: any, customHeaders?: Function): Observable<any> {
+  public ObtemPorData(data: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/obtemPlanoDia";
+    "/Semanas/obtemPorData";
     let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
-    if (typeof idContexto !== 'undefined' && idContexto !== null) _urlParams.idContexto = idContexto;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Obtem os processos de negocio ativos e com a etapa quando associado
-   *
-   * @param {number} idEtapa 
-   *
-   * @returns {object[]} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
-   * </em>
-   */
-  public ObtemAtivoComEtapaPorId(idEtapa: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/obtemAtivoComEtapaPorId";
-    let _routeParams: any = {};
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof idEtapa !== 'undefined' && idEtapa !== null) _urlParams.idEtapa = idEtapa;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Creates a new instance in processoNegocioEtapaProjetos of this model.
-   *
-   * @param {any} id ProcessoNegocio id
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object[]} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
-   * </em>
-   */
-  public createManyProcessoNegocioEtapaProjetos(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
-    let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/processoNegocioEtapaProjetos";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
+    if (typeof data !== 'undefined' && data !== null) _urlParams.data = data;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
@@ -569,7 +383,7 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in planoExecucaos of this model.
    *
-   * @param {any} id ProcessoNegocio id
+   * @param {any} id Semana id
    *
    * @param {object} data Request data.
    *
@@ -581,13 +395,13 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `ProcessoNegocio` object.)
+   * This usually means the response is a `Semana` object.)
    * </em>
    */
   public createManyPlanoExecucaos(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/ProcessoNegocios/:id/planoExecucaos";
+    "/Semanas/:id/planoExecucaos";
     let _routeParams: any = {
       id: id
     };
@@ -601,9 +415,9 @@ export class ProcessoNegocioApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `ProcessoNegocio`.
+   * i.e. `Semana`.
    */
   public getModelName() {
-    return "ProcessoNegocio";
+    return "Semana";
   }
 }

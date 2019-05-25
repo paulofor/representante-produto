@@ -6,6 +6,14 @@ import {
 
 declare var Object: any;
 export interface PalavraGoogleProjetoInterface {
+  "mediaImpressao"?: number;
+  "desvioImpressao"?: number;
+  "mediaCtr"?: number;
+  "desvioCtr"?: number;
+  "mediaConversao"?: number;
+  "desvioConversao"?: number;
+  "ocorrencias"?: number;
+  "ativo"?: number;
   "id"?: number;
   "palavraChaveGoogleId"?: string;
   "projetoMySqlId"?: number;
@@ -14,6 +22,14 @@ export interface PalavraGoogleProjetoInterface {
 }
 
 export class PalavraGoogleProjeto implements PalavraGoogleProjetoInterface {
+  "mediaImpressao": number;
+  "desvioImpressao": number;
+  "mediaCtr": number;
+  "desvioCtr": number;
+  "mediaConversao": number;
+  "desvioConversao": number;
+  "ocorrencias": number;
+  "ativo": number;
   "id": number;
   "palavraChaveGoogleId": string;
   "projetoMySqlId": number;
@@ -52,6 +68,38 @@ export class PalavraGoogleProjeto implements PalavraGoogleProjetoInterface {
       path: 'PalavraGoogleProjetos',
       idName: 'id',
       properties: {
+        "mediaImpressao": {
+          name: 'mediaImpressao',
+          type: 'number'
+        },
+        "desvioImpressao": {
+          name: 'desvioImpressao',
+          type: 'number'
+        },
+        "mediaCtr": {
+          name: 'mediaCtr',
+          type: 'number'
+        },
+        "desvioCtr": {
+          name: 'desvioCtr',
+          type: 'number'
+        },
+        "mediaConversao": {
+          name: 'mediaConversao',
+          type: 'number'
+        },
+        "desvioConversao": {
+          name: 'desvioConversao',
+          type: 'number'
+        },
+        "ocorrencias": {
+          name: 'ocorrencias',
+          type: 'number'
+        },
+        "ativo": {
+          name: 'ativo',
+          type: 'number'
+        },
         "id": {
           name: 'id',
           type: 'number'

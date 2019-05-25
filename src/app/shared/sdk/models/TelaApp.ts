@@ -2,30 +2,62 @@
 import {
   ItemValidacaoPagina,
   Entidade,
-  ConceitoProduto
+  ConceitoProduto,
+  ModeloTelaApp,
+  ComponenteApp
 } from '../index';
 
 declare var Object: any;
 export interface TelaAppInterface {
   "nome"?: string;
   "tipo"?: string;
+  "sobrescreveHtml"?: number;
+  "sobrescreveTs"?: number;
+  "nomeMenu"?: string;
+  "posicaoMenu"?: number;
+  "ativo"?: number;
   "id"?: number;
   "entidadeId"?: number;
+  "entidadePutId"?: number;
+  "telaAppEdicaoId"?: number;
+  "telaAppDisplayId"?: number;
+  "aplicacaoId"?: number;
   "conceitoProdutoId"?: number;
+  "modeloTelaAppId"?: number;
   itemValidacaoPaginas?: ItemValidacaoPagina[];
   entidade?: Entidade;
+  entidadePut?: Entidade;
+  telaEdicao?: TelaApp;
+  telaDisplay?: TelaApp;
   conceitoProduto?: ConceitoProduto;
+  modeloTelaApp?: ModeloTelaApp;
+  componenteApps?: ComponenteApp[];
 }
 
 export class TelaApp implements TelaAppInterface {
   "nome": string;
   "tipo": string;
+  "sobrescreveHtml": number;
+  "sobrescreveTs": number;
+  "nomeMenu": string;
+  "posicaoMenu": number;
+  "ativo": number;
   "id": number;
   "entidadeId": number;
+  "entidadePutId": number;
+  "telaAppEdicaoId": number;
+  "telaAppDisplayId": number;
+  "aplicacaoId": number;
   "conceitoProdutoId": number;
+  "modeloTelaAppId": number;
   itemValidacaoPaginas: ItemValidacaoPagina[];
   entidade: Entidade;
+  entidadePut: Entidade;
+  telaEdicao: TelaApp;
+  telaDisplay: TelaApp;
   conceitoProduto: ConceitoProduto;
+  modeloTelaApp: ModeloTelaApp;
+  componenteApps: ComponenteApp[];
   constructor(data?: TelaAppInterface) {
     Object.assign(this, data);
   }
@@ -67,6 +99,26 @@ export class TelaApp implements TelaAppInterface {
           name: 'tipo',
           type: 'string'
         },
+        "sobrescreveHtml": {
+          name: 'sobrescreveHtml',
+          type: 'number'
+        },
+        "sobrescreveTs": {
+          name: 'sobrescreveTs',
+          type: 'number'
+        },
+        "nomeMenu": {
+          name: 'nomeMenu',
+          type: 'string'
+        },
+        "posicaoMenu": {
+          name: 'posicaoMenu',
+          type: 'number'
+        },
+        "ativo": {
+          name: 'ativo',
+          type: 'number'
+        },
         "id": {
           name: 'id',
           type: 'number'
@@ -75,8 +127,28 @@ export class TelaApp implements TelaAppInterface {
           name: 'entidadeId',
           type: 'number'
         },
+        "entidadePutId": {
+          name: 'entidadePutId',
+          type: 'number'
+        },
+        "telaAppEdicaoId": {
+          name: 'telaAppEdicaoId',
+          type: 'number'
+        },
+        "telaAppDisplayId": {
+          name: 'telaAppDisplayId',
+          type: 'number'
+        },
+        "aplicacaoId": {
+          name: 'aplicacaoId',
+          type: 'number'
+        },
         "conceitoProdutoId": {
           name: 'conceitoProdutoId',
+          type: 'number'
+        },
+        "modeloTelaAppId": {
+          name: 'modeloTelaAppId',
           type: 'number'
         },
       },
@@ -97,6 +169,30 @@ export class TelaApp implements TelaAppInterface {
                   keyFrom: 'entidadeId',
           keyTo: 'id_entidade'
         },
+        entidadePut: {
+          name: 'entidadePut',
+          type: 'Entidade',
+          model: 'Entidade',
+          relationType: 'belongsTo',
+                  keyFrom: 'entidadePutId',
+          keyTo: 'id_entidade'
+        },
+        telaEdicao: {
+          name: 'telaEdicao',
+          type: 'TelaApp',
+          model: 'TelaApp',
+          relationType: 'belongsTo',
+                  keyFrom: 'telaAppEdicaoId',
+          keyTo: 'id'
+        },
+        telaDisplay: {
+          name: 'telaDisplay',
+          type: 'TelaApp',
+          model: 'TelaApp',
+          relationType: 'belongsTo',
+                  keyFrom: 'telaAppDisplayId',
+          keyTo: 'id'
+        },
         conceitoProduto: {
           name: 'conceitoProduto',
           type: 'ConceitoProduto',
@@ -104,6 +200,22 @@ export class TelaApp implements TelaAppInterface {
           relationType: 'belongsTo',
                   keyFrom: 'conceitoProdutoId',
           keyTo: 'id'
+        },
+        modeloTelaApp: {
+          name: 'modeloTelaApp',
+          type: 'ModeloTelaApp',
+          model: 'ModeloTelaApp',
+          relationType: 'belongsTo',
+                  keyFrom: 'modeloTelaAppId',
+          keyTo: 'id'
+        },
+        componenteApps: {
+          name: 'componenteApps',
+          type: 'ComponenteApp[]',
+          model: 'ComponenteApp',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'telaAppId'
         },
       }
     }

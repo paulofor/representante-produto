@@ -259,6 +259,29 @@ export class PalavraChaveEstatisticaApi extends BaseLoopBackApi {
   }
 
   /**
+   * Lista de melhores casos com valores limites definidos no servidor. (Cpc: 0.4 , Volume: 5000)
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PalavraChaveEstatistica` object.)
+   * </em>
+   */
+  public ListaMelhoresBaixoCusto(customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PalavraChaveEstatisticas/listaMelhoresBaixoCusto";
+    let _routeParams: any = {};
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
    * Retorna a lista de palavras em sua versao recente relacionadas a um projeto.
    *
    * @param {number} idProjeto 

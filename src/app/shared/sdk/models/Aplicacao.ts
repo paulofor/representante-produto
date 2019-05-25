@@ -3,7 +3,10 @@ import {
   ProjetoMySql,
   Entidade,
   TelaWeb,
-  ComponenteWeb
+  TelaApp,
+  ComponenteWeb,
+  PaletaCor,
+  PaletaAplicacao
 } from '../index';
 
 declare var Object: any;
@@ -14,10 +17,14 @@ export interface AplicacaoInterface {
   "namespace"?: string;
   "diretorio_java"?: string;
   "projetoMySqlId"?: number;
+  "paletaCorsId"?: number;
   projetoMySql?: ProjetoMySql;
   entidades?: Entidade[];
   telaWebs?: TelaWeb[];
+  telaApps?: TelaApp[];
   componenteWebs?: ComponenteWeb[];
+  paletaCors?: PaletaCor;
+  paletaAplicacaos?: PaletaAplicacao[];
 }
 
 export class Aplicacao implements AplicacaoInterface {
@@ -27,10 +34,14 @@ export class Aplicacao implements AplicacaoInterface {
   "namespace": string;
   "diretorio_java": string;
   "projetoMySqlId": number;
+  "paletaCorsId": number;
   projetoMySql: ProjetoMySql;
   entidades: Entidade[];
   telaWebs: TelaWeb[];
+  telaApps: TelaApp[];
   componenteWebs: ComponenteWeb[];
+  paletaCors: PaletaCor;
+  paletaAplicacaos: PaletaAplicacao[];
   constructor(data?: AplicacaoInterface) {
     Object.assign(this, data);
   }
@@ -88,6 +99,10 @@ export class Aplicacao implements AplicacaoInterface {
           name: 'projetoMySqlId',
           type: 'number'
         },
+        "paletaCorsId": {
+          name: 'paletaCorsId',
+          type: 'number'
+        },
       },
       relations: {
         projetoMySql: {
@@ -114,10 +129,34 @@ export class Aplicacao implements AplicacaoInterface {
                   keyFrom: 'id_aplicacao',
           keyTo: 'aplicacaoId'
         },
+        telaApps: {
+          name: 'telaApps',
+          type: 'TelaApp[]',
+          model: 'TelaApp',
+          relationType: 'hasMany',
+                  keyFrom: 'id_aplicacao',
+          keyTo: 'aplicacaoId'
+        },
         componenteWebs: {
           name: 'componenteWebs',
           type: 'ComponenteWeb[]',
           model: 'ComponenteWeb',
+          relationType: 'hasMany',
+                  keyFrom: 'id_aplicacao',
+          keyTo: 'aplicacaoId'
+        },
+        paletaCors: {
+          name: 'paletaCors',
+          type: 'PaletaCor',
+          model: 'PaletaCor',
+          relationType: 'belongsTo',
+                  keyFrom: 'paletaCorsId',
+          keyTo: 'id'
+        },
+        paletaAplicacaos: {
+          name: 'paletaAplicacaos',
+          type: 'PaletaAplicacao[]',
+          model: 'PaletaAplicacao',
           relationType: 'hasMany',
                   keyFrom: 'id_aplicacao',
           keyTo: 'aplicacaoId'

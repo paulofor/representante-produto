@@ -45,6 +45,18 @@ import { ValorConceito } from '../../models/ValorConceito';
 import { RecursoConceitoProduto } from '../../models/RecursoConceitoProduto';
 import { Publico } from '../../models/Publico';
 import { SetupCampanha } from '../../models/SetupCampanha';
+import { EstatisticaMes } from '../../models/EstatisticaMes';
+import { Semana } from '../../models/Semana';
+import { TempoExecucao } from '../../models/TempoExecucao';
+import { PlanoExecucao } from '../../models/PlanoExecucao';
+import { DiaSemana } from '../../models/DiaSemana';
+import { Contexto } from '../../models/Contexto';
+import { ModeloTelaApp } from '../../models/ModeloTelaApp';
+import { PaletaCor } from '../../models/PaletaCor';
+import { PaletaAplicacao } from '../../models/PaletaAplicacao';
+import { ComponenteApp } from '../../models/ComponenteApp';
+import { ProcessoNegocioEtapaProjeto } from '../../models/ProcessoNegocioEtapaProjeto';
+import { PaginaInstalacaoApp } from '../../models/PaginaInstalacaoApp';
 
 export interface Models { [name: string]: any }
 
@@ -97,6 +109,18 @@ export class SDKModels {
     RecursoConceitoProduto: RecursoConceitoProduto,
     Publico: Publico,
     SetupCampanha: SetupCampanha,
+    EstatisticaMes: EstatisticaMes,
+    Semana: Semana,
+    TempoExecucao: TempoExecucao,
+    PlanoExecucao: PlanoExecucao,
+    DiaSemana: DiaSemana,
+    Contexto: Contexto,
+    ModeloTelaApp: ModeloTelaApp,
+    PaletaCor: PaletaCor,
+    PaletaAplicacao: PaletaAplicacao,
+    ComponenteApp: ComponenteApp,
+    ProcessoNegocioEtapaProjeto: ProcessoNegocioEtapaProjeto,
+    PaginaInstalacaoApp: PaginaInstalacaoApp,
     
   };
 

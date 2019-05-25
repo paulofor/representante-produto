@@ -3,6 +3,7 @@ import {
   TelaApp,
   TelaWeb,
   PaginaValidacaoWeb,
+  ItemValidacaoPagina,
   ValorConceito
 } from '../index';
 
@@ -12,11 +13,15 @@ export interface ConceitoProdutoInterface {
   "titulo"?: string;
   "ativo"?: number;
   "dataCriacao"?: Date;
+  "custoCampanha"?: number;
+  "quantidadeCampanha"?: number;
+  "tempoTotal"?: Date;
   "id"?: number;
   "projetoMySqlId"?: number;
   telaApps?: TelaApp[];
   telaWebs?: TelaWeb[];
   paginaValidacaoWebs?: PaginaValidacaoWeb[];
+  itemValidacaoPaginas?: ItemValidacaoPagina[];
   valorConceitos?: ValorConceito[];
 }
 
@@ -25,11 +30,15 @@ export class ConceitoProduto implements ConceitoProdutoInterface {
   "titulo": string;
   "ativo": number;
   "dataCriacao": Date;
+  "custoCampanha": number;
+  "quantidadeCampanha": number;
+  "tempoTotal": Date;
   "id": number;
   "projetoMySqlId": number;
   telaApps: TelaApp[];
   telaWebs: TelaWeb[];
   paginaValidacaoWebs: PaginaValidacaoWeb[];
+  itemValidacaoPaginas: ItemValidacaoPagina[];
   valorConceitos: ValorConceito[];
   constructor(data?: ConceitoProdutoInterface) {
     Object.assign(this, data);
@@ -80,6 +89,18 @@ export class ConceitoProduto implements ConceitoProdutoInterface {
           name: 'dataCriacao',
           type: 'Date'
         },
+        "custoCampanha": {
+          name: 'custoCampanha',
+          type: 'number'
+        },
+        "quantidadeCampanha": {
+          name: 'quantidadeCampanha',
+          type: 'number'
+        },
+        "tempoTotal": {
+          name: 'tempoTotal',
+          type: 'Date'
+        },
         "id": {
           name: 'id',
           type: 'number'
@@ -110,6 +131,14 @@ export class ConceitoProduto implements ConceitoProdutoInterface {
           name: 'paginaValidacaoWebs',
           type: 'PaginaValidacaoWeb[]',
           model: 'PaginaValidacaoWeb',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'conceitoProdutoId'
+        },
+        itemValidacaoPaginas: {
+          name: 'itemValidacaoPaginas',
+          type: 'ItemValidacaoPagina[]',
+          model: 'ItemValidacaoPagina',
           relationType: 'hasMany',
                   keyFrom: 'id',
           keyTo: 'conceitoProdutoId'

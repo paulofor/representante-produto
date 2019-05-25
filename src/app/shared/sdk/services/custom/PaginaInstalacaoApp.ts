@@ -9,22 +9,18 @@ import { LoopBackFilter,  } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Aplicacao } from '../../models/Aplicacao';
+import { PaginaInstalacaoApp } from '../../models/PaginaInstalacaoApp';
 import { SocketConnection } from '../../sockets/socket.connections';
+import { ItemValidacaoPagina } from '../../models/ItemValidacaoPagina';
+import { CampanhaAds } from '../../models/CampanhaAds';
 import { ProjetoMySql } from '../../models/ProjetoMySql';
-import { Entidade } from '../../models/Entidade';
-import { TelaWeb } from '../../models/TelaWeb';
-import { TelaApp } from '../../models/TelaApp';
-import { ComponenteWeb } from '../../models/ComponenteWeb';
-import { PaletaCor } from '../../models/PaletaCor';
-import { PaletaAplicacao } from '../../models/PaletaAplicacao';
 
 
 /**
- * Api services for the `Aplicacao` model.
+ * Api services for the `PaginaInstalacaoApp` model.
  */
 @Injectable()
-export class AplicacaoApi extends BaseLoopBackApi {
+export class PaginaInstalacaoAppApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -37,9 +33,195 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation projetoMySql.
+   * Find a related item by id for itemValidacaoPaginas.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for itemValidacaoPaginas
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public findByIdItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/itemValidacaoPaginas/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Delete a related item by id for itemValidacaoPaginas.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for itemValidacaoPaginas
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public destroyByIdItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/itemValidacaoPaginas/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Update a related item by id for itemValidacaoPaginas.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for itemValidacaoPaginas
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public updateByIdItemValidacaoPaginas(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/itemValidacaoPaginas/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Find a related item by id for campanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for campanhaAds
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public findByIdCampanhaAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Delete a related item by id for campanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for campanhaAds
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public destroyByIdCampanhaAds(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Update a related item by id for campanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for campanhaAds
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public updateByIdCampanhaAds(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation projeto.
+   *
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {boolean} refresh 
    *
@@ -49,13 +231,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public getProjetoMySql(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getProjeto(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql";
+    "/PaginaInstalacaoApps/:id/projeto";
     let _routeParams: any = {
       id: id
     };
@@ -67,504 +249,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for entidades.
+   * Queries itemValidacaoPaginas of PaginaInstalacaoApp.
    *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for entidades
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public findByIdEntidades(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Delete a related item by id for entidades.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for entidades
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public destroyByIdEntidades(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Update a related item by id for entidades.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for entidades
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public updateByIdEntidades(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "PUT";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Find a related item by id for telaWebs.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for telaWebs
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public findByIdTelaWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaWebs/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Delete a related item by id for telaWebs.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for telaWebs
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public destroyByIdTelaWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaWebs/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Update a related item by id for telaWebs.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for telaWebs
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public updateByIdTelaWebs(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "PUT";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaWebs/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Find a related item by id for telaApps.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for telaApps
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public findByIdTelaApps(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaApps/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Delete a related item by id for telaApps.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for telaApps
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public destroyByIdTelaApps(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaApps/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Update a related item by id for telaApps.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for telaApps
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public updateByIdTelaApps(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "PUT";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaApps/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Find a related item by id for componenteWebs.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for componenteWebs
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public findByIdComponenteWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/componenteWebs/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Delete a related item by id for componenteWebs.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for componenteWebs
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public destroyByIdComponenteWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/componenteWebs/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Update a related item by id for componenteWebs.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for componenteWebs
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public updateByIdComponenteWebs(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "PUT";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/componenteWebs/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Fetches belongsTo relation paletaCors.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public getPaletaCors(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/paletaCors";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Find a related item by id for paletaAplicacaos.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for paletaAplicacaos
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public findByIdPaletaAplicacaos(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/paletaAplicacaos/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Delete a related item by id for paletaAplicacaos.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for paletaAplicacaos
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public destroyByIdPaletaAplicacaos(id: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/paletaAplicacaos/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Update a related item by id for paletaAplicacaos.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} fk Foreign key for paletaAplicacaos
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public updateByIdPaletaAplicacaos(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "PUT";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/paletaAplicacaos/:fk";
-    let _routeParams: any = {
-      id: id,
-      fk: fk
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Queries entidades of aplicacao.
-   *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} filter 
    *
@@ -574,13 +261,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public getEntidades(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getItemValidacaoPaginas(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades";
+    "/PaginaInstalacaoApps/:id/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -592,9 +279,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in entidades of this model.
+   * Creates a new instance in itemValidacaoPaginas of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -606,13 +293,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createEntidades(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createItemValidacaoPaginas(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades";
+    "/PaginaInstalacaoApps/:id/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -625,9 +312,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all entidades of this model.
+   * Deletes all itemValidacaoPaginas of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -635,10 +322,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteEntidades(id: any, customHeaders?: Function): Observable<any> {
+  public deleteItemValidacaoPaginas(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades";
+    "/PaginaInstalacaoApps/:id/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -649,9 +336,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts entidades of aplicacao.
+   * Counts itemValidacaoPaginas of PaginaInstalacaoApp.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -663,10 +350,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countEntidades(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countItemValidacaoPaginas(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/count";
+    "/PaginaInstalacaoApps/:id/itemValidacaoPaginas/count";
     let _routeParams: any = {
       id: id
     };
@@ -678,9 +365,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries telaWebs of aplicacao.
+   * Queries campanhaAds of PaginaInstalacaoApp.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} filter 
    *
@@ -690,13 +377,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public getTelaWebs(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getCampanhaAds(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaWebs";
+    "/PaginaInstalacaoApps/:id/campanhaAds";
     let _routeParams: any = {
       id: id
     };
@@ -708,9 +395,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in telaWebs of this model.
+   * Creates a new instance in campanhaAds of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -722,13 +409,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createTelaWebs(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createCampanhaAds(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaWebs";
+    "/PaginaInstalacaoApps/:id/campanhaAds";
     let _routeParams: any = {
       id: id
     };
@@ -741,9 +428,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all telaWebs of this model.
+   * Deletes all campanhaAds of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -751,10 +438,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteTelaWebs(id: any, customHeaders?: Function): Observable<any> {
+  public deleteCampanhaAds(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaWebs";
+    "/PaginaInstalacaoApps/:id/campanhaAds";
     let _routeParams: any = {
       id: id
     };
@@ -765,9 +452,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts telaWebs of aplicacao.
+   * Counts campanhaAds of PaginaInstalacaoApp.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -779,358 +466,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countTelaWebs(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countCampanhaAds(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaWebs/count";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Queries telaApps of aplicacao.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {object} filter 
-   *
-   * @returns {object[]} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public getTelaApps(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaApps";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Creates a new instance in telaApps of this model.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public createTelaApps(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaApps";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Deletes all telaApps of this model.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public deleteTelaApps(id: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaApps";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Counts telaApps of aplicacao.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {object} where Criteria to match model instances
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * Data properties:
-   *
-   *  - `count` – `{number}` - 
-   */
-  public countTelaApps(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaApps/count";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Queries componenteWebs of aplicacao.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {object} filter 
-   *
-   * @returns {object[]} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public getComponenteWebs(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/componenteWebs";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Creates a new instance in componenteWebs of this model.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public createComponenteWebs(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/componenteWebs";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Deletes all componenteWebs of this model.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public deleteComponenteWebs(id: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/componenteWebs";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Counts componenteWebs of aplicacao.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {object} where Criteria to match model instances
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * Data properties:
-   *
-   *  - `count` – `{number}` - 
-   */
-  public countComponenteWebs(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/componenteWebs/count";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Queries paletaAplicacaos of aplicacao.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {object} filter 
-   *
-   * @returns {object[]} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public getPaletaAplicacaos(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/paletaAplicacaos";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Creates a new instance in paletaAplicacaos of this model.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public createPaletaAplicacaos(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/paletaAplicacaos";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Deletes all paletaAplicacaos of this model.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public deletePaletaAplicacaos(id: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/paletaAplicacaos";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Counts paletaAplicacaos of aplicacao.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {object} where Criteria to match model instances
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * Data properties:
-   *
-   *  - `count` – `{number}` - 
-   */
-  public countPaletaAplicacaos(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/paletaAplicacaos/count";
+    "/PaginaInstalacaoApps/:id/campanhaAds/count";
     let _routeParams: any = {
       id: id
     };
@@ -1154,13 +493,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos";
+    "/PaginaInstalacaoApps";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -1173,7 +512,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -1185,13 +524,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id";
+    "/PaginaInstalacaoApps/:id";
     let _routeParams: any = {
       id: id
     };
@@ -1204,11 +543,79 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Combina tipo componente com entidades para gerar os componentes web
+   * Fetches belongsTo relation projetoCanvasMySql.
    *
-   * @param {object} data Request data.
+   * @param {any} id PaginaInstalacaoApp id
    *
-   *  - `idAplicacao` – `{number}` - 
+   * @param {any} nk Foreign key for itemValidacaoPaginas.
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public getItemValidacaoPaginasProjetoCanvasMySql(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/itemValidacaoPaginas/:nk/projetoCanvasMySql";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Find a related item by id for anuncioAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for anuncioAds
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public findByIdCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/anuncioAds/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Delete a related item by id for anuncioAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for anuncioAds
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -1216,22 +623,840 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public AtualizaComponenteWeb(idAplicacao: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/anuncioAds/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Update a related item by id for anuncioAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for anuncioAds
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public updateByIdCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/anuncioAds/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Add a related item by id for anuncioAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for anuncioAds
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public linkCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/anuncioAds/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Remove the anuncioAds relation to an item by id.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for anuncioAds
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public unlinkCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/anuncioAds/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Check the existence of anuncioAds relation to an item by id.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for anuncioAds
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public existsCampanhaAdsAnuncioAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "HEAD";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/anuncioAds/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation paginaValidacaoWeb.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public getCampanhaAdsPaginaValidacaoWeb(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/paginaValidacaoWeb";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Find a related item by id for palavraChaveAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for palavraChaveAds
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public findByIdCampanhaAdsPalavraChaveAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/palavraChaveAds/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Delete a related item by id for palavraChaveAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for palavraChaveAds
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public destroyByIdCampanhaAdsPalavraChaveAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/palavraChaveAds/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Update a related item by id for palavraChaveAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for palavraChaveAds
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public updateByIdCampanhaAdsPalavraChaveAds(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/palavraChaveAds/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Add a related item by id for palavraChaveAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for palavraChaveAds
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public linkCampanhaAdsPalavraChaveAds(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/palavraChaveAds/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Remove the palavraChaveAds relation to an item by id.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for palavraChaveAds
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public unlinkCampanhaAdsPalavraChaveAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/palavraChaveAds/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Check the existence of palavraChaveAds relation to an item by id.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for palavraChaveAds
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public existsCampanhaAdsPalavraChaveAds(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "HEAD";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/palavraChaveAds/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation modeloCampanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public getCampanhaAdsModeloCampanhaAds(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/modeloCampanhaAds";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Find a related item by id for campanhaAnuncioResultados.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for campanhaAnuncioResultados
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public findByIdCampanhaAdsCampanhaAnuncioResultados(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaAnuncioResultados/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Delete a related item by id for campanhaAnuncioResultados.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for campanhaAnuncioResultados
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public destroyByIdCampanhaAdsCampanhaAnuncioResultados(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaAnuncioResultados/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Update a related item by id for campanhaAnuncioResultados.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for campanhaAnuncioResultados
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public updateByIdCampanhaAdsCampanhaAnuncioResultados(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaAnuncioResultados/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Find a related item by id for campanhaPalavraChaveResultados.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for campanhaPalavraChaveResultados
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public findByIdCampanhaAdsCampanhaPalavraChaveResultados(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaPalavraChaveResultados/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Delete a related item by id for campanhaPalavraChaveResultados.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for campanhaPalavraChaveResultados
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public destroyByIdCampanhaAdsCampanhaPalavraChaveResultados(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaPalavraChaveResultados/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Update a related item by id for campanhaPalavraChaveResultados.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {any} fk Foreign key for campanhaPalavraChaveResultados
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public updateByIdCampanhaAdsCampanhaPalavraChaveResultados(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaPalavraChaveResultados/:fk";
+    let _routeParams: any = {
+      id: id,
+      nk: nk,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation setupCampanha.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public getCampanhaAdsSetupCampanha(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/setupCampanha";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Queries anuncioAds of CampanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} filter 
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public getCampanhaAdsAnuncioAds(id: any, nk: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/anuncioAds";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in anuncioAds of this model.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public createCampanhaAdsAnuncioAds(id: any, nk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/atualizaComponenteWeb";
-    let _routeParams: any = {};
-    let _postBody: any = {};
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/anuncioAds";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {
+      data: data
+    };
     let _urlParams: any = {};
-    if (typeof idAplicacao !== 'undefined' && idAplicacao !== null) _urlParams.idAplicacao = idAplicacao;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
 
   /**
-   * Obtem a aplicacao do conceito
+   * Deletes all anuncioAds of this model.
    *
-   * @param {number} idConceito 
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public deleteCampanhaAdsAnuncioAds(id: any, nk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/anuncioAds";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Counts anuncioAds of CampanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} where Criteria to match model instances
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * Data properties:
+   *
+   *  - `count` – `{number}` - 
+   */
+  public countCampanhaAdsAnuncioAds(id: any, nk: any, where: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/anuncioAds/count";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Queries palavraChaveAds of CampanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} filter 
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public getCampanhaAdsPalavraChaveAds(id: any, nk: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/palavraChaveAds";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in palavraChaveAds of this model.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -1239,25 +1464,127 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public ObtemPorIdConceito(idConceito: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
+  public createCampanhaAdsPalavraChaveAds(id: any, nk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/obtemPorIdConceito";
-    let _routeParams: any = {};
-    let _postBody: any = {};
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/palavraChaveAds";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {
+      data: data
+    };
     let _urlParams: any = {};
-    if (typeof idConceito !== 'undefined' && idConceito !== null) _urlParams.idConceito = idConceito;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
 
   /**
-   * Obtem a aplicacao e lista de cores ativas
+   * Deletes all palavraChaveAds of this model.
    *
-   * @param {number} idAplicacao 
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public deleteCampanhaAdsPalavraChaveAds(id: any, nk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/palavraChaveAds";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Counts palavraChaveAds of CampanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} where Criteria to match model instances
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * Data properties:
+   *
+   *  - `count` – `{number}` - 
+   */
+  public countCampanhaAdsPalavraChaveAds(id: any, nk: any, where: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/palavraChaveAds/count";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Queries campanhaAnuncioResultados of CampanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} filter 
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public getCampanhaAdsCampanhaAnuncioResultados(id: any, nk: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaAnuncioResultados";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in campanhaAnuncioResultados of this model.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -1265,17 +1592,208 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public ObtemComCorAtiva(idAplicacao: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
+  public createCampanhaAdsCampanhaAnuncioResultados(id: any, nk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/obtemComCorAtiva";
-    let _routeParams: any = {};
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaAnuncioResultados";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Deletes all campanhaAnuncioResultados of this model.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public deleteCampanhaAdsCampanhaAnuncioResultados(id: any, nk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaAnuncioResultados";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
     let _postBody: any = {};
     let _urlParams: any = {};
-    if (typeof idAplicacao !== 'undefined' && idAplicacao !== null) _urlParams.idAplicacao = idAplicacao;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Counts campanhaAnuncioResultados of CampanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} where Criteria to match model instances
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * Data properties:
+   *
+   *  - `count` – `{number}` - 
+   */
+  public countCampanhaAdsCampanhaAnuncioResultados(id: any, nk: any, where: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaAnuncioResultados/count";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Queries campanhaPalavraChaveResultados of CampanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} filter 
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public getCampanhaAdsCampanhaPalavraChaveResultados(id: any, nk: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaPalavraChaveResultados";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in campanhaPalavraChaveResultados of this model.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public createCampanhaAdsCampanhaPalavraChaveResultados(id: any, nk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaPalavraChaveResultados";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Deletes all campanhaPalavraChaveResultados of this model.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public deleteCampanhaAdsCampanhaPalavraChaveResultados(id: any, nk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaPalavraChaveResultados";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Counts campanhaPalavraChaveResultados of CampanhaAds.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} where Criteria to match model instances
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * Data properties:
+   *
+   *  - `count` – `{number}` - 
+   */
+  public countCampanhaAdsCampanhaPalavraChaveResultados(id: any, nk: any, where: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaPalavraChaveResultados/count";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
@@ -1283,7 +1801,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Find a related item by id for projetoCanvasMySqls.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for projetoCanvasMySqls
    *
@@ -1293,13 +1811,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public findByIdProjetoMySqlProjetoCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdProjetoProjetoCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/projetoCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1313,7 +1831,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for projetoCanvasMySqls.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for projetoCanvasMySqls
    *
@@ -1327,13 +1845,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public updateByIdProjetoMySqlProjetoCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdProjetoProjetoCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/projetoCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1349,7 +1867,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Find a related item by id for mvpCanvasMySqls.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for mvpCanvasMySqls
    *
@@ -1359,13 +1877,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public findByIdProjetoMySqlMvpCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdProjetoMvpCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/mvpCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1379,7 +1897,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for mvpCanvasMySqls.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for mvpCanvasMySqls
    *
@@ -1393,13 +1911,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public updateByIdProjetoMySqlMvpCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdProjetoMvpCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/mvpCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1415,7 +1933,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Find a related item by id for ganhoDorCanvasMySqls.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for ganhoDorCanvasMySqls
    *
@@ -1425,13 +1943,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public findByIdProjetoMySqlGanhoDorCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdProjetoGanhoDorCanvasMySqls(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/ganhoDorCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1445,7 +1963,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for ganhoDorCanvasMySqls.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for ganhoDorCanvasMySqls
    *
@@ -1459,13 +1977,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public updateByIdProjetoMySqlGanhoDorCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdProjetoGanhoDorCanvasMySqls(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/ganhoDorCanvasMySqls/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1481,7 +1999,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Find a related item by id for paginaValidacaoWebs.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for paginaValidacaoWebs
    *
@@ -1491,13 +2009,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public findByIdProjetoMySqlPaginaValidacaoWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdProjetoPaginaValidacaoWebs(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/paginaValidacaoWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1511,7 +2029,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for paginaValidacaoWebs.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for paginaValidacaoWebs
    *
@@ -1525,13 +2043,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public updateByIdProjetoMySqlPaginaValidacaoWebs(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdProjetoPaginaValidacaoWebs(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/paginaValidacaoWebs/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1547,7 +2065,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Find a related item by id for itemValidacaoPaginas.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for itemValidacaoPaginas
    *
@@ -1557,13 +2075,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public findByIdProjetoMySqlItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdProjetoItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/itemValidacaoPaginas/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/itemValidacaoPaginas/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1577,7 +2095,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Delete a related item by id for itemValidacaoPaginas.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for itemValidacaoPaginas
    *
@@ -1587,10 +2105,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdProjetoMySqlItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdProjetoItemValidacaoPaginas(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/itemValidacaoPaginas/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/itemValidacaoPaginas/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1604,7 +2122,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for itemValidacaoPaginas.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for itemValidacaoPaginas
    *
@@ -1618,13 +2136,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public updateByIdProjetoMySqlItemValidacaoPaginas(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdProjetoItemValidacaoPaginas(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/itemValidacaoPaginas/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/itemValidacaoPaginas/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1640,7 +2158,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Find a related item by id for aplicacaos.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for aplicacaos
    *
@@ -1650,13 +2168,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public findByIdProjetoMySqlAplicacaos(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdProjetoAplicacaos(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/aplicacaos/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/aplicacaos/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1670,7 +2188,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Delete a related item by id for aplicacaos.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for aplicacaos
    *
@@ -1680,10 +2198,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdProjetoMySqlAplicacaos(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdProjetoAplicacaos(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/aplicacaos/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/aplicacaos/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1697,7 +2215,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for aplicacaos.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {any} fk Foreign key for aplicacaos
    *
@@ -1711,13 +2229,136 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public updateByIdProjetoMySqlAplicacaos(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdProjetoAplicacaos(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/aplicacaos/:fk";
+    "/PaginaInstalacaoApps/:id/projeto/aplicacaos/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation etapaProjeto.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public getProjetoEtapaProjeto(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/etapaProjeto";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Find a related item by id for conceitoProdutos.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for conceitoProdutos
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public findByIdProjetoConceitoProdutos(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/conceitoProdutos/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Delete a related item by id for conceitoProdutos.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for conceitoProdutos
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public destroyByIdProjetoConceitoProdutos(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/conceitoProdutos/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Update a related item by id for conceitoProdutos.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for conceitoProdutos
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public updateByIdProjetoConceitoProdutos(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/conceitoProdutos/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -1733,7 +2374,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Queries projetoCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} filter 
    *
@@ -1743,13 +2384,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public getProjetoMySqlProjetoCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoProjetoCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls";
+    "/PaginaInstalacaoApps/:id/projeto/projetoCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1763,7 +2404,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in projetoCanvasMySqls of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -1775,13 +2416,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createProjetoMySqlProjetoCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createProjetoProjetoCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls";
+    "/PaginaInstalacaoApps/:id/projeto/projetoCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1796,7 +2437,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Counts projetoCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -1808,10 +2449,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countProjetoMySqlProjetoCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countProjetoProjetoCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls/count";
+    "/PaginaInstalacaoApps/:id/projeto/projetoCanvasMySqls/count";
     let _routeParams: any = {
       id: id
     };
@@ -1825,7 +2466,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Queries mvpCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} filter 
    *
@@ -1835,13 +2476,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public getProjetoMySqlMvpCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoMvpCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls";
+    "/PaginaInstalacaoApps/:id/projeto/mvpCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1855,7 +2496,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in mvpCanvasMySqls of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -1867,13 +2508,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createProjetoMySqlMvpCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createProjetoMvpCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls";
+    "/PaginaInstalacaoApps/:id/projeto/mvpCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1888,7 +2529,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Counts mvpCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -1900,10 +2541,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countProjetoMySqlMvpCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countProjetoMvpCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls/count";
+    "/PaginaInstalacaoApps/:id/projeto/mvpCanvasMySqls/count";
     let _routeParams: any = {
       id: id
     };
@@ -1917,7 +2558,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Queries ganhoDorCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} filter 
    *
@@ -1927,13 +2568,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public getProjetoMySqlGanhoDorCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoGanhoDorCanvasMySqls(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls";
+    "/PaginaInstalacaoApps/:id/projeto/ganhoDorCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1947,7 +2588,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in ganhoDorCanvasMySqls of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -1959,13 +2600,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createProjetoMySqlGanhoDorCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createProjetoGanhoDorCanvasMySqls(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls";
+    "/PaginaInstalacaoApps/:id/projeto/ganhoDorCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -1980,7 +2621,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Counts ganhoDorCanvasMySqls of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -1992,10 +2633,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countProjetoMySqlGanhoDorCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countProjetoGanhoDorCanvasMySqls(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls/count";
+    "/PaginaInstalacaoApps/:id/projeto/ganhoDorCanvasMySqls/count";
     let _routeParams: any = {
       id: id
     };
@@ -2009,7 +2650,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Queries paginaValidacaoWebs of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} filter 
    *
@@ -2019,13 +2660,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public getProjetoMySqlPaginaValidacaoWebs(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoPaginaValidacaoWebs(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs";
+    "/PaginaInstalacaoApps/:id/projeto/paginaValidacaoWebs";
     let _routeParams: any = {
       id: id
     };
@@ -2039,7 +2680,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in paginaValidacaoWebs of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -2051,13 +2692,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createProjetoMySqlPaginaValidacaoWebs(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createProjetoPaginaValidacaoWebs(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs";
+    "/PaginaInstalacaoApps/:id/projeto/paginaValidacaoWebs";
     let _routeParams: any = {
       id: id
     };
@@ -2072,7 +2713,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Counts paginaValidacaoWebs of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -2084,10 +2725,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countProjetoMySqlPaginaValidacaoWebs(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countProjetoPaginaValidacaoWebs(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs/count";
+    "/PaginaInstalacaoApps/:id/projeto/paginaValidacaoWebs/count";
     let _routeParams: any = {
       id: id
     };
@@ -2101,7 +2742,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Queries itemValidacaoPaginas of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} filter 
    *
@@ -2111,13 +2752,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public getProjetoMySqlItemValidacaoPaginas(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoItemValidacaoPaginas(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/itemValidacaoPaginas";
+    "/PaginaInstalacaoApps/:id/projeto/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -2131,7 +2772,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in itemValidacaoPaginas of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -2143,13 +2784,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createProjetoMySqlItemValidacaoPaginas(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createProjetoItemValidacaoPaginas(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/itemValidacaoPaginas";
+    "/PaginaInstalacaoApps/:id/projeto/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -2164,7 +2805,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Deletes all itemValidacaoPaginas of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -2172,10 +2813,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteProjetoMySqlItemValidacaoPaginas(id: any, customHeaders?: Function): Observable<any> {
+  public deleteProjetoItemValidacaoPaginas(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/itemValidacaoPaginas";
+    "/PaginaInstalacaoApps/:id/projeto/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -2188,7 +2829,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Counts itemValidacaoPaginas of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -2200,10 +2841,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countProjetoMySqlItemValidacaoPaginas(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countProjetoItemValidacaoPaginas(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/itemValidacaoPaginas/count";
+    "/PaginaInstalacaoApps/:id/projeto/itemValidacaoPaginas/count";
     let _routeParams: any = {
       id: id
     };
@@ -2217,7 +2858,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Queries aplicacaos of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} filter 
    *
@@ -2227,13 +2868,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public getProjetoMySqlAplicacaos(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoAplicacaos(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/aplicacaos";
+    "/PaginaInstalacaoApps/:id/projeto/aplicacaos";
     let _routeParams: any = {
       id: id
     };
@@ -2247,7 +2888,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in aplicacaos of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -2259,13 +2900,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createProjetoMySqlAplicacaos(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createProjetoAplicacaos(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/aplicacaos";
+    "/PaginaInstalacaoApps/:id/projeto/aplicacaos";
     let _routeParams: any = {
       id: id
     };
@@ -2280,7 +2921,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Deletes all aplicacaos of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -2288,10 +2929,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteProjetoMySqlAplicacaos(id: any, customHeaders?: Function): Observable<any> {
+  public deleteProjetoAplicacaos(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/aplicacaos";
+    "/PaginaInstalacaoApps/:id/projeto/aplicacaos";
     let _routeParams: any = {
       id: id
     };
@@ -2304,7 +2945,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Counts aplicacaos of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -2316,10 +2957,10 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countProjetoMySqlAplicacaos(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countProjetoAplicacaos(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/aplicacaos/count";
+    "/PaginaInstalacaoApps/:id/projeto/aplicacaos/count";
     let _routeParams: any = {
       id: id
     };
@@ -2331,212 +2972,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for atributoEntidades.
+   * Queries conceitoProdutos of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} nk Foreign key for entidades.
-   *
-   * @param {any} fk Foreign key for atributoEntidades
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public findByIdEntidadesAtributoEntidades(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:nk/atributoEntidades/:fk";
-    let _routeParams: any = {
-      id: id,
-      nk: nk,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Delete a related item by id for atributoEntidades.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} nk Foreign key for entidades.
-   *
-   * @param {any} fk Foreign key for atributoEntidades
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * This method returns no data.
-   */
-  public destroyByIdEntidadesAtributoEntidades(id: any, nk: any, fk: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "DELETE";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:nk/atributoEntidades/:fk";
-    let _routeParams: any = {
-      id: id,
-      nk: nk,
-      fk: fk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Update a related item by id for atributoEntidades.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} nk Foreign key for entidades.
-   *
-   * @param {any} fk Foreign key for atributoEntidades
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public updateByIdEntidadesAtributoEntidades(id: any, nk: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "PUT";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:nk/atributoEntidades/:fk";
-    let _routeParams: any = {
-      id: id,
-      nk: nk,
-      fk: fk
-    };
-    let _postBody: any = {
-      data: data
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Fetches belongsTo relation projetoMySql.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} nk Foreign key for entidades.
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public getEntidadesProjetoMySql(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:nk/projetoMySql";
-    let _routeParams: any = {
-      id: id,
-      nk: nk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Fetches belongsTo relation atributoChave.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} nk Foreign key for entidades.
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public getEntidadesAtributoChave(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:nk/atributoChave";
-    let _routeParams: any = {
-      id: id,
-      nk: nk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Fetches belongsTo relation atributoIdentificador.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} nk Foreign key for entidades.
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
-   * </em>
-   */
-  public getEntidadesAtributoIdentificador(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:nk/atributoIdentificador";
-    let _routeParams: any = {
-      id: id,
-      nk: nk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Queries atributoEntidades of entidade.
-   *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} nk Foreign key for entidades.
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} filter 
    *
@@ -2546,16 +2984,15 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public getEntidadesAtributoEntidades(id: any, nk: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getProjetoConceitoProdutos(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:nk/atributoEntidades";
+    "/PaginaInstalacaoApps/:id/projeto/conceitoProdutos";
     let _routeParams: any = {
-      id: id,
-      nk: nk
+      id: id
     };
     let _postBody: any = {};
     let _urlParams: any = {};
@@ -2565,11 +3002,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in atributoEntidades of this model.
+   * Creates a new instance in conceitoProdutos of this model.
    *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} nk Foreign key for entidades.
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -2581,16 +3016,15 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createEntidadesAtributoEntidades(id: any, nk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createProjetoConceitoProdutos(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:nk/atributoEntidades";
+    "/PaginaInstalacaoApps/:id/projeto/conceitoProdutos";
     let _routeParams: any = {
-      id: id,
-      nk: nk
+      id: id
     };
     let _postBody: any = {
       data: data
@@ -2601,11 +3035,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all atributoEntidades of this model.
+   * Deletes all conceitoProdutos of this model.
    *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} nk Foreign key for entidades.
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -2613,13 +3045,12 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deleteEntidadesAtributoEntidades(id: any, nk: any, customHeaders?: Function): Observable<any> {
+  public deleteProjetoConceitoProdutos(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:nk/atributoEntidades";
+    "/PaginaInstalacaoApps/:id/projeto/conceitoProdutos";
     let _routeParams: any = {
-      id: id,
-      nk: nk
+      id: id
     };
     let _postBody: any = {};
     let _urlParams: any = {};
@@ -2628,11 +3059,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts atributoEntidades of entidade.
+   * Counts conceitoProdutos of ProjetoMySql.
    *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} nk Foreign key for entidades.
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -2644,13 +3073,12 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countEntidadesAtributoEntidades(id: any, nk: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countProjetoConceitoProdutos(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:nk/atributoEntidades/count";
+    "/PaginaInstalacaoApps/:id/projeto/conceitoProdutos/count";
     let _routeParams: any = {
-      id: id,
-      nk: nk
+      id: id
     };
     let _postBody: any = {};
     let _urlParams: any = {};
@@ -2660,9 +3088,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in entidades of this model.
+   * Creates a new instance in itemValidacaoPaginas of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -2674,13 +3102,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyEntidades(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyItemValidacaoPaginas(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades";
+    "/PaginaInstalacaoApps/:id/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -2693,9 +3121,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in telaWebs of this model.
+   * Creates a new instance in campanhaAds of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -2707,13 +3135,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyTelaWebs(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyCampanhaAds(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaWebs";
+    "/PaginaInstalacaoApps/:id/campanhaAds";
     let _routeParams: any = {
       id: id
     };
@@ -2726,9 +3154,11 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in telaApps of this model.
+   * Creates a new instance in anuncioAds of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
    *
    * @param {object} data Request data.
    *
@@ -2740,15 +3170,16 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyTelaApps(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyCampanhaAdsAnuncioAds(id: any, nk: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/telaApps";
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/anuncioAds";
     let _routeParams: any = {
-      id: id
+      id: id,
+      nk: nk
     };
     let _postBody: any = {
       data: data
@@ -2759,9 +3190,11 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in componenteWebs of this model.
+   * Creates a new instance in palavraChaveAds of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
    *
    * @param {object} data Request data.
    *
@@ -2773,15 +3206,16 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyComponenteWebs(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyCampanhaAdsPalavraChaveAds(id: any, nk: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/componenteWebs";
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/palavraChaveAds";
     let _routeParams: any = {
-      id: id
+      id: id,
+      nk: nk
     };
     let _postBody: any = {
       data: data
@@ -2792,9 +3226,11 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in paletaAplicacaos of this model.
+   * Creates a new instance in campanhaAnuncioResultados of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
    *
    * @param {object} data Request data.
    *
@@ -2806,15 +3242,52 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyPaletaAplicacaos(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyCampanhaAdsCampanhaAnuncioResultados(id: any, nk: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/paletaAplicacaos";
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaAnuncioResultados";
     let _routeParams: any = {
-      id: id
+      id: id,
+      nk: nk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in campanhaPalavraChaveResultados of this model.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} nk Foreign key for campanhaAds.
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public createManyCampanhaAdsCampanhaPalavraChaveResultados(id: any, nk: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/campanhaAds/:nk/campanhaPalavraChaveResultados";
+    let _routeParams: any = {
+      id: id,
+      nk: nk
     };
     let _postBody: any = {
       data: data
@@ -2827,7 +3300,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in projetoCanvasMySqls of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -2839,13 +3312,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyProjetoMySqlProjetoCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyProjetoProjetoCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/projetoCanvasMySqls";
+    "/PaginaInstalacaoApps/:id/projeto/projetoCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -2860,7 +3333,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in mvpCanvasMySqls of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -2872,13 +3345,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyProjetoMySqlMvpCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyProjetoMvpCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/mvpCanvasMySqls";
+    "/PaginaInstalacaoApps/:id/projeto/mvpCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -2893,7 +3366,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in ganhoDorCanvasMySqls of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -2905,13 +3378,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyProjetoMySqlGanhoDorCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyProjetoGanhoDorCanvasMySqls(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/ganhoDorCanvasMySqls";
+    "/PaginaInstalacaoApps/:id/projeto/ganhoDorCanvasMySqls";
     let _routeParams: any = {
       id: id
     };
@@ -2926,7 +3399,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in paginaValidacaoWebs of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -2938,13 +3411,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyProjetoMySqlPaginaValidacaoWebs(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyProjetoPaginaValidacaoWebs(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/paginaValidacaoWebs";
+    "/PaginaInstalacaoApps/:id/projeto/paginaValidacaoWebs";
     let _routeParams: any = {
       id: id
     };
@@ -2959,7 +3432,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in itemValidacaoPaginas of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -2971,13 +3444,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyProjetoMySqlItemValidacaoPaginas(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyProjetoItemValidacaoPaginas(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/itemValidacaoPaginas";
+    "/PaginaInstalacaoApps/:id/projeto/itemValidacaoPaginas";
     let _routeParams: any = {
       id: id
     };
@@ -2992,7 +3465,7 @@ export class AplicacaoApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in aplicacaos of this model.
    *
-   * @param {any} id aplicacao id
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -3004,13 +3477,13 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyProjetoMySqlAplicacaos(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyProjetoAplicacaos(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/projetoMySql/aplicacaos";
+    "/PaginaInstalacaoApps/:id/projeto/aplicacaos";
     let _routeParams: any = {
       id: id
     };
@@ -3023,11 +3496,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in atributoEntidades of this model.
+   * Creates a new instance in conceitoProdutos of this model.
    *
-   * @param {any} id aplicacao id
-   *
-   * @param {any} nk Foreign key for entidades.
+   * @param {any} id PaginaInstalacaoApp id
    *
    * @param {object} data Request data.
    *
@@ -3039,16 +3510,15 @@ export class AplicacaoApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Aplicacao` object.)
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
    * </em>
    */
-  public createManyEntidadesAtributoEntidades(id: any, nk: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyProjetoConceitoProdutos(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/aplicacaos/:id/entidades/:nk/atributoEntidades";
+    "/PaginaInstalacaoApps/:id/projeto/conceitoProdutos";
     let _routeParams: any = {
-      id: id,
-      nk: nk
+      id: id
     };
     let _postBody: any = {
       data: data
@@ -3060,9 +3530,9 @@ export class AplicacaoApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `Aplicacao`.
+   * i.e. `PaginaInstalacaoApp`.
    */
   public getModelName() {
-    return "Aplicacao";
+    return "PaginaInstalacaoApp";
   }
 }
