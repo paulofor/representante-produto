@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { PaginaValidacaoWebApi, VisitanteApi, Visitante } from '../shared/sdk';
-import { PaginaValidacaoWeb } from 'src/app/shared/sdk/models';
+import { ActivatedRoute } from '@angular/router';
+import { PaginaValidacaoWebApi, VisitanteApi, Visitante, PaginaValidacaoWeb } from '../shared/sdk';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { ParamMap } from '@angular/router';
 import { Params } from '@angular/router';
 
 declare var $: any
 
 @Component({
-  selector: 'app-principal-lojamoda',
-  templateUrl: './principal-lojamoda.component.html',
-  styleUrls: ['./principal-lojamoda.component.css']
+  selector: 'app-principal-mobile',
+  templateUrl: './principal-mobile.component.html',
+  styleUrls: ['./principal-mobile.component.css']
 })
 
 
-export class PrincipalLojamodaComponent implements OnInit {
+
+
+export class PrincipalMobileComponent implements OnInit {
+
 
   consulta = { "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
 
@@ -34,7 +34,7 @@ export class PrincipalLojamodaComponent implements OnInit {
     private visitanteSrv: VisitanteApi, private router: Router) { }
 
   ngOnInit() {
-    this.identificaAcao();
+    this.carregaPagina();
   }
 
   trataCookie() {
@@ -67,43 +67,24 @@ export class PrincipalLojamodaComponent implements OnInit {
       })
   }
 
-  identificaAcao() {
+  carregaPagina() {
     this.route.params.subscribe((params: Params) => {
       let id = this.route.snapshot.queryParams['id'];
-      if (id) {
-        this.carregaPagina(id);
-      } else {
-        let inst = this.route.snapshot.queryParams['inst'];
-        if (inst) {
-          this.router.navigate(['/inst/' + inst]);
-        } else {
-          let mob = this.route.snapshot.queryParams['mob'];
-          if (mob) {
-            this.router.navigate(['/mob/' + mob]);
-          } else {
-            this.router.navigate(['/home']);
-          }
-        }
-      }
+      console.log('Id: ', id);
+      let filtro = { "where": { "codigoHash": id }, "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
+      this.srv.findOne(filtro)
+        .subscribe((paginaResult: PaginaValidacaoWeb) => {
+          this.pagina = paginaResult;
+          this.trataCookie();
+          this.chamaLoader();
+        })
     });
   }
-
-  carregaPagina(id) {
-    console.log('Id: ', id);
-    let filtro = {"where" : {"codigoHash":id} , "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
-    this.srv.findOne(filtro)
-      .subscribe((paginaResult: PaginaValidacaoWeb) => {
-        this.pagina = paginaResult;
-        this.trataCookie();
-        this.chamaLoader();
-      })
-  }
-
-
 
 
   chamaLoader() {
     $.getScript('assets-medilab/js/custom.js');
   }
+
 
 }
