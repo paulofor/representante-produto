@@ -58,13 +58,11 @@
     <div *ngFor="let item of pagina.itemValidacaoPaginas; ">
 
       
-      <div *ngIf="!item.urlImagem2">
-        <app-vantagem-produto-direita [itemPagina]="item"></app-vantagem-produto-direita>
+      <div>
+        <app-vantagem-produto-mobile [itemPagina]="item"></app-vantagem-produto-mobile>
       </div>
 
-      <div *ngIf="item.urlImagem2">
-        <app-vantagem-produto-direita-app [itemPagina]="item"></app-vantagem-produto-direita-app>
-      </div>
+   
     </div>
   
     <div *ngIf="visitanteCorrente" style="height: 400px">

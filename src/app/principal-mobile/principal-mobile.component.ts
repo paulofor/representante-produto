@@ -69,9 +69,10 @@ export class PrincipalMobileComponent implements OnInit {
 
   carregaPagina() {
     this.route.params.subscribe((params: Params) => {
-      let id = this.route.snapshot.queryParams['id'];
-      console.log('Id: ', id);
+      let id = params['id'];
+      console.log('Id-Mobile: ', id);
       let filtro = { "where": { "codigoHash": id }, "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
+      console.log('Filtro: ' , filtro);
       this.srv.findOne(filtro)
         .subscribe((paginaResult: PaginaValidacaoWeb) => {
           this.pagina = paginaResult;

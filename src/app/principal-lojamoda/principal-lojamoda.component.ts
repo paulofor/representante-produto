@@ -68,16 +68,19 @@ export class PrincipalLojamodaComponent implements OnInit {
   }
 
   identificaAcao() {
-    this.route.params.subscribe((params: Params) => {
-      let id = this.route.snapshot.queryParams['id'];
+    this.route.queryParams.subscribe((params: Params) => {
+      let id = params['id'];
+      console.log('id: ' , id);
       if (id) {
         this.carregaPagina(id);
       } else {
-        let inst = this.route.snapshot.queryParams['inst'];
+        let inst = params['inst'];
+        console.log('inst: ' , id);
         if (inst) {
           this.router.navigate(['/inst/' + inst]);
         } else {
-          let mob = this.route.snapshot.queryParams['mob'];
+          let mob = params['mob'];
+          console.log('mob: ' , mob);
           if (mob) {
             this.router.navigate(['/mob/' + mob]);
           } else {
