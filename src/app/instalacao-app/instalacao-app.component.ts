@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PaginaValidacaoWeb, PaginaValidacaoWebApi, VisitanteApi, Visitante } from 'src/app/shared/sdk';
+import { PaginaValidacaoWeb, PaginaValidacaoWebApi, VisitanteApi, Visitante, PaginaInstalacaoAppApi, PaginaInstalacaoApp } from 'src/app/shared/sdk';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Params } from '@angular/router';
@@ -15,7 +15,7 @@ export class InstalacaoAppComponent implements OnInit {
 
   consulta = { "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
 
-  pagina: PaginaValidacaoWeb;
+  pagina: PaginaInstalacaoApp;
   cookieValue = 'UNKNOWN';
   visitanteCorrente = null;
 
@@ -23,7 +23,7 @@ export class InstalacaoAppComponent implements OnInit {
   //cor = '13, 70, 83';
   //cor = '0,122,204';
 
-  constructor(private route: ActivatedRoute, private srv: PaginaValidacaoWebApi,
+  constructor(private route: ActivatedRoute, private srv: PaginaInstalacaoAppApi,
     private cookieService: CookieService,
     private visitanteSrv: VisitanteApi, private router: Router) { }
 
@@ -68,6 +68,7 @@ export class InstalacaoAppComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       let id = params['id'];
       let filtro = { "where": { "codigoHash": id }, "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
+      console.log('Filtro: ' , filtro);
       this.srv.findOne(filtro)
         .subscribe((paginaResult: PaginaValidacaoWeb) => {
           this.pagina = paginaResult;
