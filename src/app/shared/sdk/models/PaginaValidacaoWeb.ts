@@ -18,6 +18,12 @@ export interface PaginaValidacaoWebInterface {
   "marcaLogo"?: string;
   "codigoHash"?: string;
   "permiteEdicao"?: number;
+  "totalVisualizacao"?: number;
+  "totalInteresse"?: number;
+  "quantidadeCampanha"?: number;
+  "taxaConversao"?: number;
+  "mediaVisualizacaoCampanha"?: number;
+  "mediaInteresseCampanha"?: number;
   "projetoMySqlId"?: number;
   "conceitoProdutoId"?: number;
   projeto?: ProjetoMySql;
@@ -37,6 +43,12 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
   "marcaLogo": string;
   "codigoHash": string;
   "permiteEdicao": number;
+  "totalVisualizacao": number;
+  "totalInteresse": number;
+  "quantidadeCampanha": number;
+  "taxaConversao": number;
+  "mediaVisualizacaoCampanha": number;
+  "mediaInteresseCampanha": number;
   "projetoMySqlId": number;
   "conceitoProdutoId": number;
   projeto: ProjetoMySql;
@@ -111,6 +123,30 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
         },
         "permiteEdicao": {
           name: 'permiteEdicao',
+          type: 'number'
+        },
+        "totalVisualizacao": {
+          name: 'totalVisualizacao',
+          type: 'number'
+        },
+        "totalInteresse": {
+          name: 'totalInteresse',
+          type: 'number'
+        },
+        "quantidadeCampanha": {
+          name: 'quantidadeCampanha',
+          type: 'number'
+        },
+        "taxaConversao": {
+          name: 'taxaConversao',
+          type: 'number'
+        },
+        "mediaVisualizacaoCampanha": {
+          name: 'mediaVisualizacaoCampanha',
+          type: 'number'
+        },
+        "mediaInteresseCampanha": {
+          name: 'mediaInteresseCampanha',
           type: 'number'
         },
         "projetoMySqlId": {

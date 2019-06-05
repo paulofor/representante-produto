@@ -14,6 +14,7 @@ import { SocketConnection } from '../../sockets/socket.connections';
 import { ItemValidacaoPagina } from '../../models/ItemValidacaoPagina';
 import { CampanhaAds } from '../../models/CampanhaAds';
 import { ProjetoMySql } from '../../models/ProjetoMySql';
+import { PaginaValidacaoWeb } from '../../models/PaginaValidacaoWeb';
 
 
 /**
@@ -238,6 +239,36 @@ export class PaginaInstalacaoAppApi extends BaseLoopBackApi {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/PaginaInstalacaoApps/:id/projeto";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation paginaValidacaoWeb.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public getPaginaValidacaoWeb(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/paginaValidacaoWeb";
     let _routeParams: any = {
       id: id
     };
@@ -2372,6 +2403,99 @@ export class PaginaInstalacaoAppApi extends BaseLoopBackApi {
   }
 
   /**
+   * Find a related item by id for paginaInstalacaoApps.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for paginaInstalacaoApps
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public findByIdProjetoPaginaInstalacaoApps(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/paginaInstalacaoApps/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Delete a related item by id for paginaInstalacaoApps.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for paginaInstalacaoApps
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public destroyByIdProjetoPaginaInstalacaoApps(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/paginaInstalacaoApps/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Update a related item by id for paginaInstalacaoApps.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {any} fk Foreign key for paginaInstalacaoApps
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public updateByIdProjetoPaginaInstalacaoApps(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/paginaInstalacaoApps/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
    * Queries projetoCanvasMySqls of ProjetoMySql.
    *
    * @param {any} id PaginaInstalacaoApp id
@@ -3088,6 +3212,122 @@ export class PaginaInstalacaoAppApi extends BaseLoopBackApi {
   }
 
   /**
+   * Queries paginaInstalacaoApps of ProjetoMySql.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {object} filter 
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public getProjetoPaginaInstalacaoApps(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/paginaInstalacaoApps";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in paginaInstalacaoApps of this model.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public createProjetoPaginaInstalacaoApps(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/paginaInstalacaoApps";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Deletes all paginaInstalacaoApps of this model.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public deleteProjetoPaginaInstalacaoApps(id: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/paginaInstalacaoApps";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Counts paginaInstalacaoApps of ProjetoMySql.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {object} where Criteria to match model instances
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * Data properties:
+   *
+   *  - `count` – `{number}` - 
+   */
+  public countProjetoPaginaInstalacaoApps(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/paginaInstalacaoApps/count";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
    * Creates a new instance in itemValidacaoPaginas of this model.
    *
    * @param {any} id PaginaInstalacaoApp id
@@ -3517,6 +3757,39 @@ export class PaginaInstalacaoAppApi extends BaseLoopBackApi {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/PaginaInstalacaoApps/:id/projeto/conceitoProdutos";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in paginaInstalacaoApps of this model.
+   *
+   * @param {any} id PaginaInstalacaoApp id
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `PaginaInstalacaoApp` object.)
+   * </em>
+   */
+  public createManyProjetoPaginaInstalacaoApps(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/PaginaInstalacaoApps/:id/projeto/paginaInstalacaoApps";
     let _routeParams: any = {
       id: id
     };

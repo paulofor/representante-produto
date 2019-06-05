@@ -26,9 +26,7 @@
                   <a href="#item{{item.id}}">{{ item.titulo }}</a>
                 </li>
                 <!--       -->
-                <li class="">
-                  <a href="#contact">Solicitar Acesso</a>
-                </li>
+                
               </ul>
             </div>
           </div>
@@ -41,7 +39,7 @@
             <div class="banner-text text-center">
               <h1 class="white">{{ pagina.mensagemPrincipal }}</h1>
               <p>{{ pagina.mensagemSecundaria }}</p>
-              <a href="#contact" class="btn btn-appoint">{{ pagina.botaoAcao }}</a>
+              <a href="{{pagina.urlInstalacao}}" class="btn btn-appoint">{{ pagina.botaoAcao }}</a>
             </div>
             <div class="overlay-detail text-center">
               <a href="#service">
@@ -55,23 +53,10 @@
   </section>
   <!--/ banner-->
 
-  <div *ngFor="let item of pagina.itemValidacaoPaginas; let odd = odd; let even = even">
-    <div *ngIf="odd && !item.urlImagem2">
-      <app-vantagem-produto-esquerda [itemPagina]="item"></app-vantagem-produto-esquerda>
+  <div *ngFor="let item of pagina.itemValidacaoPaginas">
+    <div>
+      <app-vantagem-produto-mobile [itemPagina]="item"></app-vantagem-produto-mobile>
     </div>
-    <div *ngIf="even && !item.urlImagem2">
-      <app-vantagem-produto-direita [itemPagina]="item"></app-vantagem-produto-direita>
-    </div>
-    <div *ngIf="odd && item.urlImagem2">
-      <app-vantagem-produto-esquerda-app [itemPagina]="item"></app-vantagem-produto-esquerda-app>
-    </div>
-    <div *ngIf="even && item.urlImagem2">
-      <app-vantagem-produto-direita-app [itemPagina]="item"></app-vantagem-produto-direita-app>
-    </div>
-  </div>
-
-  <div *ngIf="visitanteCorrente" style="height: 400px">
-  <app-form [visitante]="visitanteCorrente"></app-form>
   </div>
 
   <!--footer-->

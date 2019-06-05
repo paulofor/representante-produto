@@ -70,7 +70,7 @@ export class InstalacaoAppComponent implements OnInit {
       let filtro = { "where": { "codigoHash": id }, "include": { "relation": "itemValidacaoPaginas", "scope": { "order": "ordenacao" } } };
       console.log('Filtro: ' , filtro);
       this.srv.findOne(filtro)
-        .subscribe((paginaResult: PaginaValidacaoWeb) => {
+        .subscribe((paginaResult: PaginaInstalacaoApp) => {
           this.pagina = paginaResult;
           this.trataCookie();
           this.chamaLoader();

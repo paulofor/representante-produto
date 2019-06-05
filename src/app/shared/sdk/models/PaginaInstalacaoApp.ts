@@ -2,7 +2,8 @@
 import {
   ItemValidacaoPagina,
   CampanhaAds,
-  ProjetoMySql
+  ProjetoMySql,
+  PaginaValidacaoWeb
 } from '../index';
 
 declare var Object: any;
@@ -16,10 +17,13 @@ export interface PaginaInstalacaoAppInterface {
   "marcaLogo"?: string;
   "codigoHash"?: string;
   "permiteEdicao"?: number;
+  "urlInstalacao"?: string;
   "projetoMySqlId"?: number;
+  "paginaValidacaoWebId"?: number;
   itemValidacaoPaginas?: ItemValidacaoPagina[];
   campanhaAds?: CampanhaAds[];
   projeto?: ProjetoMySql;
+  paginaValidacaoWeb?: PaginaValidacaoWeb;
 }
 
 export class PaginaInstalacaoApp implements PaginaInstalacaoAppInterface {
@@ -32,10 +36,13 @@ export class PaginaInstalacaoApp implements PaginaInstalacaoAppInterface {
   "marcaLogo": string;
   "codigoHash": string;
   "permiteEdicao": number;
+  "urlInstalacao": string;
   "projetoMySqlId": number;
+  "paginaValidacaoWebId": number;
   itemValidacaoPaginas: ItemValidacaoPagina[];
   campanhaAds: CampanhaAds[];
   projeto: ProjetoMySql;
+  paginaValidacaoWeb: PaginaValidacaoWeb;
   constructor(data?: PaginaInstalacaoAppInterface) {
     Object.assign(this, data);
   }
@@ -105,8 +112,16 @@ export class PaginaInstalacaoApp implements PaginaInstalacaoAppInterface {
           name: 'permiteEdicao',
           type: 'number'
         },
+        "urlInstalacao": {
+          name: 'urlInstalacao',
+          type: 'string'
+        },
         "projetoMySqlId": {
           name: 'projetoMySqlId',
+          type: 'number'
+        },
+        "paginaValidacaoWebId": {
+          name: 'paginaValidacaoWebId',
           type: 'number'
         },
       },
@@ -133,6 +148,14 @@ export class PaginaInstalacaoApp implements PaginaInstalacaoAppInterface {
           model: 'ProjetoMySql',
           relationType: 'belongsTo',
                   keyFrom: 'projetoMySqlId',
+          keyTo: 'id'
+        },
+        paginaValidacaoWeb: {
+          name: 'paginaValidacaoWeb',
+          type: 'PaginaValidacaoWeb',
+          model: 'PaginaValidacaoWeb',
+          relationType: 'belongsTo',
+                  keyFrom: 'paginaValidacaoWebId',
           keyTo: 'id'
         },
       }
