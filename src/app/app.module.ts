@@ -31,6 +31,7 @@ import { VantagemProdutoMobileComponent } from './vantagem-produto-mobile/vantag
 const appRoutes: Routes = [
   { path: '', component: PrincipalLojamodaComponent } ,
   { path: 'inst/:id' , component : InstalacaoAppComponent } ,
+  { path: 'oferta/inst/:id' , component : InstalacaoAppComponent } ,
   { path: 'mob/:id' , component : PrincipalMobileComponent } ,
   { path: 'dummy', component: ItemDummyComponent }, 
   { path: 'work', component: DummyWorkComponent },
