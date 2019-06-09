@@ -1,6 +1,7 @@
 /* tslint:disable */
 import {
-  PaginaValidacaoWeb
+  PaginaValidacaoWeb,
+  PaginaInstalacaoApp
 } from '../index';
 
 declare var Object: any;
@@ -8,16 +9,22 @@ export interface VisitanteInterface {
   "codigoCookie"?: string;
   "dataHora"?: Date;
   "id"?: number;
+  "dispositivo"?: string;
   "paginaValidacaoWebId"?: number;
+  "paginaInstalacaoAppId"?: number;
   paginaValidacaoWeb?: PaginaValidacaoWeb;
+  paginaInstalacaoApp?: PaginaInstalacaoApp;
 }
 
 export class Visitante implements VisitanteInterface {
   "codigoCookie": string;
   "dataHora": Date;
   "id": number;
+  "dispositivo": string;
   "paginaValidacaoWebId": number;
+  "paginaInstalacaoAppId": number;
   paginaValidacaoWeb: PaginaValidacaoWeb;
+  paginaInstalacaoApp: PaginaInstalacaoApp;
   constructor(data?: VisitanteInterface) {
     Object.assign(this, data);
   }
@@ -63,8 +70,16 @@ export class Visitante implements VisitanteInterface {
           name: 'id',
           type: 'number'
         },
+        "dispositivo": {
+          name: 'dispositivo',
+          type: 'string'
+        },
         "paginaValidacaoWebId": {
           name: 'paginaValidacaoWebId',
+          type: 'number'
+        },
+        "paginaInstalacaoAppId": {
+          name: 'paginaInstalacaoAppId',
           type: 'number'
         },
       },
@@ -75,6 +90,14 @@ export class Visitante implements VisitanteInterface {
           model: 'PaginaValidacaoWeb',
           relationType: 'belongsTo',
                   keyFrom: 'paginaValidacaoWebId',
+          keyTo: 'id'
+        },
+        paginaInstalacaoApp: {
+          name: 'paginaInstalacaoApp',
+          type: 'PaginaInstalacaoApp',
+          model: 'PaginaInstalacaoApp',
+          relationType: 'belongsTo',
+                  keyFrom: 'paginaInstalacaoAppId',
           keyTo: 'id'
         },
       }

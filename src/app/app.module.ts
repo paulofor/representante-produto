@@ -24,7 +24,7 @@ import { InstalacaoAppComponent } from './instalacao-app/instalacao-app.componen
 import { PrincipalMobileComponent } from './principal-mobile/principal-mobile.component';
 import { VantagemProdutoMobileComponent } from './vantagem-produto-mobile/vantagem-produto-mobile.component';
 
-
+import { DeviceDetectorModule } from 'ngx-device-detector';
 // dummy funciona perfeitamente bem.
 // work vou tentando para identificar os problemas
 
@@ -62,7 +62,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     SDKBrowserModule.forRoot(),
-    FormsModule
+    FormsModule,
+    DeviceDetectorModule.forRoot()
   ],
   providers: [
     PaginaValidacaoWebApi,

@@ -3,7 +3,9 @@ import {
   ItemValidacaoPagina,
   CampanhaAds,
   ProjetoMySql,
-  PaginaValidacaoWeb
+  PaginaValidacaoWeb,
+  ConceitoProduto,
+  Visitante
 } from '../index';
 
 declare var Object: any;
@@ -20,10 +22,13 @@ export interface PaginaInstalacaoAppInterface {
   "urlInstalacao"?: string;
   "projetoMySqlId"?: number;
   "paginaValidacaoWebId"?: number;
+  "conceitoProdutoId"?: number;
   itemValidacaoPaginas?: ItemValidacaoPagina[];
   campanhaAds?: CampanhaAds[];
   projeto?: ProjetoMySql;
   paginaValidacaoWeb?: PaginaValidacaoWeb;
+  conceitoProduto?: ConceitoProduto;
+  visitantes?: Visitante[];
 }
 
 export class PaginaInstalacaoApp implements PaginaInstalacaoAppInterface {
@@ -39,10 +44,13 @@ export class PaginaInstalacaoApp implements PaginaInstalacaoAppInterface {
   "urlInstalacao": string;
   "projetoMySqlId": number;
   "paginaValidacaoWebId": number;
+  "conceitoProdutoId": number;
   itemValidacaoPaginas: ItemValidacaoPagina[];
   campanhaAds: CampanhaAds[];
   projeto: ProjetoMySql;
   paginaValidacaoWeb: PaginaValidacaoWeb;
+  conceitoProduto: ConceitoProduto;
+  visitantes: Visitante[];
   constructor(data?: PaginaInstalacaoAppInterface) {
     Object.assign(this, data);
   }
@@ -124,6 +132,10 @@ export class PaginaInstalacaoApp implements PaginaInstalacaoAppInterface {
           name: 'paginaValidacaoWebId',
           type: 'number'
         },
+        "conceitoProdutoId": {
+          name: 'conceitoProdutoId',
+          type: 'number'
+        },
       },
       relations: {
         itemValidacaoPaginas: {
@@ -157,6 +169,22 @@ export class PaginaInstalacaoApp implements PaginaInstalacaoAppInterface {
           relationType: 'belongsTo',
                   keyFrom: 'paginaValidacaoWebId',
           keyTo: 'id'
+        },
+        conceitoProduto: {
+          name: 'conceitoProduto',
+          type: 'ConceitoProduto',
+          model: 'ConceitoProduto',
+          relationType: 'belongsTo',
+                  keyFrom: 'conceitoProdutoId',
+          keyTo: 'id'
+        },
+        visitantes: {
+          name: 'visitantes',
+          type: 'Visitante[]',
+          model: 'Visitante',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'paginaInstalacaoAppId'
         },
       }
     }

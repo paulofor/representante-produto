@@ -6,7 +6,8 @@ import {
   ModeloCampanhaAds,
   CampanhaAnuncioResultado,
   CampanhaPalavraChaveResultado,
-  SetupCampanha
+  SetupCampanha,
+  PaginaInstalacaoApp
 } from '../index';
 
 declare var Object: any;
@@ -48,6 +49,7 @@ export interface CampanhaAdsInterface {
   campanhaAnuncioResultados?: CampanhaAnuncioResultado[];
   campanhaPalavraChaveResultados?: CampanhaPalavraChaveResultado[];
   setupCampanha?: SetupCampanha;
+  paginaInstalacaoApp?: PaginaInstalacaoApp;
 }
 
 export class CampanhaAds implements CampanhaAdsInterface {
@@ -88,6 +90,7 @@ export class CampanhaAds implements CampanhaAdsInterface {
   campanhaAnuncioResultados: CampanhaAnuncioResultado[];
   campanhaPalavraChaveResultados: CampanhaPalavraChaveResultado[];
   setupCampanha: SetupCampanha;
+  paginaInstalacaoApp: PaginaInstalacaoApp;
   constructor(data?: CampanhaAdsInterface) {
     Object.assign(this, data);
   }
@@ -301,6 +304,14 @@ export class CampanhaAds implements CampanhaAdsInterface {
           model: 'SetupCampanha',
           relationType: 'belongsTo',
                   keyFrom: 'setupCampanhaId',
+          keyTo: 'id'
+        },
+        paginaInstalacaoApp: {
+          name: 'paginaInstalacaoApp',
+          type: 'PaginaInstalacaoApp',
+          model: 'PaginaInstalacaoApp',
+          relationType: 'belongsTo',
+                  keyFrom: 'paginaInstalacaoAppId',
           keyTo: 'id'
         },
       }

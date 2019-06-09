@@ -3,6 +3,7 @@ import { PaginaValidacaoWeb, PaginaValidacaoWebApi, VisitanteApi, Visitante, Pag
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Params } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 declare var $: any
 
@@ -25,7 +26,7 @@ export class InstalacaoAppComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private srv: PaginaInstalacaoAppApi,
     private cookieService: CookieService,
-    private visitanteSrv: VisitanteApi, private router: Router) { }
+    private visitanteSrv: VisitanteApi, private router: Router,private deviceService: DeviceDetectorService) { }
 
   ngOnInit() {
     this.carregaPagina();
@@ -33,12 +34,9 @@ export class InstalacaoAppComponent implements OnInit {
 
   trataCookie() {
     this.cookieValue = this.cookieService.get('idDigicom');
-    console.log('Cookie: ', this.cookieValue);
     if (!this.cookieValue) {
-      console.log('Cookie vazio');
       this.visitanteSrv.proximoCookie()
         .subscribe((result: any) => {
-          console.log('Result Cookie: ', result);
           this.cookieService.set('idDigicom', result.codigoCookie);
           this.cookieValue = result.codigoCookie;
           this.registraVisita();
@@ -52,11 +50,10 @@ export class InstalacaoAppComponent implements OnInit {
   registraVisita() {
     let visita = new Visitante();
     visita.codigoCookie = this.cookieValue;
-    visita.paginaValidacaoWebId = this.pagina.id;
-    console.log('Visita: ', visita);
+    visita.paginaInstalacaoAppId = this.pagina.id;
+    visita.dispositivo = this.deviceService.device;
     this.visitanteSrv.create(visita)
       .subscribe((resultado: any) => {
-        console.log('Resultado visitante: ', resultado);
         this.visitanteCorrente = resultado;
       })
   }

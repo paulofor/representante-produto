@@ -3,6 +3,7 @@ import {
   ProjetoMySql,
   ItemValidacaoPagina,
   RegistroInteresse,
+  Visitante,
   CampanhaAds,
   ConceitoProduto
 } from '../index';
@@ -29,6 +30,7 @@ export interface PaginaValidacaoWebInterface {
   projeto?: ProjetoMySql;
   itemValidacaoPaginas?: ItemValidacaoPagina[];
   registroInteresses?: RegistroInteresse[];
+  visitantes?: Visitante[];
   campanhaAds?: CampanhaAds[];
   conceitoProduto?: ConceitoProduto;
 }
@@ -54,6 +56,7 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
   projeto: ProjetoMySql;
   itemValidacaoPaginas: ItemValidacaoPagina[];
   registroInteresses: RegistroInteresse[];
+  visitantes: Visitante[];
   campanhaAds: CampanhaAds[];
   conceitoProduto: ConceitoProduto;
   constructor(data?: PaginaValidacaoWebInterface) {
@@ -179,6 +182,14 @@ export class PaginaValidacaoWeb implements PaginaValidacaoWebInterface {
           name: 'registroInteresses',
           type: 'RegistroInteresse[]',
           model: 'RegistroInteresse',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'paginaValidacaoWebId'
+        },
+        visitantes: {
+          name: 'visitantes',
+          type: 'Visitante[]',
+          model: 'Visitante',
           relationType: 'hasMany',
                   keyFrom: 'id',
           keyTo: 'paginaValidacaoWebId'
