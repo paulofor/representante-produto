@@ -14,6 +14,7 @@ export class VantagemProdutoMobileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('Mostrando ' , this.itemPagina.titulo);
   }
 
 }

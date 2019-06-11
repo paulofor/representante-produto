@@ -25,6 +25,7 @@ import { PrincipalMobileComponent } from './principal-mobile/principal-mobile.co
 import { VantagemProdutoMobileComponent } from './vantagem-produto-mobile/vantagem-produto-mobile.component';
 
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { ScrollEventModule } from 'ngx-scroll-event';
 // dummy funciona perfeitamente bem.
 // work vou tentando para identificar os problemas
 
@@ -63,7 +64,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     SDKBrowserModule.forRoot(),
     FormsModule,
-    DeviceDetectorModule.forRoot()
+    DeviceDetectorModule.forRoot(),
+    ScrollEventModule
   ],
   providers: [
     PaginaValidacaoWebApi,

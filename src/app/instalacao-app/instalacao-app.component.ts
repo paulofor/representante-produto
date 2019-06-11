@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Params } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ScrollEvent } from 'ngx-scroll-event';
 
 declare var $: any
 
@@ -42,7 +43,7 @@ export class InstalacaoAppComponent implements OnInit {
           this.registraVisita();
         })
     } else {
-      console.log('Meu Cookie:', this.cookieValue);
+      //console.log('Meu Cookie:', this.cookieValue);
       this.registraVisita();
     }
   }
@@ -80,5 +81,17 @@ export class InstalacaoAppComponent implements OnInit {
     $.getScript('assets-medilab/js/custom.js');
   }
 
-
+  public handleScroll(event: ScrollEvent) {
+    console.log('scroll occurred', event.originalEvent);
+    if (event.isReachingBottom) {
+      console.log(`the user is reaching the bottom`);
+    }
+    if (event.isReachingTop) {
+      console.log(`the user is reaching the bottom`);
+    }
+    if (event.isWindowEvent) {
+      console.log(`This event is fired on Window not on an element.`);
+    }
+ 
+  }
 }

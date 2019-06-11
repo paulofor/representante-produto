@@ -25,6 +25,7 @@
     "g": "^2.0.1",
     "ngx-cookie-service": "^1.0.10",
     "ngx-device-detector": "^1.3.6",
+    "ngx-scroll-event": "^1.0.8",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
     "socket.io": "^2.1.1",
