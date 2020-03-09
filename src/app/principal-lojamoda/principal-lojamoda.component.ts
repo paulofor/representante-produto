@@ -34,6 +34,7 @@ export class PrincipalLojamodaComponent implements OnInit {
     private visitanteSrv: VisitanteApi, private router: Router) { }
 
   ngOnInit() {
+    console.log("Entrou em PrincipalLojamodaComponent ");
     this.identificaAcao();
   }
 
@@ -68,6 +69,7 @@ export class PrincipalLojamodaComponent implements OnInit {
   }
 
   identificaAcao() {
+  
     this.route.queryParams.subscribe((params: Params) => {
       let id = params['id'];
       console.log('id: ' , id);

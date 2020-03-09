@@ -37,6 +37,7 @@ const appRoutes: Routes = [
   { path: 'dummy', component: ItemDummyComponent }, 
   { path: 'work', component: DummyWorkComponent },
   { path: 'display/:id' , component: PrincipalLojamodaComponent },
+  { path: 'display' , component: PrincipalLojamodaComponent },
   { path: 'erro' , component: PaginaNaoEncontradaComponent},
   { path: '**' , component: PaginaNaoEncontradaComponent}
 ];
